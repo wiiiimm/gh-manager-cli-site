@@ -37,6 +37,10 @@ export function AnimatedTerminalBackground() {
   const [lines, setLines] = useState<Array<{ command: string; response: string }>>([])
 
   useEffect(() => {
+    console.log("[v0] Animation state:", { currentCommandIndex, isTyping, showResponse, linesCount: lines.length })
+  }, [currentCommandIndex, isTyping, showResponse, lines.length])
+
+  useEffect(() => {
     const currentCommand = terminalCommands[currentCommandIndex]
 
     if (isTyping) {
@@ -88,42 +92,42 @@ export function AnimatedTerminalBackground() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
       {/* Animated terminal content */}
-      <div className="absolute inset-0 p-8 font-mono text-sm">
-        <div className="max-w-4xl mx-auto">
+      <div className="absolute inset-0 p-8 font-mono text-sm overflow-hidden">
+        <div className="max-w-4xl mx-auto h-full flex flex-col justify-center">
           {/* Previous commands */}
           <AnimatePresence>
             {lines.map((line, index) => (
               <motion.div
                 key={`${line.command}-${index}`}
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 0.3, y: 0 }}
+                animate={{ opacity: 0.4, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="mb-2"
+                className="mb-3"
               >
-                <div className="text-terminal-green">
-                  <span className="text-muted-foreground">$</span> {line.command}
+                <div className="text-green-400">
+                  <span className="text-muted-foreground/60">$</span> {line.command}
                 </div>
-                <div className="text-muted-foreground ml-2">{line.response}</div>
+                <div className="text-muted-foreground/60 ml-2">{line.response}</div>
               </motion.div>
             ))}
           </AnimatePresence>
 
           {/* Current typing command */}
-          <div className="mb-2">
-            <div className="text-terminal-green flex items-center">
-              <span className="text-muted-foreground mr-1">$</span>
+          <div className="mb-3">
+            <div className="text-green-400 flex items-center">
+              <span className="text-muted-foreground/60 mr-1">$</span>
               <span>{displayedText}</span>
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY }}
-                className="ml-1 bg-terminal-green w-2 h-4 inline-block"
+                className="ml-1 bg-green-400 w-2 h-4 inline-block"
               />
             </div>
             {showResponse && (
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.6 }}
-                className="text-muted-foreground ml-2 mt-1"
+                animate={{ opacity: 0.7 }}
+                className="text-muted-foreground/60 ml-2 mt-1"
               >
                 {responses[currentCommandIndex]}
               </motion.div>
@@ -132,8 +136,7 @@ export function AnimatedTerminalBackground() {
         </div>
       </div>
 
-      {/* Overlay with blur and opacity effects */}
-      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-background/85 backdrop-blur-[2px]" />
     </div>
   )
 }
