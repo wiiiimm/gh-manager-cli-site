@@ -30,20 +30,20 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="py-32 px-4">
         <div className="container mx-auto text-center max-w-4xl">
-          <Badge variant="secondary" className="mb-6 bg-muted text-primary font-mono">
+          <Badge variant="secondary" className="mb-8 bg-muted text-primary font-mono">
             {">"} Fast, keyboard-first GitHub repo management
           </Badge>
-          <h1 className="text-5xl font-bold mb-6 text-balance font-mono">
+          <h1 className="text-5xl font-bold mb-8 text-balance font-mono">
             Interactive terminal app to browse and manage your <span className="text-primary">GitHub repositories</span>
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 text-pretty max-w-2xl mx-auto font-mono">
+          <p className="text-xl text-muted-foreground mb-12 text-pretty max-w-2xl mx-auto font-mono">
             Built with Ink (React for CLIs) and the GitHub GraphQL API. Manage your repos without leaving the terminal.
           </p>
 
           {/* Terminal Command showcase */}
-          <div className="terminal-window mb-8 max-w-md mx-auto">
+          <div className="terminal-window mb-12 max-w-md mx-auto">
             <div className="terminal-header">
               <div className="terminal-dot red"></div>
               <div className="terminal-dot yellow"></div>
@@ -69,16 +69,16 @@ export default function HomePage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-24 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 font-mono">Powerful Repository Management</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-6 font-mono">Powerful Repository Management</h2>
             <p className="text-muted-foreground text-lg font-mono">
               Everything you need to manage GitHub repos efficiently
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="border-border bg-card">
               <CardHeader>
                 <Search className="h-8 w-8 text-primary mb-2" />
@@ -143,14 +143,14 @@ export default function HomePage() {
       </section>
 
       {/* Installation Methods */}
-      <section className="py-16 px-4">
+      <section className="py-24 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 font-mono">Multiple Installation Options</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-6 font-mono">Multiple Installation Options</h2>
             <p className="text-muted-foreground text-lg font-mono">Choose the method that works best for you</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-border bg-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 font-mono">
@@ -222,14 +222,14 @@ export default function HomePage() {
       </section>
 
       {/* Workflow Demo */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-24 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 font-mono">Simple Workflow</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-6 font-mono">Simple Workflow</h2>
             <p className="text-muted-foreground text-lg font-mono">Get started in seconds</p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-12">
             <div className="flex items-start gap-4">
               <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono">
                 1
@@ -270,14 +270,14 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
+      <section className="py-32 px-4">
         <div className="container mx-auto text-center max-w-2xl">
-          <h2 className="text-3xl font-bold mb-4 font-mono">Ready to streamline your GitHub workflow?</h2>
-          <p className="text-muted-foreground text-lg mb-8 font-mono">
+          <h2 className="text-3xl font-bold mb-6 font-mono">Ready to streamline your GitHub workflow?</h2>
+          <p className="text-muted-foreground text-lg mb-12 font-mono">
             Join developers who are managing their repositories more efficiently with gh-manager-cli
           </p>
 
-          <div className="terminal-window mb-8 max-w-sm mx-auto">
+          <div className="terminal-window mb-12 max-w-sm mx-auto">
             <div className="terminal-header">
               <div className="terminal-dot red"></div>
               <div className="terminal-dot yellow"></div>
@@ -305,9 +305,9 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-muted/30 py-12 px-4">
+      <footer className="border-t border-border bg-muted/30 py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Terminal className="h-5 w-5 text-primary" />

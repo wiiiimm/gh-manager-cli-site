@@ -165,7 +165,8 @@
 }
 
 .terminal-content {
-  padding: 16px;
+  /* Increased padding by 25% for more empty space inside terminal containers */
+  padding: 30px 40px;
   font-family: var(--font-mono);
   background: var(--terminal-bg);
   border-radius: 0 0 8px 8px;
