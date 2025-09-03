@@ -294,7 +294,12 @@ export default function HomePage() {
               <Terminal className="h-4 w-4 mr-2" />
               Get Started Now
             </Button>
-            <Button variant="outline" size="lg" asChild className="font-mono bg-transparent">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="font-mono hover:bg-muted hover:text-foreground bg-transparent"
+            >
               <a href="https://github.com/wiiiimm/gh-manager-cli" target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4 mr-2" />
                 Star on GitHub
