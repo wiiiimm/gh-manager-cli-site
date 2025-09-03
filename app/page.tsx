@@ -10,7 +10,7 @@ export default function HomePage() {
     <div className="min-h-screen relative">
       <AnimatedTerminalBackground />
 
-      <div className="relative z-10 opacity-20">
+      <div className="relative z-10 bg-background/80 backdrop-blur-sm">
         {/* Header */}
         <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
