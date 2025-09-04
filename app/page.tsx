@@ -237,14 +237,14 @@ export default function HomePage() {
               <p className="text-muted-foreground text-lg font-mono">Get started in seconds</p>
             </div>
 
-            <div className="space-y-12">
-              <div className="flex items-start gap-4">
+            <div className="space-y-12 max-w-2xl mx-auto">
+              <div className="flex items-start gap-4 justify-center">
                 <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono">
                   1
                 </div>
-                <div>
+                <div className="text-center flex-1 max-w-sm">
                   <h3 className="font-semibold mb-2 font-mono">Run the command</h3>
-                  <div className="terminal-window max-w-xs">
+                  <div className="terminal-window mx-auto max-w-xs">
                     <div className="terminal-content">
                       <div className="terminal-prompt font-mono text-primary">npx gh-manager-cli</div>
                     </div>
@@ -252,21 +252,21 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-4 justify-center">
                 <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono">
                   2
                 </div>
-                <div>
+                <div className="text-center flex-1 max-w-sm">
                   <h3 className="font-semibold mb-2 font-mono">Authenticate with GitHub</h3>
                   <p className="text-muted-foreground font-mono">Choose OAuth (recommended) or Personal Access Token</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-4 justify-center">
                 <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono">
                   3
                 </div>
-                <div>
+                <div className="text-center flex-1 max-w-sm">
                   <h3 className="font-semibold mb-2 font-mono">Manage your repositories</h3>
                   <p className="text-muted-foreground font-mono">
                     Browse, search, sort, and perform actions on your GitHub repos
