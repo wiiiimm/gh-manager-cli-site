@@ -90,8 +90,7 @@ export function AnimatedTerminalBackground() {
   }, [currentCommandIndex, displayedText, isTyping, showResponse, lines.length])
 
   return (
-    <div className="absolute inset-0 pointer-events-none">
-      {/* Animated terminal content */}
+    <div className="fixed inset-0 pointer-events-none z-0">
       <div className="absolute inset-0 p-8 font-mono text-sm overflow-hidden">
         <div className="max-w-4xl mx-auto h-full flex flex-col justify-center">
           {/* Previous commands */}
@@ -100,39 +99,37 @@ export function AnimatedTerminalBackground() {
               <motion.div
                 key={`${line.command}-${index}`}
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 0.4, y: 0 }}
+                animate={{ opacity: 0.6, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 className="mb-3"
               >
-                <div className="text-green-400/60">
-                  <span className="text-gray-500/60">$</span> {line.command}
+                <div className="text-green-400/80">
+                  <span className="text-gray-500/70">$</span> {line.command}
                 </div>
-                <div className="text-gray-400/50 ml-2">{line.response}</div>
+                <div className="text-gray-400/70 ml-2">{line.response}</div>
               </motion.div>
             ))}
           </AnimatePresence>
 
           {/* Current typing command */}
           <div className="mb-3">
-            <div className="text-green-400/70 flex items-center">
-              <span className="text-gray-500/60 mr-1">$</span>
+            <div className="text-green-400/90 flex items-center">
+              <span className="text-gray-500/70 mr-1">$</span>
               <span>{displayedText}</span>
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY }}
-                className="ml-1 bg-green-400/60 w-2 h-4 inline-block"
+                className="ml-1 bg-green-400/80 w-2 h-4 inline-block"
               />
             </div>
             {showResponse && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.6 }} className="text-gray-400/60 ml-2 mt-1">
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.8 }} className="text-gray-400/80 ml-2 mt-1">
                 {responses[currentCommandIndex]}
               </motion.div>
             )}
           </div>
         </div>
       </div>
-
-      <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
     </div>
   )
 }
