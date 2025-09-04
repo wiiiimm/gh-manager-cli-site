@@ -10,6 +10,8 @@ export default function HomePage() {
     <div className="min-h-screen relative">
       <AnimatedTerminalBackground />
 
+      <div className="absolute inset-0 bg-white/80 dark:bg-black/80 z-[1]" />
+
       <div className="relative z-10">
         {/* Header */}
         <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
