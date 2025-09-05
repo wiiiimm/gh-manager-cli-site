@@ -466,7 +466,7 @@ export default function HomePage() {
                   <span className="font-bold font-mono">gh-manager-cli</span>
                 </div>
                 <p className="text-muted-foreground text-sm font-mono">
-                  Interactive terminal app for GitHub repository management
+                  Interactive TUI terminal app for GitHub repository management
                 </p>
               </div>
 
