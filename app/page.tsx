@@ -16,6 +16,7 @@ import {
   Archive,
   Eye,
   GitBranch,
+  Package,
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { AnimatedTerminalBackground } from '@/components/animated-terminal-background';
@@ -30,7 +31,7 @@ export default function HomePage() {
       <div className="relative z-10">
         {/* Header */}
         <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 py-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Terminal className="h-6 w-6 text-primary" />
               <span className="font-bold text-xl font-mono">
@@ -39,34 +40,38 @@ export default function HomePage() {
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle />
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                className="h-8 w-8 p-0 rounded-full"
                 asChild
-                className="hover:bg-accent hover:text-accent-foreground"
               >
                 <a
                   href="https://github.com/wiiiimm/gh-manager-cli"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github className="h-4 w-4 mr-2" />
-                  GitHub
+                  <Github className="h-4 w-4" />
                 </a>
               </Button>
               <Button
-                size="sm"
-                className="bg-primary hover:bg-primary/90 font-mono"
+                className="h-8 w-8 p-0 rounded-full bg-primary hover:bg-primary/90"
+                asChild
               >
-                Get Started
+                <a
+                  href="https://www.npmjs.com/package/gh-manager-cli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Package className="h-4 w-4" />
+                </a>
               </Button>
             </div>
           </div>
         </header>
 
         {/* Hero Section */}
-        <section className="py-32 px-4">
-          <div className="container mx-auto text-center max-w-4xl">
+        <section className="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
+          <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none text-center">
             <Badge
               variant="secondary"
               className="mb-8 bg-muted text-primary font-mono"
@@ -77,13 +82,13 @@ export default function HomePage() {
               Interactive terminal app to browse and manage your{' '}
               <span className="text-primary">GitHub repositories</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-12 text-pretty max-w-2xl mx-auto font-mono">
+            <p className="text-xl text-muted-foreground mb-12 text-pretty w-full font-mono">
               Built with Ink (React for CLIs) and the GitHub GraphQL API. Manage
               your repos without leaving the terminal.
             </p>
 
             {/* Terminal Command showcase */}
-            <div className="terminal-window mb-12 max-w-md mx-auto">
+            <div className="terminal-window mb-12 w-full max-w-lg mx-auto">
               <div className="terminal-header">
                 <div className="terminal-dot red"></div>
                 <div className="terminal-dot yellow"></div>
@@ -93,7 +98,7 @@ export default function HomePage() {
                 </span>
               </div>
               <div className="terminal-content">
-                <div className="terminal-prompt font-mono text-primary font-semibold text-lg">
+                <div className="terminal-prompt font-mono text-primary font-semibold text-lg my-8">
                   npx gh-manager-cli
                 </div>
               </div>
@@ -103,9 +108,16 @@ export default function HomePage() {
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
+                asChild
               >
-                <Terminal className="h-4 w-4 mr-2" />
-                Try Now
+                <a
+                  href="https://www.npmjs.com/package/gh-manager-cli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Terminal className="h-4 w-4 mr-2" />
+                  Try Now
+                </a>
               </Button>
               <Button
                 variant="outline"
@@ -127,10 +139,10 @@ export default function HomePage() {
         </section>
 
         {/* Features Grid */}
-        <section className="py-24 px-4 bg-muted/30">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-6 font-mono">
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full bg-muted/30">
+          <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
                 Powerful Repository Management
               </h2>
               <p className="text-muted-foreground text-lg font-mono">
@@ -138,7 +150,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               <Card className="border-border bg-card">
                 <CardHeader>
                   <Search className="h-8 w-8 text-primary mb-2" />
@@ -221,10 +233,10 @@ export default function HomePage() {
         </section>
 
         {/* Installation Methods */}
-        <section className="py-24 px-4">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-6 font-mono">
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
+          <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
                 Multiple Installation Options
               </h2>
               <p className="text-muted-foreground text-lg font-mono">
@@ -232,7 +244,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
               <Card className="border-border bg-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-mono">
@@ -321,10 +333,10 @@ export default function HomePage() {
         </section>
 
         {/* Workflow Demo */}
-        <section className="py-24 px-4 bg-muted/30">
-          <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-6 font-mono">
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full bg-muted/30 max-w-2xl mx-auto">
+          <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
                 Simple Workflow
               </h2>
               <p className="text-muted-foreground text-lg font-mono">
@@ -332,16 +344,16 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="space-y-12 max-w-2xl mx-auto">
-              <div className="flex items-start gap-4 justify-center">
+            <div className="space-y-8 sm:space-y-12 w-full">
+              <div className="flex items-start gap-4 justify-center w-full">
                 <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono">
                   1
                 </div>
-                <div className="text-center flex-1 max-w-sm">
+                <div className="text-center flex-1 w-full">
                   <h3 className="font-semibold mb-2 font-mono">
                     Run the command
                   </h3>
-                  <div className="terminal-window mx-auto max-w-xs">
+                  <div className="terminal-window w-full max-w-lg mx-auto">
                     <div className="terminal-content">
                       <div className="terminal-prompt font-mono text-primary">
                         npx gh-manager-cli
@@ -351,11 +363,11 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 justify-center">
+              <div className="flex items-start gap-4 justify-center w-full">
                 <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono">
                   2
                 </div>
-                <div className="text-center flex-1 max-w-sm">
+                <div className="text-center flex-1 w-full">
                   <h3 className="font-semibold mb-2 font-mono">
                     Authenticate with GitHub
                   </h3>
@@ -365,11 +377,11 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 justify-center">
+              <div className="flex items-start gap-4 justify-center w-full">
                 <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono">
                   3
                 </div>
-                <div className="text-center flex-1 max-w-sm">
+                <div className="text-center flex-1 w-full">
                   <h3 className="font-semibold mb-2 font-mono">
                     Manage your repositories
                   </h3>
@@ -384,17 +396,17 @@ export default function HomePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-32 px-4">
-          <div className="container mx-auto text-center max-w-2xl">
-            <h2 className="text-3xl font-bold mb-6 font-mono">
+        <section className="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
+          <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none text-center">
+            <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
               Ready to streamline your GitHub workflow?
             </h2>
-            <p className="text-muted-foreground text-lg mb-12 font-mono">
+            <p className="text-muted-foreground text-lg mb-8 sm:mb-12 font-mono">
               Join developers who are managing their repositories more
               efficiently with gh-manager-cli
             </p>
 
-            <div className="terminal-window mb-12 max-w-sm mx-auto">
+            <div className="terminal-window mb-8 sm:mb-12 w-full max-w-lg mx-auto">
               <div className="terminal-header">
                 <div className="terminal-dot red"></div>
                 <div className="terminal-dot yellow"></div>
@@ -404,7 +416,7 @@ export default function HomePage() {
                 </span>
               </div>
               <div className="terminal-content">
-                <div className="terminal-prompt font-mono text-primary font-semibold text-lg">
+                <div className="terminal-prompt font-mono text-primary font-semibold text-lg my-8">
                   npx gh-manager-cli
                 </div>
               </div>
@@ -414,9 +426,16 @@ export default function HomePage() {
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
+                asChild
               >
-                <Terminal className="h-4 w-4 mr-2" />
-                Get Started Now
+                <a
+                  href="https://www.npmjs.com/package/gh-manager-cli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Terminal className="h-4 w-4 mr-2" />
+                  Get Started Now
+                </a>
               </Button>
               <Button
                 variant="outline"
@@ -438,11 +457,11 @@ export default function HomePage() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t border-border bg-muted/30 py-16 px-4">
-          <div className="container mx-auto max-w-4xl">
-            <div className="grid md:grid-cols-3 gap-12">
+        <footer className="border-t border-border bg-muted/30 py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
+          <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+            <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
               <div>
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
                   <Terminal className="h-5 w-5 text-primary" />
                   <span className="font-bold font-mono">gh-manager-cli</span>
                 </div>
@@ -452,7 +471,9 @@ export default function HomePage() {
               </div>
 
               <div>
-                <h4 className="font-semibold mb-4 font-mono">Resources</h4>
+                <h4 className="font-semibold mb-3 sm:mb-4 font-mono">
+                  Resources
+                </h4>
                 <ul className="space-y-2 text-sm font-mono">
                   <li>
                     <a
@@ -490,7 +511,9 @@ export default function HomePage() {
               </div>
 
               <div>
-                <h4 className="font-semibold mb-4 font-mono">Community</h4>
+                <h4 className="font-semibold mb-3 sm:mb-4 font-mono">
+                  Community
+                </h4>
                 <ul className="space-y-2 text-sm font-mono">
                   <li>
                     <a
@@ -528,7 +551,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground font-mono">
+            <div className="border-t border-border mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-sm text-muted-foreground font-mono">
               <p>© 2025 gh-manager-cli. Released under the MIT License.</p>
             </div>
           </div>
