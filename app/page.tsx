@@ -92,7 +92,7 @@ export default function HomePage() {
         </header>
 
         {/* Hero Section */}
-        <section className="py-20 sm:py-24 lg:py-[25vh] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
+        <section className="py-20 sm:py-24 lg:py-[25vh] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none text-center">
             <Badge
               variant="secondary"
@@ -105,8 +105,8 @@ export default function HomePage() {
               <span className="text-primary">GitHub repositories</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-12 text-pretty w-full font-mono">
-              Built with Ink (React for CLIs) and the GitHub GraphQL API. Manage
-              your repos without leaving the terminal.
+              Built with Ink (React for CLIs) and the GitHub GraphQL API. <br />
+              Manage your repos without leaving the terminal.
             </p>
 
             {/* Terminal Command showcase */}
