@@ -199,8 +199,7 @@ export default function HomePage() {
                 variant="secondary"
                 className="mb-8 bg-muted text-primary font-mono"
               >
-                {'>'} Clean up your GitHub account in 5 minutes, just npx
-                gh-manager-cli@latest!
+                {'>'} Clean up your GitHub account in 5 minutes
               </Badge>
               <h1 className="text-xl sm:text-3xl md:text-4xl font-bold mb-8 text-balance font-mono">
                 gh-manager-cli: The Terminal GitHub Manager for{' '}
