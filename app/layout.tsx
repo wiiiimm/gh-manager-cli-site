@@ -33,10 +33,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "gh-manager-cli - Terminal UI for GitHub Repository Management",
+      },
+      {
+        url: "/app-demo-poster.jpg",
+        width: 1200,
+        height: 675,
+        alt: "gh-manager-cli Demo - Terminal Interface",
       }
     ],
   },
@@ -44,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "gh-manager-cli - TUI Terminal GitHub Repository Management Tool",
     description: "Stop clicking through GitHub's slow web UI. Archive, delete, and organize repos with keyboard shortcuts. Clean up 50+ repos in 5 minutes.",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image", "/app-demo-poster.jpg"],
     creator: "@wiiiimm",
   },
   robots: {
