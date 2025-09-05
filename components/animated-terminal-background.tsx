@@ -193,54 +193,58 @@ export function AnimatedTerminalBackground() {
 
       responseTimeoutRef.current = setTimeout(() => {
         // Add line in streaming state
-        const lineIndex = displayedLines.length;
-        setDisplayedLines((prev) => [
-          ...prev,
-          {
-            type: 'response',
-            text: currentLine,
-            sessionIndex: currentSessionIndex,
-            isStreaming: true,
-            streamProgress: 0,
-          },
-        ]);
-        setStreamingLineIndex(lineIndex);
+        setDisplayedLines((prev) => {
+          const newLineIndex = prev.length;
+          setStreamingLineIndex(newLineIndex);
+          
+          // Start streaming after adding the line
+          let charIndex = 0;
+          const streamLine = () => {
+            if (charIndex < currentLine.length) {
+              // Per-character streaming delay (faster for server output)
+              const streamDelay = 5 + Math.random() * 15; // 5-20ms per character
 
-        // Start streaming the line content
-        let charIndex = 0;
-        const streamLine = () => {
-          if (charIndex < currentLine.length) {
-            // Per-character streaming delay (faster for server output)
-            const streamDelay = 5 + Math.random() * 15; // 5-20ms per character
-
-            streamingTimeoutRef.current = setTimeout(() => {
-              charIndex++;
-              setDisplayedLines((prev) =>
-                prev.map((line, idx) =>
-                  idx === lineIndex
-                    ? { ...line, streamProgress: charIndex }
+              streamingTimeoutRef.current = setTimeout(() => {
+                charIndex++;
+                setDisplayedLines((currentLines) =>
+                  currentLines.map((line, idx) =>
+                    idx === newLineIndex
+                      ? { ...line, streamProgress: charIndex }
+                      : line
+                  )
+                );
+                streamLine();
+              }, streamDelay);
+            } else {
+              // Line fully streamed, mark as complete
+              setDisplayedLines((currentLines) =>
+                currentLines.map((line, idx) =>
+                  idx === newLineIndex
+                    ? { ...line, isStreaming: false, streamProgress: undefined }
                     : line
                 )
               );
-              streamLine();
-            }, streamDelay);
-          } else {
-            // Line fully streamed, mark as complete
-            setDisplayedLines((prev) =>
-              prev.map((line, idx) =>
-                idx === lineIndex
-                  ? { ...line, isStreaming: false, streamProgress: undefined }
-                  : line
-              )
-            );
-            setStreamingLineIndex(-1);
+              setStreamingLineIndex(-1);
 
-            // Move to next response line
-            setCurrentResponseIndex(currentResponseIndex + 1);
-          }
-        };
-
-        streamLine();
+              // Move to next response line
+              setCurrentResponseIndex(currentResponseIndex + 1);
+            }
+          };
+          
+          // Start streaming immediately
+          streamLine();
+          
+          return [
+            ...prev,
+            {
+              type: 'response',
+              text: currentLine,
+              sessionIndex: currentSessionIndex,
+              isStreaming: true,
+              streamProgress: 0,
+            },
+          ];
+        });
       }, serverProcessingDelay);
     } else {
       // All responses shown, wait then move to next session
@@ -268,7 +272,7 @@ export function AnimatedTerminalBackground() {
         clearTimeout(streamingTimeoutRef.current);
       }
     };
-  }, [currentResponseIndex, currentSessionIndex, displayedLines.length]);
+  }, [currentResponseIndex, currentSessionIndex]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
