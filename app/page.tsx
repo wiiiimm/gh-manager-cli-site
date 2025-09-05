@@ -1,9 +1,24 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Terminal, Github, Zap, Shield, Search, Archive, Eye, GitBranch } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { AnimatedTerminalBackground } from "@/components/animated-terminal-background"
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import {
+  Terminal,
+  Github,
+  Zap,
+  Shield,
+  Search,
+  Archive,
+  Eye,
+  GitBranch,
+} from 'lucide-react';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { AnimatedTerminalBackground } from '@/components/animated-terminal-background';
 
 export default function HomePage() {
   return (
@@ -18,17 +33,26 @@ export default function HomePage() {
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Terminal className="h-6 w-6 text-primary" />
-              <span className="font-bold text-xl font-mono">gh-manager-cli</span>
+              <span className="font-bold text-xl font-mono">
+                gh-manager-cli
+              </span>
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle />
               <Button variant="ghost" size="sm" asChild>
-                <a href="https://github.com/wiiiimm/gh-manager-cli" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/wiiiimm/gh-manager-cli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Github className="h-4 w-4 mr-2" />
                   GitHub
                 </a>
               </Button>
-              <Button size="sm" className="bg-primary hover:bg-primary/90 font-mono">
+              <Button
+                size="sm"
+                className="bg-primary hover:bg-primary/90 font-mono"
+              >
                 Get Started
               </Button>
             </div>
@@ -38,16 +62,19 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="py-32 px-4">
           <div className="container mx-auto text-center max-w-4xl">
-            <Badge variant="secondary" className="mb-8 bg-muted text-primary font-mono">
-              {">"} Fast, keyboard-first GitHub repo management
+            <Badge
+              variant="secondary"
+              className="mb-8 bg-muted text-primary font-mono"
+            >
+              {'>'} Fast, keyboard-first GitHub repo management
             </Badge>
             <h1 className="text-5xl font-bold mb-8 text-balance font-mono">
-              Interactive terminal app to browse and manage your{" "}
+              Interactive terminal app to browse and manage your{' '}
               <span className="text-primary">GitHub repositories</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-12 text-pretty max-w-2xl mx-auto font-mono">
-              Built with Ink (React for CLIs) and the GitHub GraphQL API. Manage your repos without leaving the
-              terminal.
+              Built with Ink (React for CLIs) and the GitHub GraphQL API. Manage
+              your repos without leaving the terminal.
             </p>
 
             {/* Terminal Command showcase */}
@@ -56,19 +83,30 @@ export default function HomePage() {
                 <div className="terminal-dot red"></div>
                 <div className="terminal-dot yellow"></div>
                 <div className="terminal-dot green"></div>
-                <span className="text-sm text-muted-foreground font-mono ml-2">Terminal</span>
+                <span className="text-sm text-muted-foreground font-mono ml-2">
+                  Terminal
+                </span>
               </div>
               <div className="terminal-content">
-                <div className="terminal-prompt font-mono text-primary font-semibold text-lg">npx gh-manager-cli</div>
+                <div className="terminal-prompt font-mono text-primary font-semibold text-lg">
+                  npx gh-manager-cli
+                </div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
+              >
                 <Terminal className="h-4 w-4 mr-2" />
                 Try Now
               </Button>
-              <Button variant="outline" size="lg" className="font-mono bg-transparent">
+              <Button
+                variant="outline"
+                size="lg"
+                className="font-mono bg-transparent"
+              >
                 <Github className="h-4 w-4 mr-2" />
                 View on GitHub
               </Button>
@@ -80,7 +118,9 @@ export default function HomePage() {
         <section className="py-24 px-4 bg-muted/30">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-6 font-mono">Powerful Repository Management</h2>
+              <h2 className="text-3xl font-bold mb-6 font-mono">
+                Powerful Repository Management
+              </h2>
               <p className="text-muted-foreground text-lg font-mono">
                 Everything you need to manage GitHub repos efficiently
               </p>
@@ -90,9 +130,12 @@ export default function HomePage() {
               <Card className="border-border bg-card">
                 <CardHeader>
                   <Search className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle className="font-mono">Smart Search & Filter</CardTitle>
+                  <CardTitle className="font-mono">
+                    Smart Search & Filter
+                  </CardTitle>
                   <CardDescription className="font-mono">
-                    Server-side search through repository names and descriptions with live pagination
+                    Server-side search through repository names and descriptions
+                    with live pagination
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -100,9 +143,12 @@ export default function HomePage() {
               <Card className="border-border bg-card">
                 <CardHeader>
                   <Zap className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle className="font-mono">Keyboard-First Navigation</CardTitle>
+                  <CardTitle className="font-mono">
+                    Keyboard-First Navigation
+                  </CardTitle>
                   <CardDescription className="font-mono">
-                    Full keyboard control with arrow keys, shortcuts, and modal-based interactions
+                    Full keyboard control with arrow keys, shortcuts, and
+                    modal-based interactions
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -110,9 +156,12 @@ export default function HomePage() {
               <Card className="border-border bg-card">
                 <CardHeader>
                   <Shield className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle className="font-mono">Secure Authentication</CardTitle>
+                  <CardTitle className="font-mono">
+                    Secure Authentication
+                  </CardTitle>
                   <CardDescription className="font-mono">
-                    GitHub OAuth or Personal Access Token with secure local storage
+                    GitHub OAuth or Personal Access Token with secure local
+                    storage
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -120,9 +169,12 @@ export default function HomePage() {
               <Card className="border-border bg-card">
                 <CardHeader>
                   <Archive className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle className="font-mono">Repository Actions</CardTitle>
+                  <CardTitle className="font-mono">
+                    Repository Actions
+                  </CardTitle>
                   <CardDescription className="font-mono">
-                    Archive, delete, change visibility, and sync forks with confirmation prompts
+                    Archive, delete, change visibility, and sync forks with
+                    confirmation prompts
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -130,9 +182,12 @@ export default function HomePage() {
               <Card className="border-border bg-card">
                 <CardHeader>
                   <Eye className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle className="font-mono">Visibility Management</CardTitle>
+                  <CardTitle className="font-mono">
+                    Visibility Management
+                  </CardTitle>
                   <CardDescription className="font-mono">
-                    Filter by visibility and change repository settings including Enterprise support
+                    Filter by visibility and change repository settings
+                    including Enterprise support
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -140,9 +195,12 @@ export default function HomePage() {
               <Card className="border-border bg-card">
                 <CardHeader>
                   <GitBranch className="h-8 w-8 text-primary mb-2" />
-                  <CardTitle className="font-mono">Fork Synchronization</CardTitle>
+                  <CardTitle className="font-mono">
+                    Fork Synchronization
+                  </CardTitle>
                   <CardDescription className="font-mono">
-                    Track commits behind upstream and sync forks with automatic conflict detection
+                    Track commits behind upstream and sync forks with automatic
+                    conflict detection
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -154,8 +212,12 @@ export default function HomePage() {
         <section className="py-24 px-4">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-6 font-mono">Multiple Installation Options</h2>
-              <p className="text-muted-foreground text-lg font-mono">Choose the method that works best for you</p>
+              <h2 className="text-3xl font-bold mb-6 font-mono">
+                Multiple Installation Options
+              </h2>
+              <p className="text-muted-foreground text-lg font-mono">
+                Choose the method that works best for you
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -165,12 +227,16 @@ export default function HomePage() {
                     <Terminal className="h-5 w-5 text-primary" />
                     NPX (Recommended)
                   </CardTitle>
-                  <CardDescription className="font-mono">Run instantly without installation</CardDescription>
+                  <CardDescription className="font-mono">
+                    Run instantly without installation
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="terminal-window">
                     <div className="terminal-content">
-                      <div className="terminal-prompt font-mono text-primary">npx gh-manager-cli</div>
+                      <div className="terminal-prompt font-mono text-primary">
+                        npx gh-manager-cli
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -182,13 +248,19 @@ export default function HomePage() {
                     <Terminal className="h-5 w-5 text-primary" />
                     Homebrew
                   </CardTitle>
-                  <CardDescription className="font-mono">For macOS and Linux users</CardDescription>
+                  <CardDescription className="font-mono">
+                    For macOS and Linux users
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="terminal-window">
                     <div className="terminal-content space-y-1">
-                      <div className="terminal-prompt font-mono text-primary">brew tap wiiiimm/tap</div>
-                      <div className="terminal-prompt font-mono text-primary">brew install gh-manager-cli</div>
+                      <div className="terminal-prompt font-mono text-primary">
+                        brew tap wiiiimm/tap
+                      </div>
+                      <div className="terminal-prompt font-mono text-primary">
+                        brew install gh-manager-cli
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -200,12 +272,16 @@ export default function HomePage() {
                     <Terminal className="h-5 w-5 text-primary" />
                     Global Install
                   </CardTitle>
-                  <CardDescription className="font-mono">Install globally via npm</CardDescription>
+                  <CardDescription className="font-mono">
+                    Install globally via npm
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="terminal-window">
                     <div className="terminal-content">
-                      <div className="terminal-prompt font-mono text-primary">npm install -g gh-manager-cli</div>
+                      <div className="terminal-prompt font-mono text-primary">
+                        npm install -g gh-manager-cli
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -217,11 +293,14 @@ export default function HomePage() {
                     <Terminal className="h-5 w-5 text-primary" />
                     Pre-built Binaries
                   </CardTitle>
-                  <CardDescription className="font-mono">No Node.js required</CardDescription>
+                  <CardDescription className="font-mono">
+                    No Node.js required
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground font-mono">
-                    Download standalone executables for Linux, macOS, and Windows from GitHub Releases
+                    Download standalone executables for Linux, macOS, and
+                    Windows from GitHub Releases
                   </p>
                 </CardContent>
               </Card>
@@ -233,8 +312,12 @@ export default function HomePage() {
         <section className="py-24 px-4 bg-muted/30">
           <div className="container mx-auto max-w-4xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-6 font-mono">Simple Workflow</h2>
-              <p className="text-muted-foreground text-lg font-mono">Get started in seconds</p>
+              <h2 className="text-3xl font-bold mb-6 font-mono">
+                Simple Workflow
+              </h2>
+              <p className="text-muted-foreground text-lg font-mono">
+                Get started in seconds
+              </p>
             </div>
 
             <div className="space-y-12 max-w-2xl mx-auto">
@@ -243,10 +326,14 @@ export default function HomePage() {
                   1
                 </div>
                 <div className="text-center flex-1 max-w-sm">
-                  <h3 className="font-semibold mb-2 font-mono">Run the command</h3>
+                  <h3 className="font-semibold mb-2 font-mono">
+                    Run the command
+                  </h3>
                   <div className="terminal-window mx-auto max-w-xs">
                     <div className="terminal-content">
-                      <div className="terminal-prompt font-mono text-primary">npx gh-manager-cli</div>
+                      <div className="terminal-prompt font-mono text-primary">
+                        npx gh-manager-cli
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -257,8 +344,12 @@ export default function HomePage() {
                   2
                 </div>
                 <div className="text-center flex-1 max-w-sm">
-                  <h3 className="font-semibold mb-2 font-mono">Authenticate with GitHub</h3>
-                  <p className="text-muted-foreground font-mono">Choose OAuth (recommended) or Personal Access Token</p>
+                  <h3 className="font-semibold mb-2 font-mono">
+                    Authenticate with GitHub
+                  </h3>
+                  <p className="text-muted-foreground font-mono">
+                    Choose OAuth (recommended) or Personal Access Token
+                  </p>
                 </div>
               </div>
 
@@ -267,9 +358,12 @@ export default function HomePage() {
                   3
                 </div>
                 <div className="text-center flex-1 max-w-sm">
-                  <h3 className="font-semibold mb-2 font-mono">Manage your repositories</h3>
+                  <h3 className="font-semibold mb-2 font-mono">
+                    Manage your repositories
+                  </h3>
                   <p className="text-muted-foreground font-mono">
-                    Browse, search, sort, and perform actions on your GitHub repos
+                    Browse, search, sort, and perform actions on your GitHub
+                    repos
                   </p>
                 </div>
               </div>
@@ -280,9 +374,12 @@ export default function HomePage() {
         {/* CTA Section */}
         <section className="py-32 px-4">
           <div className="container mx-auto text-center max-w-2xl">
-            <h2 className="text-3xl font-bold mb-6 font-mono">Ready to streamline your GitHub workflow?</h2>
+            <h2 className="text-3xl font-bold mb-6 font-mono">
+              Ready to streamline your GitHub workflow?
+            </h2>
             <p className="text-muted-foreground text-lg mb-12 font-mono">
-              Join developers who are managing their repositories more efficiently with gh-manager-cli
+              Join developers who are managing their repositories more
+              efficiently with gh-manager-cli
             </p>
 
             <div className="terminal-window mb-12 max-w-sm mx-auto">
@@ -290,15 +387,22 @@ export default function HomePage() {
                 <div className="terminal-dot red"></div>
                 <div className="terminal-dot yellow"></div>
                 <div className="terminal-dot green"></div>
-                <span className="text-sm text-muted-foreground font-mono ml-2">Terminal</span>
+                <span className="text-sm text-muted-foreground font-mono ml-2">
+                  Terminal
+                </span>
               </div>
               <div className="terminal-content">
-                <div className="terminal-prompt font-mono text-primary font-semibold text-lg">npx gh-manager-cli</div>
+                <div className="terminal-prompt font-mono text-primary font-semibold text-lg">
+                  npx gh-manager-cli
+                </div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
+              >
                 <Terminal className="h-4 w-4 mr-2" />
                 Get Started Now
               </Button>
@@ -308,7 +412,11 @@ export default function HomePage() {
                 asChild
                 className="font-mono hover:bg-muted hover:text-foreground bg-transparent"
               >
-                <a href="https://github.com/wiiiimm/gh-manager-cli" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/wiiiimm/gh-manager-cli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Github className="h-4 w-4 mr-2" />
                   Star on GitHub
                 </a>
@@ -335,22 +443,34 @@ export default function HomePage() {
                 <h4 className="font-semibold mb-4 font-mono">Resources</h4>
                 <ul className="space-y-2 text-sm font-mono">
                   <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary">
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary"
+                    >
                       Documentation
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary">
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary"
+                    >
                       Installation Guide
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary">
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary"
+                    >
                       Troubleshooting
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary">
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary"
+                    >
                       Roadmap
                     </a>
                   </li>
@@ -377,12 +497,18 @@ export default function HomePage() {
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary">
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary"
+                    >
                       Report Issues
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-muted-foreground hover:text-primary">
+                    <a
+                      href="#"
+                      className="text-muted-foreground hover:text-primary"
+                    >
                       Contributing
                     </a>
                   </li>
@@ -397,5 +523,5 @@ export default function HomePage() {
         </footer>
       </div>
     </div>
-  )
+  );
 }
