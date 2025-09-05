@@ -10,6 +10,8 @@ interface TerminalWindowProps {
   showCopy?: boolean;
   copyText?: string;
   title?: string;
+  onCopy?: () => void;
+  trackingTarget?: string;
 }
 
 export function TerminalWindow({
@@ -18,6 +20,8 @@ export function TerminalWindow({
   showCopy = true,
   copyText,
   title = 'Terminal TUI',
+  onCopy,
+  trackingTarget,
 }: TerminalWindowProps) {
   // Extract text content for copying if not explicitly provided
   const getTextContent = (): string => {
@@ -50,6 +54,8 @@ export function TerminalWindow({
             text={textToCopy}
             size="sm"
             className="h-8 w-8 bg-background/80 backdrop-blur-sm hover:bg-background/90 text-muted-foreground hover:text-foreground border border-border/50"
+            onCopy={onCopy}
+            trackingTarget={trackingTarget}
           />
         </div>
       )}

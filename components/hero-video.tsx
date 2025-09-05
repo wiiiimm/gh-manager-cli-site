@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { Play, Pause } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { track } from '@vercel/analytics';
 
 interface HeroVideoProps {
   className?: string;
@@ -27,6 +28,8 @@ export function HeroVideo({ className = '' }: HeroVideoProps) {
 
   const handlePlayClick = () => {
     if (!showVideo) {
+      // Track initial play button click (GIF to video transition)
+      track('click', { target: 'hero-video-play-button' });
       setShowVideo(true);
       // Auto-play when video loads
       setTimeout(() => {
@@ -36,6 +39,12 @@ export function HeroVideo({ className = '' }: HeroVideoProps) {
         }
       }, 100);
     } else {
+      // Track play/pause toggle clicks
+      track('click', {
+        target: isPlaying
+          ? 'hero-video-pause-button'
+          : 'hero-video-resume-button',
+      });
       togglePlay();
     }
   };

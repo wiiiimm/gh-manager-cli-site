@@ -9,6 +9,8 @@ interface CodeBlockProps {
   className?: string;
   copyText?: string;
   showCopy?: boolean;
+  onCopy?: () => void;
+  trackingTarget?: string;
 }
 
 export function CodeBlock({
@@ -16,6 +18,8 @@ export function CodeBlock({
   className,
   copyText,
   showCopy = true,
+  onCopy,
+  trackingTarget,
 }: CodeBlockProps) {
   // Extract text content for copying if not explicitly provided
   const getTextContent = (): string => {
@@ -45,6 +49,8 @@ export function CodeBlock({
             text={textToCopy}
             size="sm"
             className="h-8 w-8 bg-background/80 backdrop-blur-sm hover:bg-background/90 text-muted-foreground hover:text-foreground border border-border/50"
+            onCopy={onCopy}
+            trackingTarget={trackingTarget}
           />
         </div>
       )}

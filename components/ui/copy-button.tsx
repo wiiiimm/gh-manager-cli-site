@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Copy, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { copyToClipboard } from '@/lib/copy-to-clipboard';
+import { track } from '@vercel/analytics';
 
 interface CopyButtonProps {
   text: string;
@@ -12,6 +13,8 @@ interface CopyButtonProps {
   variant?: 'default' | 'ghost' | 'outline';
   size?: 'default' | 'sm' | 'lg' | 'icon';
   showText?: boolean;
+  onCopy?: () => void;
+  trackingTarget?: string;
 }
 
 export function CopyButton({
@@ -20,6 +23,8 @@ export function CopyButton({
   variant = 'ghost',
   size = 'icon',
   showText = false,
+  onCopy,
+  trackingTarget,
 }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
@@ -28,6 +33,16 @@ export function CopyButton({
     if (success) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+
+      // Enhanced tracking with code content
+      if (trackingTarget) {
+        track('click', {
+          target: trackingTarget,
+          codeContent: text.substring(0, 100), // Limit to first 100 chars to avoid hitting data limits
+        });
+      }
+
+      onCopy?.();
     }
   };
 

@@ -34,8 +34,41 @@ import { CodeBlock } from '@/components/ui/code-block';
 import { HeroVideo } from '@/components/hero-video';
 import { LogoMark } from '@/components/icons/logo-mark';
 import Script from 'next/script';
+import { track } from '@vercel/analytics';
+import { useTheme } from 'next-themes';
+import { useEffect } from 'react';
 
 export default function HomePage() {
+  const { theme, resolvedTheme } = useTheme();
+
+  // Helper function to track click events with custom data
+  const trackClick = (target: string) => {
+    track('click', { target });
+  };
+
+  // Track theme usage on page load
+  useEffect(() => {
+    // Wait for theme to be mounted and resolved
+    if (resolvedTheme) {
+      // Determine the specific theme variant
+      let themeVariant = '';
+
+      if (theme === 'system') {
+        themeVariant = `system-${resolvedTheme}`; // 'system-dark' or 'system-light'
+      } else {
+        themeVariant = resolvedTheme; // 'dark' or 'light'
+      }
+
+      // Track theme usage on page load
+      track('theme_usage', {
+        themeVariant,
+        userSetTheme: theme || 'system', // What user explicitly set (light/dark/system)
+        resolvedTheme, // What actually renders (light/dark)
+        isSystemPreference: theme === 'system',
+      });
+    }
+  }, [theme, resolvedTheme]);
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -108,7 +141,11 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <ThemeToggle />
+                <ThemeToggle
+                  onThemeChange={(theme) =>
+                    trackClick(`header-theme-toggle-${theme}`)
+                  }
+                />
                 <Button
                   variant="ghost"
                   className="h-8 w-8 p-0 rounded-full"
@@ -118,6 +155,7 @@ export default function HomePage() {
                     href="https://github.com/wiiiimm/gh-manager-cli"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackClick('header-github-link')}
                   >
                     <Github className="h-4 w-4" />
                   </a>
@@ -130,6 +168,7 @@ export default function HomePage() {
                     href="https://www.npmjs.com/package/gh-manager-cli"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackClick('header-npm-link')}
                   >
                     <Package className="h-4 w-4" />
                   </a>
@@ -168,7 +207,10 @@ export default function HomePage() {
                   className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
                   asChild
                 >
-                  <a href="#get-started">
+                  <a
+                    href="#get-started"
+                    onClick={() => trackClick('hero-try-now-button')}
+                  >
                     <Terminal className="h-4 w-4 mr-2" />
                     Try Now
                   </a>
@@ -183,6 +225,7 @@ export default function HomePage() {
                     href="https://github.com/wiiiimm/gh-manager-cli"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackClick('hero-github-button')}
                   >
                     <Github className="h-4 w-4 mr-2" />
                     View on GitHub
@@ -641,7 +684,10 @@ export default function HomePage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <CodeBlock copyText="npx gh-manager-cli@latest">
+                    <CodeBlock
+                      copyText="npx gh-manager-cli@latest"
+                      trackingTarget="installation-npx-copy-button"
+                    >
                       <div className="text-primary">
                         npx gh-manager-cli@latest
                       </div>
@@ -663,6 +709,7 @@ export default function HomePage() {
                     <CodeBlock
                       copyText={`brew tap wiiiimm/tap
 brew install gh-manager-cli`}
+                      trackingTarget="installation-homebrew-copy-button"
                     >
                       <div className="space-y-1">
                         <div className="text-primary">brew tap wiiiimm/tap</div>
@@ -685,7 +732,10 @@ brew install gh-manager-cli`}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <CodeBlock copyText="npm install -g gh-manager-cli@latest">
+                    <CodeBlock
+                      copyText="npm install -g gh-manager-cli@latest"
+                      trackingTarget="installation-npm-global-copy-button"
+                    >
                       <div className="text-primary">
                         npm install -g gh-manager-cli@latest
                       </div>
@@ -712,6 +762,9 @@ brew install gh-manager-cli`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary hover:underline"
+                        onClick={() =>
+                          trackClick('installation-github-releases-link')
+                        }
                       >
                         GitHub Releases
                       </a>
@@ -746,6 +799,7 @@ brew install gh-manager-cli`}
                     <CodeBlock
                       className="w-full max-w-lg mx-auto"
                       copyText="npx gh-manager-cli@latest"
+                      trackingTarget="workflow-step1-copy-button"
                     >
                       <div className="text-primary">
                         npx gh-manager-cli@latest
@@ -803,6 +857,7 @@ brew install gh-manager-cli`}
               <TerminalWindow
                 className="mb-8 sm:mb-12 w-full max-w-lg mx-auto"
                 copyText="npx gh-manager-cli@latest"
+                trackingTarget="cta-terminal-copy-button"
               >
                 <div className="terminal-prompt font-mono text-primary font-semibold text-lg my-8">
                   npx gh-manager-cli@latest
@@ -813,6 +868,7 @@ brew install gh-manager-cli`}
                 <a
                   href="#installation"
                   className="hover:text-primary transition-colors underline"
+                  onClick={() => trackClick('cta-installation-methods-link')}
                 >
                   Other installation methods available
                 </a>
@@ -828,6 +884,7 @@ brew install gh-manager-cli`}
                     href="https://www.npmjs.com/package/gh-manager-cli"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackClick('cta-get-started-button')}
                   >
                     <Terminal className="h-4 w-4 mr-2" />
                     Get Started Now
@@ -843,6 +900,7 @@ brew install gh-manager-cli`}
                     href="https://github.com/wiiiimm/gh-manager-cli"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackClick('cta-github-button')}
                   >
                     <Github className="h-4 w-4 mr-2" />
                     View on GitHub
@@ -881,6 +939,7 @@ brew install gh-manager-cli`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary"
+                        onClick={() => trackClick('footer-documentation-link')}
                       >
                         Documentation
                       </a>
@@ -889,6 +948,9 @@ brew install gh-manager-cli`}
                       <a
                         href="#installation"
                         className="text-muted-foreground hover:text-primary"
+                        onClick={() =>
+                          trackClick('footer-installation-guide-link')
+                        }
                       >
                         Installation Guide
                       </a>
@@ -899,6 +961,9 @@ brew install gh-manager-cli`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary"
+                        onClick={() =>
+                          trackClick('footer-troubleshooting-link')
+                        }
                       >
                         Troubleshooting
                       </a>
@@ -909,6 +974,7 @@ brew install gh-manager-cli`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary"
+                        onClick={() => trackClick('footer-roadmap-link')}
                       >
                         Roadmap
                       </a>
@@ -927,6 +993,9 @@ brew install gh-manager-cli`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary"
+                        onClick={() =>
+                          trackClick('footer-github-repository-link')
+                        }
                       >
                         GitHub Repository
                       </a>
@@ -937,6 +1006,7 @@ brew install gh-manager-cli`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary"
+                        onClick={() => trackClick('footer-npm-package-link')}
                       >
                         NPM Package
                       </a>
@@ -947,6 +1017,7 @@ brew install gh-manager-cli`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary"
+                        onClick={() => trackClick('footer-report-issues-link')}
                       >
                         Report Issues
                       </a>
@@ -957,6 +1028,7 @@ brew install gh-manager-cli`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary"
+                        onClick={() => trackClick('footer-contributing-link')}
                       >
                         Contributing
                       </a>
