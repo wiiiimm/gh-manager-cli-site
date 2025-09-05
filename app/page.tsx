@@ -262,7 +262,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <Card className="border-border bg-card">
                   <CardHeader>
                     <Search className="h-8 w-8 text-primary mb-2" />
@@ -803,8 +803,8 @@ brew install gh-manager-cli`}
               </div>
 
               <div className="space-y-8 sm:space-y-12 w-full">
-                <div className="flex items-start gap-4 justify-center w-full">
-                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-4 justify-center w-full">
+                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono mb-2 md:mb-0">
                     1
                   </div>
                   <div className="text-center flex-1 w-full">
@@ -823,8 +823,8 @@ brew install gh-manager-cli`}
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 justify-center w-full">
-                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-4 justify-center w-full">
+                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono mb-2 md:mb-0">
                     2
                   </div>
                   <div className="text-center flex-1 w-full">
@@ -837,8 +837,8 @@ brew install gh-manager-cli`}
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 justify-center w-full">
-                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-4 justify-center w-full">
+                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm font-mono mb-2 md:mb-0">
                     3
                   </div>
                   <div className="text-center flex-1 w-full">
