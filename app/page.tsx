@@ -17,6 +17,12 @@ import {
   Eye,
   GitBranch,
   Package,
+  Gauge,
+  Activity,
+  Building2,
+  Settings,
+  Layers,
+  RefreshCw,
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { AnimatedTerminalBackground } from '@/components/animated-terminal-background';
@@ -225,6 +231,84 @@ export default function HomePage() {
                   <CardDescription className="font-mono">
                     Track commits behind upstream and sync forks with automatic
                     conflict detection
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardHeader>
+                  <Gauge className="h-8 w-8 text-primary mb-2" />
+                  <CardTitle className="font-mono">
+                    Rate Limit Monitoring
+                  </CardTitle>
+                  <CardDescription className="font-mono">
+                    Real-time GraphQL & REST API usage with visual warnings and
+                    automatic delta tracking
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardHeader>
+                  <Activity className="h-8 w-8 text-primary mb-2" />
+                  <CardTitle className="font-mono">
+                    Live Repository Metrics
+                  </CardTitle>
+                  <CardDescription className="font-mono">
+                    Stars, forks, language stats, size tracking, and last
+                    activity timestamps
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardHeader>
+                  <Building2 className="h-8 w-8 text-primary mb-2" />
+                  <CardTitle className="font-mono">
+                    Enterprise & Org Support
+                  </CardTitle>
+                  <CardDescription className="font-mono">
+                    Seamlessly switch between personal and organization contexts
+                    with enterprise badges
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardHeader>
+                  <Settings className="h-8 w-8 text-primary mb-2" />
+                  <CardTitle className="font-mono">
+                    Persistent Preferences
+                  </CardTitle>
+                  <CardDescription className="font-mono">
+                    UI settings, sort order, density, and filters saved between
+                    sessions
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardHeader>
+                  <Layers className="h-8 w-8 text-primary mb-2" />
+                  <CardTitle className="font-mono">
+                    Display Density Control
+                  </CardTitle>
+                  <CardDescription className="font-mono">
+                    Toggle between compact, cozy, and comfy modes for optimal
+                    information density
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardHeader>
+                  <RefreshCw className="h-8 w-8 text-primary mb-2" />
+                  <CardTitle className="font-mono">
+                    Smart Caching & Performance
+                  </CardTitle>
+                  <CardDescription className="font-mono">
+                    Apollo GraphQL cache with automatic prefetching and
+                    virtualized rendering
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -518,6 +602,8 @@ export default function HomePage() {
                   <li>
                     <a
                       href="https://github.com/wiiiimm/gh-manager-cli"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary"
                     >
                       GitHub Repository
@@ -526,6 +612,8 @@ export default function HomePage() {
                   <li>
                     <a
                       href="https://www.npmjs.com/package/gh-manager-cli"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary"
                     >
                       NPM Package
@@ -533,7 +621,9 @@ export default function HomePage() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="https://github.com/wiiiimm/gh-manager-cli/issues"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary"
                     >
                       Report Issues
@@ -541,7 +631,9 @@ export default function HomePage() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="https://github.com/wiiiimm/gh-manager-cli/blob/main/CONTRIBUTING.md"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary"
                     >
                       Contributing
