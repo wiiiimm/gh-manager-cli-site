@@ -39,7 +39,12 @@ export default function HomePage() {
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle />
-              <Button variant="ghost" size="sm" asChild>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                asChild
+                className="hover:bg-accent hover:text-accent-foreground"
+              >
                 <a
                   href="https://github.com/wiiiimm/gh-manager-cli"
                   target="_blank"
@@ -84,7 +89,7 @@ export default function HomePage() {
                 <div className="terminal-dot yellow"></div>
                 <div className="terminal-dot green"></div>
                 <span className="text-sm text-muted-foreground font-mono ml-2">
-                  Terminal
+                  Terminal TUI
                 </span>
               </div>
               <div className="terminal-content">
@@ -105,10 +110,17 @@ export default function HomePage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="font-mono bg-transparent"
+                className="font-mono border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-200"
+                asChild
               >
-                <Github className="h-4 w-4 mr-2" />
-                View on GitHub
+                <a
+                  href="https://github.com/wiiiimm/gh-manager-cli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="h-4 w-4 mr-2" />
+                  View on GitHub
+                </a>
               </Button>
             </div>
           </div>
@@ -388,7 +400,7 @@ export default function HomePage() {
                 <div className="terminal-dot yellow"></div>
                 <div className="terminal-dot green"></div>
                 <span className="text-sm text-muted-foreground font-mono ml-2">
-                  Terminal
+                  Terminal TUI
                 </span>
               </div>
               <div className="terminal-content">
@@ -410,7 +422,7 @@ export default function HomePage() {
                 variant="outline"
                 size="lg"
                 asChild
-                className="font-mono hover:bg-muted hover:text-foreground bg-transparent"
+                className="font-mono border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-200"
               >
                 <a
                   href="https://github.com/wiiiimm/gh-manager-cli"
@@ -418,7 +430,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                 >
                   <Github className="h-4 w-4 mr-2" />
-                  Star on GitHub
+                  View on GitHub
                 </a>
               </Button>
             </div>
