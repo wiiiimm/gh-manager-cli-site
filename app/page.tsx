@@ -143,6 +143,18 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
+                <a
+                  href="https://www.npmjs.com/package/gh-manager-cli"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackClick('footer-npm-total')}
+                >
+                  <img
+                    src="https://img.shields.io/npm/dt/gh-manager-cli?style=social&logo=npm"
+                    alt="npm total downloads"
+                    className="h-6"
+                  />
+                </a>
                 <ThemeToggle
                   onThemeChange={(theme) =>
                     trackClick(`header-theme-toggle-${theme}`)
@@ -921,13 +933,58 @@ brew install gh-manager-cli`}
                     <LogoMark className="text-primary" width={20} height={20} />
                     <span className="font-bold font-mono">gh-manager-cli</span>
                   </div>
-                  <p className="text-muted-foreground text-sm font-mono mb-2">
-                    Interactive TUI terminal app for GitHub repository
-                    management
-                  </p>
-                  <p className="text-muted-foreground text-sm font-mono">
-                    npx gh-manager-cli@latest
-                  </p>
+                  <div className="items-center space-y-4">
+                    <p className="text-muted-foreground text-sm font-mono">
+                      Interactive TUI terminal app for GitHub repository
+                      management
+                    </p>
+                    <p className="text-muted-foreground text-sm font-mono">
+                      npx gh-manager-cli@latest
+                    </p>
+                    <div className="flex flex-wrap items-center gap-2 mt-2">
+                      {/* GitHub Stars */}
+                      <a
+                        href="https://github.com/wiiiimm/gh-manager-cli"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackClick('footer-github-stars')}
+                      >
+                        <img
+                          src="https://img.shields.io/github/stars/wiiiimm/gh-manager-cli?style=social"
+                          alt="GitHub stars"
+                          className="h-6"
+                        />
+                      </a>
+
+                      {/* GitHub Forks */}
+                      <a
+                        href="https://github.com/wiiiimm/gh-manager-cli"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackClick('footer-github-forks')}
+                      >
+                        <img
+                          src="https://img.shields.io/github/forks/wiiiimm/gh-manager-cli?style=social"
+                          alt="GitHub forks"
+                          className="h-6"
+                        />
+                      </a>
+
+                      {/* NPM Total Downloads */}
+                      <a
+                        href="https://www.npmjs.com/package/gh-manager-cli"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackClick('footer-npm-total')}
+                      >
+                        <img
+                          src="https://img.shields.io/npm/dt/gh-manager-cli?style=social&logo=npm"
+                          alt="npm total downloads"
+                          className="h-6"
+                        />
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
