@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
  
 export const runtime = 'edge'
  
-export const alt = 'gh-manager-cli - The Terminal Alternative to GitHub.com'
+export const alt = 'gh-manager-cli - Clean Up Your GitHub in 5 Minutes'
 export const size = {
   width: 1200,
   height: 630,
@@ -14,251 +14,172 @@ export default async function Image() {
     (
       <div
         style={{
+          fontSize: 128,
+          background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
-          flexDirection: 'row',
-          background: '#000000',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
         }}
       >
-        {/* Left side - GitHub.com Problems */}
-        <div
-          style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            background: 'linear-gradient(135deg, #1a0000 0%, #2a0000 100%)',
-            borderRight: '3px solid #333',
-            padding: 40,
-          }}
-        >
-          <div
-            style={{
-              fontSize: 32,
-              color: '#ef4444',
-              fontFamily: 'monospace',
-              marginBottom: 30,
-              fontWeight: 'bold',
-            }}
-          >
-            ❌ GitHub.com
-          </div>
-          
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 20,
-              fontSize: 20,
-              color: '#a1a1aa',
-              fontFamily: 'monospace',
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#ef4444' }}>✕</span>
-              <span>20 repos per page</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#ef4444' }}>✕</span>
-              <span>Click → Settings → Action</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#ef4444' }}>✕</span>
-              <span>No bulk operations</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#ef4444' }}>✕</span>
-              <span>Page refresh each action</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#ef4444' }}>✕</span>
-              <span>No keyboard shortcuts</span>
-            </div>
-          </div>
-          
-          <div
-            style={{
-              marginTop: 40,
-              fontSize: 48,
-              color: '#ef4444',
-              fontWeight: 'bold',
-            }}
-          >
-            ~1 hour
-          </div>
-          <div
-            style={{
-              fontSize: 18,
-              color: '#a1a1aa',
-              fontFamily: 'monospace',
-            }}
-          >
-            to manage 50 repos
-          </div>
-        </div>
-
-        {/* Right side - gh-manager-cli Solution */}
-        <div
-          style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            background: 'linear-gradient(135deg, #001a00 0%, #002a00 100%)',
-            padding: 40,
-            position: 'relative',
-          }}
-        >
-          {/* Green glow effect */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              width: 400,
-              height: 400,
-              background: 'radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%)',
-              transform: 'translate(-50%, -50%)',
-            }}
-          />
-          
-          <div
-            style={{
-              fontSize: 32,
-              color: '#22c55e',
-              fontFamily: 'monospace',
-              marginBottom: 30,
-              fontWeight: 'bold',
-              zIndex: 1,
-            }}
-          >
-            ✅ gh-manager-cli
-          </div>
-          
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 20,
-              fontSize: 20,
-              color: '#a1a1aa',
-              fontFamily: 'monospace',
-              zIndex: 1,
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#22c55e' }}>✓</span>
-              <span>All repos, infinite scroll</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#22c55e' }}>✓</span>
-              <span>Single keypress actions</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#22c55e' }}>✓</span>
-              <span>Batch archive & delete</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#22c55e' }}>✓</span>
-              <span>Instant, no page reload</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ color: '#22c55e' }}>✓</span>
-              <span>Full keyboard control</span>
-            </div>
-          </div>
-          
-          <div
-            style={{
-              marginTop: 40,
-              fontSize: 48,
-              color: '#22c55e',
-              fontWeight: 'bold',
-              zIndex: 1,
-            }}
-          >
-            5 minutes
-          </div>
-          <div
-            style={{
-              fontSize: 18,
-              color: '#a1a1aa',
-              fontFamily: 'monospace',
-              zIndex: 1,
-            }}
-          >
-            to clean up everything
-          </div>
-        </div>
-
-        {/* Center divider with logo and command */}
+        {/* Terminal window frame */}
         <div
           style={{
             position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            top: 60,
+            left: 60,
+            right: 60,
+            bottom: 60,
+            border: '3px solid #22c55e',
+            borderRadius: 16,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-            gap: 20,
-            zIndex: 10,
           }}
         >
-          {/* Logo circle */}
+          {/* Terminal header */}
           <div
             style={{
-              width: 100,
-              height: 100,
-              borderRadius: '50%',
-              background: '#000000',
-              border: '4px solid #22c55e',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 0 40px rgba(34, 197, 94, 0.5)',
+              padding: '20px 24px',
+              borderBottom: '2px solid #22c55e',
+              gap: 12,
             }}
           >
             <div
               style={{
-                fontSize: 48,
-                color: '#22c55e',
-                fontWeight: 'bold',
+                width: 16,
+                height: 16,
+                borderRadius: '50%',
+                background: '#ef4444',
+              }}
+            />
+            <div
+              style={{
+                width: 16,
+                height: 16,
+                borderRadius: '50%',
+                background: '#eab308',
+              }}
+            />
+            <div
+              style={{
+                width: 16,
+                height: 16,
+                borderRadius: '50%',
+                background: '#22c55e',
+              }}
+            />
+          </div>
+          
+          {/* Content */}
+          <div
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 48,
+            }}
+          >
+            {/* Logo and name */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 24,
+                marginBottom: 32,
               }}
             >
-              {'</>'}
+              {/* Logo mark */}
+              <svg
+                width="80"
+                height="80"
+                viewBox="0 0 256 256"
+                fill="none"
+              >
+                <rect x="8" y="8" width="240" height="240" rx="28" fill="transparent" stroke="#22c55e" strokeWidth="8"/>
+                <circle cx="46" cy="32" r="8" fill="#22c55e"/>
+                <circle cx="66" cy="32" r="8" fill="#22c55e"/>
+                <circle cx="86" cy="32" r="8" fill="#22c55e"/>
+                <path d="M40 100L40 156L90 128L40 100Z" fill="#22c55e"/>
+                <rect x="104" y="148" width="40" height="4" rx="2" fill="#22c55e"/>
+                <polygon points="186,104 196,124 218,124 201,138 211,158 186,144 161,158 171,138 154,124 176,124" fill="#22c55e"/>
+                <circle cx="168" cy="168" r="12" fill="#22c55e"/>
+                <circle cx="188" cy="188" r="12" fill="#22c55e"/>
+                <circle cx="208" cy="168" r="12" fill="#22c55e"/>
+                <line x1="180" y1="180" x2="188" y2="188" stroke="#22c55e" strokeWidth="4"/>
+                <line x1="196" y1="180" x2="188" y2="188" stroke="#22c55e" strokeWidth="4"/>
+                <line x1="188" y1="176" x2="188" y2="168" stroke="#22c55e" strokeWidth="4"/>
+              </svg>
+              <div
+                style={{
+                  fontSize: 48,
+                  fontWeight: 700,
+                  color: '#22c55e',
+                  fontFamily: 'monospace',
+                }}
+              >
+                gh-manager-cli
+              </div>
             </div>
-          </div>
-          
-          {/* Command */}
-          <div
-            style={{
-              padding: '12px 24px',
-              background: '#000000',
-              border: '2px solid #22c55e',
-              borderRadius: 8,
-              fontSize: 16,
-              color: '#22c55e',
-              fontFamily: 'monospace',
-              fontWeight: 'bold',
-              boxShadow: '0 0 20px rgba(34, 197, 94, 0.3)',
-            }}
-          >
-            npx gh-manager-cli@latest
-          </div>
-          
-          {/* Website */}
-          <div
-            style={{
-              fontSize: 14,
-              color: '#64748b',
-              fontFamily: 'monospace',
-            }}
-          >
-            gh-manager-cli.dev
+            
+            {/* Tagline */}
+            <div
+              style={{
+                fontSize: 36,
+                color: '#ffffff',
+                marginBottom: 16,
+                textAlign: 'center',
+                fontFamily: 'monospace',
+              }}
+            >
+              Clean Up Your GitHub in 5 Minutes
+            </div>
+            
+            {/* Description */}
+            <div
+              style={{
+                fontSize: 24,
+                color: '#94a3b8',
+                textAlign: 'center',
+                fontFamily: 'monospace',
+                maxWidth: 900,
+              }}
+            >
+              Stop clicking through GitHub's slow web UI.
+            </div>
+            <div
+              style={{
+                fontSize: 24,
+                color: '#94a3b8',
+                textAlign: 'center',
+                fontFamily: 'monospace',
+                maxWidth: 900,
+              }}
+            >
+              Archive, delete, and organize repos with keyboard shortcuts.
+            </div>
+            
+            {/* Command prompt */}
+            <div
+              style={{
+                marginTop: 48,
+                padding: '16px 32px',
+                background: 'rgba(34, 197, 94, 0.1)',
+                border: '2px solid #22c55e',
+                borderRadius: 8,
+                fontSize: 28,
+                color: '#22c55e',
+                fontFamily: 'monospace',
+              }}
+            >
+              $ npx gh-manager-cli@latest
+            </div>
           </div>
         </div>
       </div>
