@@ -23,9 +23,14 @@ import {
   Settings,
   Layers,
   RefreshCw,
+  Copy,
+  Check,
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { AnimatedTerminalBackground } from '@/components/animated-terminal-background';
+import { TerminalWindow } from '@/components/ui/terminal-window';
+import { CopyButton } from '@/components/ui/copy-button';
+import { CodeBlock } from '@/components/ui/code-block';
 
 export default function HomePage() {
   return (
@@ -76,7 +81,7 @@ export default function HomePage() {
         </header>
 
         {/* Hero Section */}
-        <section className="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
+        <section className="py-20 sm:py-24 lg:py-[25vh] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none text-center">
             <Badge
               variant="secondary"
@@ -94,21 +99,14 @@ export default function HomePage() {
             </p>
 
             {/* Terminal Command showcase */}
-            <div className="terminal-window mb-12 w-full max-w-lg mx-auto">
-              <div className="terminal-header">
-                <div className="terminal-dot red"></div>
-                <div className="terminal-dot yellow"></div>
-                <div className="terminal-dot green"></div>
-                <span className="text-sm text-muted-foreground font-mono ml-2">
-                  Terminal TUI
-                </span>
+            <TerminalWindow
+              className="mb-12 w-full max-w-lg mx-auto"
+              copyText="npx gh-manager-cli@latest"
+            >
+              <div className="terminal-prompt font-mono text-primary font-semibold text-lg my-8">
+                npx gh-manager-cli@latest
               </div>
-              <div className="terminal-content">
-                <div className="terminal-prompt font-mono text-primary font-semibold text-lg my-8">
-                  npx gh-manager-cli@latest
-                </div>
-              </div>
-            </div>
+            </TerminalWindow>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
               <Button
@@ -145,7 +143,7 @@ export default function HomePage() {
         </section>
 
         {/* Features Grid */}
-        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full bg-muted/30">
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full bg-muted/30 max-w-6xl mx-auto">
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
@@ -319,7 +317,7 @@ export default function HomePage() {
         {/* Installation Methods */}
         <section
           id="installation"
-          className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full"
+          className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto"
         >
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
             <div className="text-center mb-12 sm:mb-16">
@@ -343,13 +341,11 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="terminal-window">
-                    <div className="terminal-content">
-                      <div className="terminal-prompt font-mono text-primary">
-                        npx gh-manager-cli@latest
-                      </div>
+                  <CodeBlock copyText="npx gh-manager-cli@latest">
+                    <div className="text-primary">
+                      npx gh-manager-cli@latest
                     </div>
-                  </div>
+                  </CodeBlock>
                 </CardContent>
               </Card>
 
@@ -364,16 +360,17 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="terminal-window">
-                    <div className="terminal-content space-y-1">
-                      <div className="terminal-prompt font-mono text-primary">
-                        brew tap wiiiimm/tap
-                      </div>
-                      <div className="terminal-prompt font-mono text-primary">
+                  <CodeBlock
+                    copyText={`brew tap wiiiimm/tap
+brew install gh-manager-cli`}
+                  >
+                    <div className="space-y-1">
+                      <div className="text-primary">brew tap wiiiimm/tap</div>
+                      <div className="text-primary">
                         brew install gh-manager-cli
                       </div>
                     </div>
-                  </div>
+                  </CodeBlock>
                 </CardContent>
               </Card>
 
@@ -388,13 +385,11 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="terminal-window">
-                    <div className="terminal-content">
-                      <div className="terminal-prompt font-mono text-primary">
-                        npm install -g gh-manager-cli
-                      </div>
+                  <CodeBlock copyText="npm install -g gh-manager-cli@latest">
+                    <div className="text-primary">
+                      npm install -g gh-manager-cli@latest
                     </div>
-                  </div>
+                  </CodeBlock>
                 </CardContent>
               </Card>
 
@@ -448,13 +443,14 @@ export default function HomePage() {
                   <h3 className="font-semibold mb-2 font-mono">
                     Run the command
                   </h3>
-                  <div className="terminal-window w-full max-w-lg mx-auto">
-                    <div className="terminal-content">
-                      <div className="terminal-prompt font-mono text-primary">
-                        npx gh-manager-cli@latest
-                      </div>
+                  <CodeBlock
+                    className="w-full max-w-lg mx-auto"
+                    copyText="npx gh-manager-cli@latest"
+                  >
+                    <div className="text-primary">
+                      npx gh-manager-cli@latest
                     </div>
-                  </div>
+                  </CodeBlock>
                 </div>
               </div>
 
@@ -501,21 +497,14 @@ export default function HomePage() {
               efficiently with gh-manager-cli
             </p>
 
-            <div className="terminal-window mb-8 sm:mb-12 w-full max-w-lg mx-auto">
-              <div className="terminal-header">
-                <div className="terminal-dot red"></div>
-                <div className="terminal-dot yellow"></div>
-                <div className="terminal-dot green"></div>
-                <span className="text-sm text-muted-foreground font-mono ml-2">
-                  Terminal TUI
-                </span>
+            <TerminalWindow
+              className="mb-8 sm:mb-12 w-full max-w-lg mx-auto"
+              copyText="npx gh-manager-cli@latest"
+            >
+              <div className="terminal-prompt font-mono text-primary font-semibold text-lg my-8">
+                npx gh-manager-cli@latest
               </div>
-              <div className="terminal-content">
-                <div className="terminal-prompt font-mono text-primary font-semibold text-lg my-8">
-                  npx gh-manager-cli@latest
-                </div>
-              </div>
-            </div>
+            </TerminalWindow>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
