@@ -108,7 +108,8 @@ export default function HomePage() {
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-12 text-pretty w-full font-mono">
               Built with Ink (React for CLIs) and the GitHub GraphQL API. <br />
-              Manage your repos without leaving the terminal.
+              Clean up, organize, and manage your repos without leaving the
+              terminal.
             </p>
 
             {/* Hero Video Demo */}
@@ -316,6 +317,127 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Account Cleanup Section */}
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto bg-muted/30">
+          <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+            <div className="text-center mb-12 sm:mb-16">
+              <Badge
+                variant="secondary"
+                className="mb-6 bg-primary/10 text-primary font-mono"
+              >
+                {'>'} Account Organization
+              </Badge>
+              <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
+                Finally Clean Up Your GitHub Account
+              </h2>
+              <p className="text-muted-foreground text-lg font-mono max-w-3xl mx-auto">
+                Tired of scrolling through hundreds of repos? Old forks
+                cluttering your profile? Dead projects you forgot about? Take
+                control and organize your GitHub presence.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 sm:gap-12 max-w-4xl mx-auto">
+              <Card className="border-border bg-card">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 font-mono text-lg">
+                    <Archive className="h-6 w-6 text-primary" />
+                    Bulk Repository Management
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-sm font-mono text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Archive outdated projects in seconds
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Delete old forks you'll never touch again
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Batch rename repositories with consistent naming
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Change visibility settings across multiple repos
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 font-mono text-lg">
+                    <Search className="h-6 w-6 text-primary" />
+                    Smart Filtering & Discovery
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-sm font-mono text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Find inactive repos by last commit date
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Filter by stars, size, language, and activity
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Identify forks that are behind upstream
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Search across repos and descriptions instantly
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-12 sm:mt-16 text-center">
+              <div className="bg-card border border-border rounded-lg p-6 sm:p-8 max-w-2xl mx-auto">
+                <h3 className="font-bold text-xl mb-4 font-mono">
+                  Transform Your GitHub Profile
+                </h3>
+                <p className="text-muted-foreground font-mono mb-6">
+                  From chaotic repository list to organized, professional
+                  profile. Show potential employers and collaborators only your
+                  best work.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary font-mono">
+                      5 min
+                    </div>
+                    <div className="text-xs text-muted-foreground font-mono">
+                      Average cleanup time
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary font-mono">
+                      50+
+                    </div>
+                    <div className="text-xs text-muted-foreground font-mono">
+                      Repos managed per session
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary font-mono">
+                      100%
+                    </div>
+                    <div className="text-xs text-muted-foreground font-mono">
+                      Terminal-based efficiency
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Installation Methods */}
         <section
           id="installation"
@@ -498,8 +620,8 @@ brew install gh-manager-cli`}
               Ready to streamline your GitHub workflow?
             </h2>
             <p className="text-muted-foreground text-lg mb-8 sm:mb-12 font-mono">
-              Join developers who are managing their repositories more
-              efficiently with gh-manager-cli
+              Join developers who are cleaning up and managing their
+              repositories more efficiently with gh-manager-cli
             </p>
 
             <TerminalWindow
