@@ -34,7 +34,7 @@ export function TerminalWindow({
   const textToCopy = getTextContent();
 
   return (
-    <div className={cn('terminal-window', className)}>
+    <div className={cn('terminal-window relative', className)}>
       <div className="terminal-header">
         <div className="terminal-dot red"></div>
         <div className="terminal-dot yellow"></div>
@@ -42,17 +42,17 @@ export function TerminalWindow({
         <span className="text-sm text-muted-foreground font-mono ml-2">
           {title}
         </span>
-        {showCopy && textToCopy && (
-          <div className="ml-auto">
-            <CopyButton
-              text={textToCopy}
-              size="sm"
-              className="h-6 w-6 text-muted-foreground hover:text-foreground"
-            />
-          </div>
-        )}
       </div>
       <div className="terminal-content">{children}</div>
+      {showCopy && textToCopy && (
+        <div className="absolute bottom-2 right-2 z-10">
+          <CopyButton
+            text={textToCopy}
+            size="sm"
+            className="h-8 w-8 bg-background/80 backdrop-blur-sm hover:bg-background/90 text-muted-foreground hover:text-foreground border border-border/50"
+          />
+        </div>
+      )}
     </div>
   );
 }

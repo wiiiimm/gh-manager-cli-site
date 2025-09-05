@@ -38,8 +38,9 @@ export function CodeBlock({
         className
       )}
     >
+      <div className="p-4 font-mono text-sm">{children}</div>
       {showCopy && textToCopy && (
-        <div className="absolute top-2 right-2 z-10">
+        <div className="absolute bottom-2 right-2 z-10">
           <CopyButton
             text={textToCopy}
             size="sm"
@@ -47,7 +48,6 @@ export function CodeBlock({
           />
         </div>
       )}
-      <div className="p-4 font-mono text-sm">{children}</div>
     </div>
   );
 }
