@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simplified logo-mark for favicon -->
+  <!-- Background -->
+  <rect x="1" y="1" width="30" height="30" rx="4" fill="#0D1117" stroke="#22c55e" stroke-width="1"/>
+  
+  <!-- Window dots (simplified) -->
+  <circle cx="5" cy="5" r="1" fill="#22c55e" opacity="0.5"/>
+  <circle cx="8" cy="5" r="1" fill="#22c55e" opacity="0.7"/>
+  <circle cx="11" cy="5" r="1" fill="#22c55e"/>
+  
+  <!-- Prompt ">" (simplified) -->
+  <path d="M6 13 L13 16 L6 19 Z" fill="#22c55e"/>
+  
+  <!-- Cursor "_" -->
+  <rect x="14" y="18" width="6" height="1.5" rx="0.5" fill="#22c55e"/>
+  
+  <!-- Star (simplified) -->
+  <path d="M24 13 L25 15 L27 15 L25.5 16.5 L26 18 L24 17 L22 18 L22.5 16.5 L21 15 L23 15 Z" fill="#22c55e" opacity="0.8"/>
+</svg>

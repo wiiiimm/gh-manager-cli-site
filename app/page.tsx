@@ -335,7 +335,7 @@ export default function HomePage() {
               <Card className="border-border bg-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-mono">
-                    <LogoMark className="text-primary" width={20} height={20} />
+                    <Terminal className="h-5 w-5 text-primary" />
                     NPX (Recommended)
                   </CardTitle>
                   <CardDescription className="font-mono">
@@ -354,7 +354,7 @@ export default function HomePage() {
               <Card className="border-border bg-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-mono">
-                    <LogoMark className="text-primary" width={20} height={20} />
+                    <Terminal className="h-5 w-5 text-primary" />
                     Homebrew
                   </CardTitle>
                   <CardDescription className="font-mono">
@@ -379,7 +379,7 @@ brew install gh-manager-cli`}
               <Card className="border-border bg-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-mono">
-                    <LogoMark className="text-primary" width={20} height={20} />
+                    <Terminal className="h-5 w-5 text-primary" />
                     Global Install
                   </CardTitle>
                   <CardDescription className="font-mono">
@@ -398,7 +398,7 @@ brew install gh-manager-cli`}
               <Card className="border-border bg-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-mono">
-                    <LogoMark className="text-primary" width={20} height={20} />
+                    <Terminal className="h-5 w-5 text-primary" />
                     Pre-built Binaries
                   </CardTitle>
                   <CardDescription className="font-mono">
