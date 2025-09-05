@@ -124,7 +124,7 @@ export default function HomePage() {
         <div className="relative z-10">
           {/* Header */}
           <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-            <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 py-4 flex items-center justify-between">
+            <div className="w-full sm:mx-auto md:max-w-none px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="relative">
                   <LogoMark className="text-primary" width={32} height={32} />
@@ -147,7 +147,8 @@ export default function HomePage() {
                   href="https://www.npmjs.com/package/gh-manager-cli"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackClick('footer-npm-total')}
+                  onClick={() => trackClick('header-npm-total')}
+                  className="hidden sm:block"
                 >
                   <img
                     src="https://img.shields.io/npm/dt/gh-manager-cli?style=social&logo=npm"
@@ -192,8 +193,8 @@ export default function HomePage() {
           </header>
 
           {/* Hero Section */}
-          <section className="py-20 sm:py-24 lg:py-[5vh] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
-            <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none text-center">
+          <section className="py-20 sm:py-24 lg:py-[5vh] px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
+            <div className="w-full sm:mx-auto md:max-w-none text-center">
               <Badge
                 variant="secondary"
                 className="mb-8 bg-muted text-primary font-mono"
@@ -250,8 +251,8 @@ export default function HomePage() {
           </section>
 
           {/* Features Grid */}
-          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
-            <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
+            <div className="w-full sm:mx-auto md:max-w-none">
               <div className="text-center mb-12 sm:mb-16">
                 <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
                   Powerful Repository Management
@@ -422,8 +423,8 @@ export default function HomePage() {
           </section>
 
           {/* GitHub Web UI Pain Points Section */}
-          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
-            <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
+            <div className="w-full sm:mx-auto md:max-w-none">
               <div className="text-center mb-12 sm:mb-16">
                 <Badge variant="destructive" className="mb-6 font-mono">
                   {'>'} The Problem
@@ -551,8 +552,8 @@ export default function HomePage() {
           </section>
 
           {/* Account Cleanup Section */}
-          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
-            <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
+            <div className="w-full sm:mx-auto md:max-w-none">
               <div className="text-center mb-12 sm:mb-16">
                 <Badge
                   variant="secondary"
@@ -674,9 +675,9 @@ export default function HomePage() {
           {/* Installation Methods */}
           <section
             id="installation"
-            className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto"
+            className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto"
           >
-            <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+            <div className="w-full sm:mx-auto md:max-w-none">
               <div className="text-center mb-12 sm:mb-16">
                 <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
                   Multiple Installation Options
@@ -790,8 +791,8 @@ brew install gh-manager-cli`}
           </section>
 
           {/* Workflow Demo */}
-          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-2xl mx-auto">
-            <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-2xl mx-auto">
+            <div className="w-full sm:mx-auto md:max-w-none">
               <div className="text-center mb-12 sm:mb-16">
                 <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
                   Simple Workflow
@@ -857,9 +858,9 @@ brew install gh-manager-cli`}
           {/* CTA Section */}
           <section
             id="get-started"
-            className="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full"
+            className="py-20 sm:py-24 lg:py-32 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full"
           >
-            <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none text-center">
+            <div className="w-full sm:mx-auto md:max-w-none text-center">
               <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
                 Start cleaning up your GitHub account now
               </h2>
@@ -925,8 +926,8 @@ brew install gh-manager-cli`}
           </section>
 
           {/* Footer */}
-          <footer className="border-t border-border bg-muted/30 py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
-            <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+          <footer className="border-t border-border bg-muted/30 py-12 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full">
+            <div className="w-full sm:mx-auto md:max-w-none">
               <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
                 <div>
                   <div className="flex items-center gap-2 mb-3 sm:mb-4">
