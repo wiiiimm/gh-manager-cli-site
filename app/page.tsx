@@ -511,7 +511,7 @@ brew install gh-manager-cli`}
               </div>
             </TerminalWindow>
 
-            <p className="text-xs text-muted-foreground mb-6 font-mono">
+            <p className="text-xs text-muted-foreground mb-8 sm:mb-12 font-mono">
               <a
                 href="#installation"
                 className="hover:text-primary transition-colors underline"
@@ -520,7 +520,7 @@ brew install gh-manager-cli`}
               </a>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
