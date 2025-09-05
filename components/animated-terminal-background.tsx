@@ -15,65 +15,55 @@ const terminalSessions: TerminalSession[] = [
       'GitHub Repository Manager v1.21.0',
       'Validating token...',
       'Press Esc to cancel',
-      'GitHub Repository Manager v1.21.0                               @wiiiimm',
+      'GitHub Repository Manager v1.21.0',
       'Repositories (Loading...)',
       '⠋ Loading repositories...',
       'Fetching your GitHub repositories',
       'Please wait...',
-      'GitHub Repository Manager v1.21.0                     altx-labs/@wiiiimm',
-      'ALT-X Labs ⌥ Repositories (15/369)                        API: 5000/5000',
-      'Organization: ALT-X Labs  Sort: pushed ↓  Fork Status/Commits Behind: ⌥ ON',
+      'GitHub Repository Manager v1.21.0',
+      'ALT-X Labs ⌥ Repositories (15/369)',
+      'API: 5000/5000',
+      'Organization: ALT-X Labs',
+      'Sort: pushed ↓  Fork Status: ⌥ ON',
       '1. altx-labs/piaf  Internal',
-      '2. altx-labs/piaf-prototype-nextjs-v0-1  Internal',
-      '3. altx-labs/piaf-prototype-nextjs-replit  Internal',
-      '4. altx-labs/piaf-prototype-nextjs-claude-replit  Internal',
-      '● TypeScript  ★ 0  ⑂ 0  Updated yesterday',
-      '↑↓ Navigate • Ctrl+G Top • G Bottom • ⏎/O Open • R Refresh',
-      '/ Search • S Sort • D Direction • T Density • F Fork Status • V Visibility',
-      'I Info • C Copy URL • Ctrl+R Rename • Ctrl+A Un/Archive • Ctrl+V Change',
-      'K Cache Info • W Org Switch • Del/Backspace Delete • Ctrl+L Logout • Q Quit',
-      'ALT-X Labs ⌥ (ENT) Repositories (15/369)                  API: 5000/5000',
+      '2. altx-labs/piaf-prototype',
+      '3. altx-labs/piaf-nextjs-replit',
+      '4. altx-labs/piaf-claude',
+      '● TypeScript  ★ 0  ⑂ 0',
+      'Updated yesterday',
+      '↑↓ Navigate • ⏎ Open • R Refresh',
+      '/ Search • S Sort • D Direction',
+      'I Info • C Copy • Ctrl+R Rename',
+      'Del Delete • Ctrl+L Logout • Q Quit',
+      'ALT-X Labs ⌥ (ENT) Repositories',
     ],
   },
   {
     command: 'npm install -g gh-manager-cli',
     responses: [
-      '> gh-manager-cli@1.21.0 build …/gh-manager-cli/.conductor/wiiiimm-phoenix',
+      '> gh-manager-cli@1.21.0 build',
       '> tsup',
       'CLI Building entry: src/index.tsx',
       'CLI Using tsconfig: tsconfig.json',
       'CLI tsup v8.5.0',
-      'CLI Using tsup config: …/tsup.config.ts',
       'CLI Target: node18',
       'CLI Cleaning output folder',
       'ESM Build start',
-      'ESM dist/github-ERXQNAVD.js 1.18 KB',
-      'ESM dist/index.js           149.56 KB',
-      'ESM dist/chunk-RI2B33OX.js  37.30 KB',
+      'ESM dist/github.js 1.18 KB',
+      'ESM dist/index.js 149.56 KB',
+      'ESM dist/chunk.js 37.30 KB',
       'ESM ⚡️ Build success in 29ms',
-      '> gh-manager-cli@1.21.0 start …/gh-manager-cli/.conductor/wiiiimm-phoenix',
+      '> gh-manager-cli@1.21.0 start',
       '> node dist/index.js',
       'GitHub Repository Manager v1.21.0',
       'Validating token...',
       'Press Esc to cancel',
-      'GitHub Repository Manager v1.21.0                               @wiiiimm',
+      'GitHub Repository Manager v1.21.0',
       'Repositories (Loading...)',
       '⠋ Loading repositories...',
       'Fetching your GitHub repositories',
       'Please wait...',
-      'GitHub Repository Manager v1.21.0                     altx-labs/@wiiiimm',
-      'ALT-X Labs ⌥ Repositories (15/369)                        API: 5000/5000',
-      'Organization: ALT-X Labs  Sort: pushed ↓  Fork Status/Commits Behind: ⌥ ON',
-      '1. altx-labs/piaf  Internal',
-      '2. altx-labs/piaf-prototype-nextjs-v0-1  Internal',
-      '3. altx-labs/piaf-prototype-nextjs-replit  Internal',
-      '4. altx-labs/piaf-prototype-nextjs-claude-replit  Internal',
-      '● TypeScript  ★ 0  ⑂ 0  Updated yesterday',
-      '↑↓ Navigate • Ctrl+G Top • G Bottom • ⏎/O Open • R Refresh',
-      '/ Search • S Sort • D Direction • T Density • F Fork Status • V Visibility',
-      'I Info • C Copy URL • Ctrl+R Rename • Ctrl+A Un/Archive • Ctrl+V Change',
-      'K Cache Info • W Org Switch • Del/Backspace Delete • Ctrl+L Logout • Q Quit',
-      'ALT-X Labs ⌥ (ENT) Repositories (15/369)                  API: 5000/5000',
+      'GitHub Repository Manager v1.21.0',
     ],
   },
   {
@@ -95,17 +85,17 @@ const terminalSessions: TerminalSession[] = [
       'Usage: gh-manager-cli [options]',
       '',
       'Options:',
-      '  -h, --help      Display help information',
+      '  -h, --help      Display help',
       '  -v, --version   Display version',
-      '  --token <token> Use custom GitHub token',
-      '  --org <name>    Filter by organization',
-      '  --clear-cache   Clear local cache',
+      '  --token <token> Use custom token',
+      '  --org <name>    Filter by org',
+      '  --clear-cache   Clear cache',
       '',
       'Interactive Commands:',
-      '  ↑/↓             Navigate repositories',
-      '  Enter/O         Open repository in browser',
-      '  R               Refresh repository list',
-      '  S               Change sort order',
+      '  ↑/↓             Navigate repos',
+      '  Enter/O         Open in browser',
+      '  R               Refresh list',
+      '  S               Change sort',
       '  Q               Quit application',
     ],
   },
@@ -276,7 +266,7 @@ export function AnimatedTerminalBackground() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
-      <div className="absolute inset-0 p-8 font-mono text-sm overflow-hidden">
+      <div className="absolute inset-0 p-2 sm:p-8 font-mono text-xs sm:text-sm overflow-hidden">
         <div className="max-w-4xl mx-auto h-full flex flex-col justify-center">
           <div className="space-y-1">
             {/* Previously displayed lines */}
@@ -293,11 +283,11 @@ export function AnimatedTerminalBackground() {
                   transition={{ duration: 0.2 }}
                 >
                   {line.type === 'command' ? (
-                    <div className="text-green-400/80">
+                    <div className="text-green-400/80 break-all sm:break-normal">
                       <span className="text-gray-500/70">$</span> {line.text}
                     </div>
                   ) : (
-                    <div className="text-gray-400/60 ml-2">
+                    <div className="text-gray-400/60 ml-2 break-all sm:break-normal">
                       {line.isStreaming && line.streamProgress !== undefined
                         ? line.text.slice(0, line.streamProgress)
                         : line.text}
@@ -309,7 +299,7 @@ export function AnimatedTerminalBackground() {
 
             {/* Currently typing command */}
             {isTypingCommand && (
-              <div className="text-green-400/90 flex items-center">
+              <div className="text-green-400/90 flex items-center break-all sm:break-normal">
                 <span className="text-gray-500/70 mr-1">$</span>
                 <span>{displayedCommand}</span>
                 {showCursor && (

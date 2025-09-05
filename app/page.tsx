@@ -116,7 +116,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="min-h-screen relative">
+      <div className="min-h-screen relative overflow-x-hidden">
         <AnimatedTerminalBackground />
 
         <div className="absolute inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-sm z-[1]" />
