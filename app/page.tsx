@@ -212,8 +212,8 @@ export default function HomePage() {
                     Repository Actions
                   </CardTitle>
                   <CardDescription className="font-mono">
-                    Archive, delete, change visibility, and sync forks with
-                    confirmation prompts
+                    Rename, archive, delete, change visibility, and sync forks
+                    with confirmation prompts
                   </CardDescription>
                 </CardHeader>
               </Card>
