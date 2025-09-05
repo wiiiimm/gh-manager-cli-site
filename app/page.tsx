@@ -33,6 +33,8 @@ import { CopyButton } from '@/components/ui/copy-button';
 import { CodeBlock } from '@/components/ui/code-block';
 import { HeroVideo } from '@/components/hero-video';
 import { LogoMark } from '@/components/icons/logo-mark';
+import NpmStats from '@/components/npm-stats';
+import NpmBadges from '@/components/npm-badges';
 import Script from 'next/script';
 import { track } from '@vercel/analytics';
 import { useTheme } from 'next-themes';
@@ -141,6 +143,18 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
+                {/* NPM Stats - Hidden on mobile, shown on larger screens */}
+                <div className="hidden md:flex">
+                  <NpmBadges
+                    packageName="gh-manager-cli"
+                    showVersion={false}
+                    showWeekly={true}
+                    showMonthly={false}
+                    showTotal={false}
+                    style="badgen"
+                    className="scale-75"
+                  />
+                </div>
                 <ThemeToggle
                   onThemeChange={(theme) =>
                     trackClick(`header-theme-toggle-${theme}`)
@@ -200,6 +214,11 @@ export default function HomePage() {
 
               {/* Hero Video Demo */}
               <HeroVideo className="mb-12 w-full max-w-xl mx-auto" />
+
+              {/* NPM Download Stats */}
+              <div className="mb-8 flex justify-center">
+                <NpmStats packageName="gh-manager-cli" />
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
                 <Button
@@ -667,9 +686,20 @@ export default function HomePage() {
                 <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
                   Multiple Installation Options
                 </h2>
-                <p className="text-muted-foreground text-lg font-mono">
+                <p className="text-muted-foreground text-lg font-mono mb-6">
                   Choose the method that works best for you
                 </p>
+                {/* NPM Package Stats */}
+                <div className="flex justify-center">
+                  <NpmBadges
+                    packageName="gh-manager-cli"
+                    showVersion={true}
+                    showWeekly={true}
+                    showMonthly={true}
+                    showTotal={true}
+                    style="badgen"
+                  />
+                </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
