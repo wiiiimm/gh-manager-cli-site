@@ -32,7 +32,7 @@ import { TerminalWindow } from '@/components/ui/terminal-window';
 import { CopyButton } from '@/components/ui/copy-button';
 import { CodeBlock } from '@/components/ui/code-block';
 import { HeroVideo } from '@/components/hero-video';
-import { AppLogo } from '@/components/icons/app-logo';
+import { LogoMark } from '@/components/icons/logo-mark';
 
 export default function HomePage() {
   return (
@@ -47,7 +47,7 @@ export default function HomePage() {
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 py-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="relative">
-                <AppLogo width={32} height={32} />
+                <LogoMark className="text-primary" width={32} height={32} />
               </div>
               <div className="relative">
                 <span className="font-bold text-xl font-mono">
@@ -335,7 +335,7 @@ export default function HomePage() {
               <Card className="border-border bg-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-mono">
-                    <AppLogo width={20} height={20} />
+                    <LogoMark className="text-primary" width={20} height={20} />
                     NPX (Recommended)
                   </CardTitle>
                   <CardDescription className="font-mono">
@@ -354,7 +354,7 @@ export default function HomePage() {
               <Card className="border-border bg-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-mono">
-                    <AppLogo width={20} height={20} />
+                    <LogoMark className="text-primary" width={20} height={20} />
                     Homebrew
                   </CardTitle>
                   <CardDescription className="font-mono">
@@ -379,7 +379,7 @@ brew install gh-manager-cli`}
               <Card className="border-border bg-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-mono">
-                    <AppLogo width={20} height={20} />
+                    <LogoMark className="text-primary" width={20} height={20} />
                     Global Install
                   </CardTitle>
                   <CardDescription className="font-mono">
@@ -398,7 +398,7 @@ brew install gh-manager-cli`}
               <Card className="border-border bg-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-mono">
-                    <AppLogo width={20} height={20} />
+                    <LogoMark className="text-primary" width={20} height={20} />
                     Pre-built Binaries
                   </CardTitle>
                   <CardDescription className="font-mono">
@@ -560,7 +560,7 @@ brew install gh-manager-cli`}
             <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
               <div>
                 <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                  <AppLogo width={20} height={20} />
+                  <LogoMark className="text-primary" width={20} height={20} />
                   <span className="font-bold font-mono">gh-manager-cli</span>
                 </div>
                 <p className="text-muted-foreground text-sm font-mono">
