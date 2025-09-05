@@ -31,6 +31,7 @@ import { AnimatedTerminalBackground } from '@/components/animated-terminal-backg
 import { TerminalWindow } from '@/components/ui/terminal-window';
 import { CopyButton } from '@/components/ui/copy-button';
 import { CodeBlock } from '@/components/ui/code-block';
+import { HeroVideo } from '@/components/hero-video';
 
 export default function HomePage() {
   return (
@@ -118,6 +119,9 @@ export default function HomePage() {
                 npx gh-manager-cli@latest
               </div>
             </TerminalWindow>
+
+            {/* Hero Video Demo */}
+            <HeroVideo className="mb-12" />
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
               <Button
