@@ -887,7 +887,6 @@ brew install gh-manager-cli`}
                 >
                   <a
                     href="#installation"
-                    className="hover:text-primary transition-colors underline"
                     onClick={() => trackClick('cta-installation-methods-link')}
                   >
                     <Terminal className="h-4 w-4 mr-2" />
