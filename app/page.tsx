@@ -116,7 +116,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="min-h-screen relative">
+      <div className="min-h-screen relative overflow-x-hidden">
         <AnimatedTerminalBackground />
 
         <div className="absolute inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-sm z-[1]" />
@@ -887,7 +887,6 @@ brew install gh-manager-cli`}
                 >
                   <a
                     href="#installation"
-                    className="hover:text-primary transition-colors underline"
                     onClick={() => trackClick('cta-installation-methods-link')}
                   >
                     <Terminal className="h-4 w-4 mr-2" />

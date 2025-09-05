@@ -276,7 +276,7 @@ export function AnimatedTerminalBackground() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
-      <div className="absolute inset-0 p-8 font-mono text-sm overflow-hidden">
+      <div className="absolute inset-0 p-2 sm:p-8 font-mono text-xs sm:text-sm overflow-hidden">
         <div className="max-w-4xl mx-auto h-full flex flex-col justify-center">
           <div className="space-y-1">
             {/* Previously displayed lines */}
@@ -293,11 +293,11 @@ export function AnimatedTerminalBackground() {
                   transition={{ duration: 0.2 }}
                 >
                   {line.type === 'command' ? (
-                    <div className="text-green-400/80">
+                    <div className="text-green-400/80 break-all sm:break-normal">
                       <span className="text-gray-500/70">$</span> {line.text}
                     </div>
                   ) : (
-                    <div className="text-gray-400/60 ml-2">
+                    <div className="text-gray-400/60 ml-2 break-all sm:break-normal">
                       {line.isStreaming && line.streamProgress !== undefined
                         ? line.text.slice(0, line.streamProgress)
                         : line.text}
@@ -309,7 +309,7 @@ export function AnimatedTerminalBackground() {
 
             {/* Currently typing command */}
             {isTypingCommand && (
-              <div className="text-green-400/90 flex items-center">
+              <div className="text-green-400/90 flex items-center break-all sm:break-normal">
                 <span className="text-gray-500/70 mr-1">$</span>
                 <span>{displayedCommand}</span>
                 {showCursor && (
