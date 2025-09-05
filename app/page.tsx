@@ -121,7 +121,7 @@ export default function HomePage() {
                 asChild
               >
                 <a href="#get-started">
-                  <AppLogo className="mr-2" width={16} height={16} />
+                  <Terminal className="h-4 w-4 mr-2" />
                   Try Now
                 </a>
               </Button>
@@ -531,7 +531,7 @@ brew install gh-manager-cli`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <AppLogo className="mr-2" width={16} height={16} />
+                  <Terminal className="h-4 w-4 mr-2" />
                   Get Started Now
                 </a>
               </Button>
