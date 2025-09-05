@@ -105,7 +105,7 @@ export default function HomePage() {
               </div>
               <div className="terminal-content">
                 <div className="terminal-prompt font-mono text-primary font-semibold text-lg my-8">
-                  npx gh-manager-cli
+                  npx gh-manager-cli@latest
                 </div>
               </div>
             </div>
@@ -317,7 +317,10 @@ export default function HomePage() {
         </section>
 
         {/* Installation Methods */}
-        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
+        <section
+          id="installation"
+          className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full"
+        >
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
@@ -343,7 +346,7 @@ export default function HomePage() {
                   <div className="terminal-window">
                     <div className="terminal-content">
                       <div className="terminal-prompt font-mono text-primary">
-                        npx gh-manager-cli
+                        npx gh-manager-cli@latest
                       </div>
                     </div>
                   </div>
@@ -406,9 +409,17 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground font-mono">
+                  <p className="text-sm text-muted-foreground font-mono mb-4">
                     Download standalone executables for Linux, macOS, and
-                    Windows from GitHub Releases
+                    Windows from{' '}
+                    <a
+                      href="https://github.com/wiiiimm/gh-manager-cli/releases"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
+                      GitHub Releases
+                    </a>
                   </p>
                 </CardContent>
               </Card>
@@ -440,7 +451,7 @@ export default function HomePage() {
                   <div className="terminal-window w-full max-w-lg mx-auto">
                     <div className="terminal-content">
                       <div className="terminal-prompt font-mono text-primary">
-                        npx gh-manager-cli
+                        npx gh-manager-cli@latest
                       </div>
                     </div>
                   </div>
@@ -501,7 +512,7 @@ export default function HomePage() {
               </div>
               <div className="terminal-content">
                 <div className="terminal-prompt font-mono text-primary font-semibold text-lg my-8">
-                  npx gh-manager-cli
+                  npx gh-manager-cli@latest
                 </div>
               </div>
             </div>
@@ -561,7 +572,9 @@ export default function HomePage() {
                 <ul className="space-y-2 text-sm font-mono">
                   <li>
                     <a
-                      href="#"
+                      href="https://github.com/wiiiimm/gh-manager-cli/tree/main/wiki"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary"
                     >
                       Documentation
@@ -569,7 +582,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="#installation"
                       className="text-muted-foreground hover:text-primary"
                     >
                       Installation Guide
@@ -577,7 +590,9 @@ export default function HomePage() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="https://github.com/wiiiimm/gh-manager-cli/blob/main/wiki/Troubleshooting.md"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary"
                     >
                       Troubleshooting
@@ -585,7 +600,9 @@ export default function HomePage() {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="https://github.com/wiiiimm/gh-manager-cli/blob/main/wiki/Roadmap.md"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary"
                     >
                       Roadmap
