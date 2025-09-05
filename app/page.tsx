@@ -145,7 +145,7 @@ export default function HomePage() {
         </section>
 
         {/* Features Grid */}
-        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full bg-muted/30 max-w-6xl mx-auto">
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
@@ -425,7 +425,7 @@ brew install gh-manager-cli`}
         </section>
 
         {/* Workflow Demo */}
-        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full bg-muted/30 max-w-2xl mx-auto">
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-2xl mx-auto">
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
