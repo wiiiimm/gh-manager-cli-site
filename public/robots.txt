@@ -1,0 +1,21 @@
+# Robots.txt for gh-manager-cli.dev
+# GitHub Manager Terminal CLI Tool
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://gh-manager-cli.dev/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Search engine specific rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

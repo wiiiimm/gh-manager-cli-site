@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "gh-manager-cli - TUI Terminal GitHub Repository Management Tool | Clean Up Your GitHub in 5 Minutes",
   description: "Stop clicking through GitHub's slow web UI. Archive old projects, delete forks, and organize your repos with powerful keyboard shortcuts. Clean up 50+ repos in minutes, not hours.",
   generator: "v0.app",
-  keywords: ["github", "repository management", "cli", "terminal", "developer tools", "github cleanup", "archive repos", "delete forks", "github organization"],
+  keywords: ["gh-manager-cli", "github manager terminal", "github manager cli", "github terminal management", "terminal ui github", "tui github manager", "github repository management cli", "github", "repository management", "cli", "terminal", "developer tools", "github cleanup", "archive repos", "delete forks", "github organization", "github tui", "github terminal interface"],
   authors: [{ name: "William Li" }],
   creator: "William Li",
   publisher: "gh-manager-cli",

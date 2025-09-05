@@ -33,10 +33,49 @@ import { CopyButton } from '@/components/ui/copy-button';
 import { CodeBlock } from '@/components/ui/code-block';
 import { HeroVideo } from '@/components/hero-video';
 import { LogoMark } from '@/components/icons/logo-mark';
+import Script from 'next/script';
 
 export default function HomePage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "gh-manager-cli",
+    "alternateName": ["GitHub Manager Terminal", "GitHub Manager CLI", "GitHub Terminal Management Tool"],
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": ["Windows", "macOS", "Linux"],
+    "description": "TUI Terminal GitHub Repository Management Tool - Stop clicking through GitHub's slow web UI. Archive, delete, and organize repos with powerful keyboard shortcuts.",
+    "url": "https://gh-manager-cli.dev",
+    "author": {
+      "@type": "Person",
+      "name": "William Li",
+      "url": "https://github.com/wiiiimm"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "softwareVersion": "1.30.0",
+    "keywords": "gh-manager-cli, github manager terminal, github manager cli, github terminal management, terminal ui github, tui github manager",
+    "downloadUrl": "https://www.npmjs.com/package/gh-manager-cli",
+    "installUrl": "https://www.npmjs.com/package/gh-manager-cli",
+    "releaseNotes": "https://github.com/wiiiimm/gh-manager-cli/releases",
+    "screenshot": "https://gh-manager-cli.dev/app-demo-poster.jpg",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "100"
+    }
+  };
+
   return (
-    <div className="min-h-screen relative">
+    <>
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="min-h-screen relative">
       <AnimatedTerminalBackground />
 
       <div className="absolute inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-sm z-[1]" />
@@ -104,13 +143,12 @@ export default function HomePage() {
               gh-manager-cli@latest!
             </Badge>
             <h1 className="text-xl sm:text-3xl md:text-5xl font-bold mb-8 text-balance font-mono">
-              The fastest way to organize and manage your{' '}
-              <span className="text-primary">GitHub repositories</span>
+              gh-manager-cli: The Terminal GitHub Manager for{' '}
+              <span className="text-primary">Repository Management</span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-12 text-pretty w-full font-mono">
-              Archive old projects. Delete forgotten forks. Rename repos
-              consistently. <br />
-              Take control of your GitHub profile from the terminal.
+              GitHub manager terminal interface. Archive, delete, and organize repos with this CLI tool. <br />
+              The TUI GitHub management solution developers love - manage GitHub from terminal.
             </p>
 
             {/* Hero Video Demo */}
@@ -925,5 +963,6 @@ brew install gh-manager-cli`}
         </footer>
       </div>
     </div>
+    </>
   );
 }
