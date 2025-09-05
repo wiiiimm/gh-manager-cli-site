@@ -1,6 +1,6 @@
 # Claude AI Agent Instructions
 
-👋 Hello Claude! 
+👋 Hello Claude!
 
 For comprehensive instructions on working with this project, please read:
 
@@ -26,4 +26,4 @@ The `AGENTS.md` file contains all the detailed information you need including:
 
 ---
 
-*This file exists to redirect Claude agents to the main instruction document to avoid duplication and ensure all AI agents follow the same comprehensive guidelines.*
+_This file exists to redirect Claude agents to the main instruction document to avoid duplication and ensure all AI agents follow the same comprehensive guidelines._
