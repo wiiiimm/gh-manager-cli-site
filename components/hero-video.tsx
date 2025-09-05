@@ -50,7 +50,7 @@ export function HeroVideo({ className = '' }: HeroVideoProps) {
             onClick={handlePlayClick}
           >
             <img
-              src="https://github.com/wiiiimm/gh-manager-cli/releases/download/v1.0.0/app-demo.gif"
+              src="https://raw.githubusercontent.com/wiiiimm/gh-manager-cli-site/main/docs/app-demo.gif"
               alt="gh-manager-cli demo preview"
               className="w-full h-auto rounded-lg"
               loading="lazy"
@@ -73,7 +73,7 @@ export function HeroVideo({ className = '' }: HeroVideoProps) {
             <video
               ref={videoRef}
               className="w-full h-auto"
-              poster="https://github.com/wiiiimm/gh-manager-cli/releases/download/v1.0.0/app-demo-poster.jpg"
+              poster="https://raw.githubusercontent.com/wiiiimm/gh-manager-cli-site/main/docs/app-demo-poster.jpg"
               preload="metadata"
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
@@ -81,7 +81,7 @@ export function HeroVideo({ className = '' }: HeroVideoProps) {
               controls
             >
               <source
-                src="https://github.com/wiiiimm/gh-manager-cli/releases/download/v1.0.0/app-demo-optimized.mp4"
+                src="https://raw.githubusercontent.com/wiiiimm/gh-manager-cli-site/main/docs/app-demo-optimized.mp4"
                 type="video/mp4"
               />
               Your browser does not support the video tag.

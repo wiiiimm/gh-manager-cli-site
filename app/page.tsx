@@ -93,7 +93,7 @@ export default function HomePage() {
         </header>
 
         {/* Hero Section */}
-        <section className="py-20 sm:py-24 lg:py-[25vh] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
+        <section className="py-20 sm:py-24 lg:py-[5vh] px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none text-center">
             <Badge
               variant="secondary"
@@ -101,27 +101,17 @@ export default function HomePage() {
             >
               {'>'} Fast, keyboard-first GitHub repo management
             </Badge>
-            <h1 className="text-5xl font-bold mb-8 text-balance font-mono">
+            <h1 className="text-xl sm:text-3xl md:text-5xl font-bold mb-8 text-balance font-mono">
               Interactive TUI terminal app to browse and manage your{' '}
               <span className="text-primary">GitHub repositories</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-12 text-pretty w-full font-mono">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-12 text-pretty w-full font-mono">
               Built with Ink (React for CLIs) and the GitHub GraphQL API. <br />
               Manage your repos without leaving the terminal.
             </p>
 
-            {/* Terminal Command showcase */}
-            <TerminalWindow
-              className="mb-12 w-full max-w-lg mx-auto"
-              copyText="npx gh-manager-cli@latest"
-            >
-              <div className="terminal-prompt font-mono text-primary font-semibold text-lg my-8">
-                npx gh-manager-cli@latest
-              </div>
-            </TerminalWindow>
-
             {/* Hero Video Demo */}
-            <HeroVideo className="mb-12" />
+            <HeroVideo className="mb-12 w-full max-w-xl mx-auto" />
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
               <Button
@@ -129,11 +119,7 @@ export default function HomePage() {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
                 asChild
               >
-                <a
-                  href="https://www.npmjs.com/package/gh-manager-cli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="#get-started">
                   <Terminal className="h-4 w-4 mr-2" />
                   Try Now
                 </a>
@@ -502,7 +488,10 @@ brew install gh-manager-cli`}
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full">
+        <section
+          id="get-started"
+          className="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full"
+        >
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none text-center">
             <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
               Ready to streamline your GitHub workflow?
@@ -520,6 +509,15 @@ brew install gh-manager-cli`}
                 npx gh-manager-cli@latest
               </div>
             </TerminalWindow>
+
+            <p className="text-xs text-muted-foreground mb-6 font-mono">
+              <a
+                href="#installation"
+                className="hover:text-primary transition-colors underline"
+              >
+                Other installation methods available
+              </a>
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
