@@ -100,7 +100,7 @@ export default function HomePage() {
               variant="secondary"
               className="mb-8 bg-muted text-primary font-mono"
             >
-              {'>'} Clean up your GitHub account in 5 minutes
+              {'>'} Clean up your GitHub account in 5 minutes, just npx gh-manager-cli@latest!
             </Badge>
             <h1 className="text-xl sm:text-3xl md:text-5xl font-bold mb-8 text-balance font-mono">
               The fastest way to organize and manage your{' '}
