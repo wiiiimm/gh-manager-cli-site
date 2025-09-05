@@ -104,7 +104,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-mono"
