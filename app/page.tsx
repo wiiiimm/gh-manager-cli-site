@@ -124,7 +124,7 @@ export default function HomePage() {
         <div className="relative z-10">
           {/* Header */}
           <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-            <div className="w-full sm:mx-auto md:max-w-none px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-4 flex items-center justify-between">
+            <div className="w-full sm:mx-auto md:max-w-7xl px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="relative">
                   <LogoMark className="text-primary" width={32} height={32} />
@@ -927,7 +927,7 @@ brew install gh-manager-cli`}
 
           {/* Footer */}
           <footer className="border-t border-border bg-muted/30 py-12 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full">
-            <div className="w-full sm:mx-auto md:max-w-none">
+            <div className="w-full sm:mx-auto md:max-w-5xl">
               <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
                 <div>
                   <div className="flex items-center gap-2 mb-3 sm:mb-4">
