@@ -100,14 +100,16 @@ export default function HomePage() {
               variant="secondary"
               className="mb-8 bg-muted text-primary font-mono"
             >
-              {'>'} Clean up your GitHub account in 5 minutes, just npx gh-manager-cli@latest!
+              {'>'} Clean up your GitHub account in 5 minutes, just npx
+              gh-manager-cli@latest!
             </Badge>
             <h1 className="text-xl sm:text-3xl md:text-5xl font-bold mb-8 text-balance font-mono">
               The fastest way to organize and manage your{' '}
               <span className="text-primary">GitHub repositories</span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-12 text-pretty w-full font-mono">
-              Archive old projects. Delete forgotten forks. Rename repos consistently. <br />
+              Archive old projects. Delete forgotten forks. Rename repos
+              consistently. <br />
               Take control of your GitHub profile from the terminal.
             </p>
 
@@ -320,10 +322,7 @@ export default function HomePage() {
         <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
             <div className="text-center mb-12 sm:mb-16">
-              <Badge
-                variant="destructive"
-                className="mb-6 font-mono"
-              >
+              <Badge variant="destructive" className="mb-6 font-mono">
                 {'>'} The Problem
               </Badge>
               <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
@@ -332,7 +331,8 @@ export default function HomePage() {
               <p className="text-muted-foreground text-lg font-mono max-w-3xl mx-auto">
                 Managing repositories on github.com is painfully slow. Every
                 action requires multiple clicks, page loads, and digging through
-                settings menus. With dozens or hundreds of repos, it's a nightmare.
+                settings menus. With dozens or hundreds of repos, it's a
+                nightmare.
               </p>
             </div>
 
@@ -349,27 +349,39 @@ export default function HomePage() {
                   <ul className="space-y-3 text-sm font-mono">
                     <li className="flex items-start gap-2">
                       <span className="text-destructive">✕</span>
-                      <span className="text-muted-foreground">20 repos per page, endless "Next" clicking</span>
+                      <span className="text-muted-foreground">
+                        20 repos per page, endless "Next" clicking
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-destructive">✕</span>
-                      <span className="text-muted-foreground">Click repo → Settings → scroll → find action</span>
+                      <span className="text-muted-foreground">
+                        Click repo → Settings → scroll → find action
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-destructive">✕</span>
-                      <span className="text-muted-foreground">No bulk operations for archive/delete</span>
+                      <span className="text-muted-foreground">
+                        No bulk operations for archive/delete
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-destructive">✕</span>
-                      <span className="text-muted-foreground">Full page refresh after every action</span>
+                      <span className="text-muted-foreground">
+                        Full page refresh after every action
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-destructive">✕</span>
-                      <span className="text-muted-foreground">Can't filter by last activity or fork status</span>
+                      <span className="text-muted-foreground">
+                        Can't filter by last activity or fork status
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-destructive">✕</span>
-                      <span className="text-muted-foreground">No keyboard shortcuts for power users</span>
+                      <span className="text-muted-foreground">
+                        No keyboard shortcuts for power users
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
@@ -387,27 +399,39 @@ export default function HomePage() {
                   <ul className="space-y-3 text-sm font-mono">
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">View all repos with smooth infinite scroll</span>
+                      <span className="text-muted-foreground">
+                        View all repos with smooth infinite scroll
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Single keypress for any action</span>
+                      <span className="text-muted-foreground">
+                        Single keypress for any action
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Batch operations on multiple repos</span>
+                      <span className="text-muted-foreground">
+                        Batch operations on multiple repos
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Instant updates with no page reload</span>
+                      <span className="text-muted-foreground">
+                        Instant updates with no page reload
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Smart filters by date, size, fork status</span>
+                      <span className="text-muted-foreground">
+                        Smart filters by date, size, fork status
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Full keyboard control for everything</span>
+                      <span className="text-muted-foreground">
+                        Full keyboard control for everything
+                      </span>
                     </li>
                   </ul>
                 </CardContent>
@@ -416,7 +440,8 @@ export default function HomePage() {
 
             <div className="text-center">
               <p className="text-xl font-bold text-primary font-mono">
-                Result: Clean up 50+ repos in 5 minutes instead of an hour of clicking
+                Result: Clean up 50+ repos in 5 minutes instead of an hour of
+                clicking
               </p>
             </div>
           </div>
@@ -790,8 +815,11 @@ brew install gh-manager-cli`}
                   <LogoMark className="text-primary" width={20} height={20} />
                   <span className="font-bold font-mono">gh-manager-cli</span>
                 </div>
-                <p className="text-muted-foreground text-sm font-mono">
+                <p className="text-muted-foreground text-sm font-mono mb-2">
                   Interactive TUI terminal app for GitHub repository management
+                </p>
+                <p className="text-muted-foreground text-sm font-mono">
+                  npx gh-manager-cli@latest
                 </p>
               </div>
 
