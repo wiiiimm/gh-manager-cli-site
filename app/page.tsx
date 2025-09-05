@@ -879,16 +879,6 @@ brew install gh-manager-cli`}
                 </div>
               </TerminalWindow>
 
-              <p className="text-xs text-muted-foreground mb-8 sm:mb-12 font-mono">
-                <a
-                  href="#installation"
-                  className="hover:text-primary transition-colors underline"
-                  onClick={() => trackClick('cta-installation-methods-link')}
-                >
-                  Other installation methods available
-                </a>
-              </p>
-
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
                 <Button
                   size="lg"
@@ -896,10 +886,9 @@ brew install gh-manager-cli`}
                   asChild
                 >
                   <a
-                    href="https://www.npmjs.com/package/gh-manager-cli"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackClick('cta-get-started-button')}
+                    href="#installation"
+                    className="hover:text-primary transition-colors underline"
+                    onClick={() => trackClick('cta-installation-methods-link')}
                   >
                     <Terminal className="h-4 w-4 mr-2" />
                     Get Started Now
