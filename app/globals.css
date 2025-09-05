@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   /* Terminal-inspired light theme */
@@ -177,7 +177,21 @@
 }
 
 .terminal-prompt::before {
-  content: "$ ";
+  content: '$ ';
   color: var(--color-terminal-green);
   font-weight: bold;
+}
+
+/* Cursor blink animation with dimming effect */
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  51%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
 }

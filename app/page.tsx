@@ -44,10 +44,21 @@ export default function HomePage() {
         <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 py-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Terminal className="h-6 w-6 text-primary" />
-              <span className="font-bold text-xl font-mono">
-                gh-manager-cli
-              </span>
+              <div className="relative">
+                <Terminal className="h-6 w-6 text-primary" />
+              </div>
+              <div className="relative">
+                <span className="font-bold text-xl font-mono">
+                  gh-manager-cli
+                </span>
+                <span
+                  className="absolute bottom-1 -right-3 w-1.5 h-4 bg-primary"
+                  style={{
+                    animation: 'cursor-blink 1.2s infinite',
+                    animationTimingFunction: 'ease-in-out',
+                  }}
+                />
+              </div>
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle />
@@ -90,7 +101,7 @@ export default function HomePage() {
               {'>'} Fast, keyboard-first GitHub repo management
             </Badge>
             <h1 className="text-5xl font-bold mb-8 text-balance font-mono">
-              Interactive terminal app to browse and manage your{' '}
+              Interactive TUI terminal app to browse and manage your{' '}
               <span className="text-primary">GitHub repositories</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-12 text-pretty w-full font-mono">
