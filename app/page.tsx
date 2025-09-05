@@ -100,16 +100,15 @@ export default function HomePage() {
               variant="secondary"
               className="mb-8 bg-muted text-primary font-mono"
             >
-              {'>'} Fast, keyboard-first GitHub repo management
+              {'>'} Clean up your GitHub account in 5 minutes
             </Badge>
             <h1 className="text-xl sm:text-3xl md:text-5xl font-bold mb-8 text-balance font-mono">
-              Interactive TUI terminal app to browse and manage your{' '}
+              The fastest way to organize and manage your{' '}
               <span className="text-primary">GitHub repositories</span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-12 text-pretty w-full font-mono">
-              Built with Ink (React for CLIs) and the GitHub GraphQL API. <br />
-              Clean up, organize, and manage your repos without leaving the
-              terminal.
+              Archive old projects. Delete forgotten forks. Rename repos consistently. <br />
+              Take control of your GitHub profile from the terminal.
             </p>
 
             {/* Hero Video Demo */}
@@ -313,6 +312,112 @@ export default function HomePage() {
                   </CardDescription>
                 </CardHeader>
               </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* GitHub Web UI Pain Points Section */}
+        <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
+          <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
+            <div className="text-center mb-12 sm:mb-16">
+              <Badge
+                variant="destructive"
+                className="mb-6 font-mono"
+              >
+                {'>'} The Problem
+              </Badge>
+              <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
+                Stop Clicking Through GitHub's Slow Web Interface
+              </h2>
+              <p className="text-muted-foreground text-lg font-mono max-w-3xl mx-auto">
+                Managing repositories on github.com is painfully slow. Every
+                action requires multiple clicks, page loads, and digging through
+                settings menus. With dozens or hundreds of repos, it's a nightmare.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto mb-12">
+              {/* GitHub Web Pain Points */}
+              <Card className="border-destructive/20 bg-destructive/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 font-mono text-lg text-destructive">
+                    <Github className="h-5 w-5" />
+                    GitHub.com Problems
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-sm font-mono">
+                    <li className="flex items-start gap-2">
+                      <span className="text-destructive">✕</span>
+                      <span className="text-muted-foreground">20 repos per page, endless "Next" clicking</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-destructive">✕</span>
+                      <span className="text-muted-foreground">Click repo → Settings → scroll → find action</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-destructive">✕</span>
+                      <span className="text-muted-foreground">No bulk operations for archive/delete</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-destructive">✕</span>
+                      <span className="text-muted-foreground">Full page refresh after every action</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-destructive">✕</span>
+                      <span className="text-muted-foreground">Can't filter by last activity or fork status</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-destructive">✕</span>
+                      <span className="text-muted-foreground">No keyboard shortcuts for power users</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* gh-manager-cli Solutions */}
+              <Card className="border-primary/20 bg-primary/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 font-mono text-lg text-primary">
+                    <Terminal className="h-5 w-5" />
+                    gh-manager-cli Solution
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-sm font-mono">
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">View all repos with smooth infinite scroll</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Single keypress for any action</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Batch operations on multiple repos</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Instant updates with no page reload</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Smart filters by date, size, fork status</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Full keyboard control for everything</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <p className="text-xl font-bold text-primary font-mono">
+                Result: Clean up 50+ repos in 5 minutes instead of an hour of clicking
+              </p>
             </div>
           </div>
         </section>
@@ -617,11 +722,11 @@ brew install gh-manager-cli`}
         >
           <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none text-center">
             <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
-              Ready to streamline your GitHub workflow?
+              Start cleaning up your GitHub account now
             </h2>
             <p className="text-muted-foreground text-lg mb-8 sm:mb-12 font-mono">
-              Join developers who are cleaning up and managing their
-              repositories more efficiently with gh-manager-cli
+              Join thousands of developers who have organized their GitHub
+              profiles with gh-manager-cli
             </p>
 
             <TerminalWindow
