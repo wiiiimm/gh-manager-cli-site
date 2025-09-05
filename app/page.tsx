@@ -539,7 +539,7 @@ export default function HomePage() {
           </section>
 
           {/* Account Cleanup Section */}
-          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto bg-muted/30">
+          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
             <div className="w-full sm:max-w-lg sm:mx-auto md:max-w-none">
               <div className="text-center mb-12 sm:mb-16">
                 <Badge
