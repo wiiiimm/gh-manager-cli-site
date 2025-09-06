@@ -27,6 +27,8 @@ import {
   RefreshCw,
   Copy,
   Check,
+  Coffee,
+  Heart,
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { AnimatedTerminalBackground } from '@/components/animated-terminal-background';
@@ -171,7 +173,7 @@ export default function HomePage() {
             </Button>
             <Button
               variant="ghost"
-              className="h-8 w-8 p-0 rounded-full bg-primary hover:bg-primary/90"
+              className="h-8 w-8 p-0 rounded-full"
               asChild
             >
               <a
@@ -181,6 +183,21 @@ export default function HomePage() {
                 onClick={() => trackClick('header-npm-link')}
               >
                 <Package className="h-4 w-4" />
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              className="h-8 px-3 gap-2 bg-yellow-500/10 hover:bg-yellow-500/20 border-yellow-500/30 text-yellow-600 dark:text-yellow-400"
+              asChild
+            >
+              <a
+                href="https://buymeacoffee.com/wiiiimm"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackClick('header-buymeacoffee-link')}
+              >
+                <Coffee className="h-4 w-4" />
+                <span className="hidden sm:inline">Sponsor</span>
               </a>
             </Button>
           </div>
@@ -913,6 +930,87 @@ brew install gh-manager-cli`}
             </div>
           </section>
 
+          {/* Sponsor Section */}
+          <section className="py-16 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full border-t border-border bg-gradient-to-b from-background to-muted/30">
+            <div className="w-full max-w-4xl mx-auto text-center">
+              <div className="mb-8">
+                <Heart className="h-12 w-12 text-yellow-500 dark:text-yellow-400 mx-auto mb-4" />
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-mono">
+                  Support the Journey
+                </h2>
+                <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  Hi, I'm William — the person behind <span className="text-primary font-semibold">wiiiimm</span>, my new brand that brings together my worlds as a software engineer, photographer, and multimedia designer.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-10 max-w-3xl mx-auto">
+                <Card className="border-2 border-border/50 bg-card/50 backdrop-blur">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 justify-center">
+                      <Terminal className="h-5 w-5 text-primary" />
+                      Two Decades of Code
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      I've been coding since 1998 and working on web projects since 2005 — over two decades of creating, launching, and collaborating. Along the way, I've worked with multiple agencies and helped bring countless projects to life.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-2 border-border/50 bg-card/50 backdrop-blur">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 justify-center">
+                      <Zap className="h-5 w-5 text-primary" />
+                      What's Next with wiiiimm
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="text-muted-foreground text-left space-y-2">
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>Releasing at least one useful open-source app every month</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>Sharing photography and multimedia design projects that explore visuals, sound, and storytelling</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="bg-yellow-500/10 dark:bg-yellow-400/10 rounded-lg p-8 max-w-2xl mx-auto mb-8">
+                <Coffee className="h-8 w-8 text-yellow-600 dark:text-yellow-400 mx-auto mb-4" />
+                <p className="text-lg mb-6 text-foreground">
+                  Your support isn't just coffee — it's an invitation to join the journey. Together, we can keep experimenting, building, and creating tools, images, and experiences worth sharing.
+                </p>
+                <p className="text-xl font-semibold mb-6 text-yellow-600 dark:text-yellow-400">
+                  ☕ Thanks for fuelling the adventure!
+                </p>
+                <Button
+                  size="lg"
+                  className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8"
+                  asChild
+                >
+                  <a
+                    href="https://buymeacoffee.com/wiiiimm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackClick('sponsor-section-buymeacoffee')}
+                  >
+                    <Coffee className="h-5 w-5 mr-2" />
+                    Buy Me a Coffee
+                  </a>
+                </Button>
+              </div>
+
+              <div className="text-sm text-muted-foreground">
+                <p>Every contribution helps maintain and improve gh-manager-cli and future open-source projects.</p>
+              </div>
+            </div>
+          </section>
+
           {/* Footer */}
           <footer className="border-t border-border bg-muted/30 py-12 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full">
             <div className="w-full sm:mx-auto md:max-w-5xl">
@@ -1079,6 +1177,18 @@ brew install gh-manager-cli`}
                         onClick={() => trackClick('footer-contributing-link')}
                       >
                         Contributing
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://buymeacoffee.com/wiiiimm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-yellow-600 dark:text-yellow-400 hover:text-yellow-500 flex items-center gap-1"
+                        onClick={() => trackClick('footer-buymeacoffee-link')}
+                      >
+                        <Coffee className="h-4 w-4" />
+                        Buy Me a Coffee
                       </a>
                     </li>
                   </ul>
