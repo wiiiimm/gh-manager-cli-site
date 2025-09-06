@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Copy, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { copyToClipboard } from '@/lib/copy-to-clipboard';
-import { track } from '@vercel/analytics';
+import { track } from '@/lib/analytics';
 
 interface CopyButtonProps {
   text: string;

@@ -38,17 +38,13 @@ import { CodeBlock } from '@/components/ui/code-block';
 import { HeroVideo } from '@/components/hero-video';
 import { LogoMark } from '@/components/icons/logo-mark';
 import Script from 'next/script';
-import { track } from '@vercel/analytics';
+import { track, trackClick, trackThemeUsage } from '@/lib/analytics';
 import { useTheme } from 'next-themes';
 import { useEffect } from 'react';
 
 export default function HomePage() {
   const { theme, resolvedTheme } = useTheme();
 
-  // Helper function to track click events with custom data
-  const trackClick = (target: string) => {
-    track('click', { target });
-  };
 
   // Track theme usage on page load
   useEffect(() => {
@@ -64,7 +60,7 @@ export default function HomePage() {
       }
 
       // Track theme usage on page load
-      track('theme_usage', {
+      trackThemeUsage({
         themeVariant,
         userSetTheme: theme || 'system', // What user explicitly set (light/dark/system)
         resolvedTheme, // What actually renders (light/dark)
