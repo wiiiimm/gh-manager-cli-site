@@ -38,16 +38,23 @@ export function TerminalWindow({
   const textToCopy = getTextContent();
 
   return (
-    <div className={cn('terminal-window relative', className)}>
-      <div className="terminal-header">
-        <div className="terminal-dot red"></div>
-        <div className="terminal-dot yellow"></div>
-        <div className="terminal-dot green"></div>
+    <div
+      className={cn(
+        'relative bg-terminal-bg border border-border rounded-lg shadow-lg',
+        className
+      )}
+    >
+      <div className="bg-muted border-b border-border px-3 py-2 rounded-t-lg flex items-center gap-2">
+        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <div className="w-3 h-3 rounded-full bg-green-500"></div>
         <span className="text-sm text-muted-foreground font-mono ml-2">
           {title}
         </span>
       </div>
-      <div className="terminal-content">{children}</div>
+      <div className="px-10 py-8 font-mono bg-terminal-bg rounded-b-lg">
+        {children}
+      </div>
       {showCopy && textToCopy && (
         <div className="absolute bottom-2 right-2 z-10">
           <CopyButton

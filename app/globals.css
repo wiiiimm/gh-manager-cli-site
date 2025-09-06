@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
   /* Terminal-inspired light theme */
   --background: oklch(0.98 0 0); /* Off-white terminal background */
@@ -130,51 +132,6 @@
 }
 
 /* Terminal-specific styles */
-.terminal-window {
-  background: var(--terminal-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-}
-
-.terminal-header {
-  background: var(--color-muted);
-  border-bottom: 1px solid var(--color-border);
-  padding: 8px 12px;
-  border-radius: 8px 8px 0 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.terminal-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.terminal-dot.red {
-  background: #ff5f56;
-}
-.terminal-dot.yellow {
-  background: #ffbd2e;
-}
-.terminal-dot.green {
-  background: #27ca3f;
-}
-
-.terminal-content {
-  /* Increased padding by 25% for more empty space inside terminal containers */
-  padding: 30px 40px;
-  font-family: var(--font-mono);
-  background: var(--terminal-bg);
-  border-radius: 0 0 8px 8px;
-}
-
-.terminal-text {
-  color: var(--color-terminal-green);
-  font-family: var(--font-mono);
-}
 
 .terminal-prompt::before {
   content: '$ ';
@@ -196,33 +153,11 @@
   }
 }
 
-/* Header button hover styles - keep icons white in dark mode */
-.header-button-white-hover {
-  @apply transition-colors;
-}
-
-.dark .header-button-white-hover:hover {
-  @apply text-white;
-}
-
-.dark .header-button-white-hover:hover svg {
-  @apply text-white;
-}
-
-/* Theme dropdown menu hover styles - white icons on hover in light mode */
-[data-radix-popper-content-wrapper] [role="menuitem"]:hover {
+/* Theme dropdown menu hover styles */
+[data-radix-popper-content-wrapper] [role='menuitem']:hover {
   @apply bg-primary text-primary-foreground;
 }
 
-[data-radix-popper-content-wrapper] [role="menuitem"]:hover svg {
-  @apply text-primary-foreground;
-}
-
-/* Ensure consistent hover in both light and dark modes */
-.dark [data-radix-popper-content-wrapper] [role="menuitem"]:hover {
-  @apply bg-primary text-primary-foreground;
-}
-
-.dark [data-radix-popper-content-wrapper] [role="menuitem"]:hover svg {
+[data-radix-popper-content-wrapper] [role='menuitem']:hover svg {
   @apply text-primary-foreground;
 }

@@ -48,7 +48,7 @@ export function ThemeToggle({ onThemeChange }: ThemeToggleProps) {
         <Button
           variant="ghost"
           size="sm"
-          className="h-8 w-8 p-0 rounded-full header-button-white-hover"
+          className="h-8 w-8 p-0 rounded-full transition-colors dark:hover:text-white"
         >
           <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />

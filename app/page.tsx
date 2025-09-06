@@ -163,7 +163,7 @@ export default function HomePage() {
             />
             <Button
               variant="ghost"
-              className="h-8 w-8 p-0 rounded-full header-button-white-hover"
+              className="h-8 w-8 p-0 rounded-full transition-colors dark:hover:text-white"
               asChild
             >
               <a
@@ -177,7 +177,7 @@ export default function HomePage() {
             </Button>
             <Button
               variant="ghost"
-              className="h-8 w-8 p-0 rounded-full header-button-white-hover"
+              className="h-8 w-8 p-0 rounded-full transition-colors dark:hover:text-white"
               asChild
             >
               <a
@@ -190,7 +190,7 @@ export default function HomePage() {
               </a>
             </Button>
             <Button
-              className="h-8 px-3 gap-2 bg-yellow-400 hover:bg-yellow-500 border-yellow-500 text-gray-900 hover:text-gray-900 transition-colors header-button-white-hover"
+              className="h-8 px-3 gap-2 bg-yellow-400 hover:bg-yellow-500 border-yellow-500 text-gray-900 hover:text-gray-900 transition-colors"
               asChild
             >
               <a
