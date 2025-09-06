@@ -45,7 +45,6 @@ import { useEffect } from 'react';
 export default function HomePage() {
   const { theme, resolvedTheme } = useTheme();
 
-
   // Track theme usage on page load
   useEffect(() => {
     // Wait for theme to be mounted and resolved

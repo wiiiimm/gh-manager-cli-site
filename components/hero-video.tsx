@@ -41,9 +41,7 @@ export function HeroVideo({ className = '' }: HeroVideoProps) {
     } else {
       // Track play/pause toggle clicks
       trackClick(
-        isPlaying
-          ? 'hero-video-pause-button'
-          : 'hero-video-resume-button'
+        isPlaying ? 'hero-video-pause-button' : 'hero-video-resume-button'
       );
       togglePlay();
     }

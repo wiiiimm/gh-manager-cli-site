@@ -16,7 +16,7 @@ const sendGoogleAnalyticsEvent = (
   if (typeof window !== 'undefined' && window.gtag) {
     // Convert the event data to GA4 format
     const gaEventData: { [key: string]: any } = {};
-    
+
     if (eventData) {
       Object.entries(eventData).forEach(([key, value]) => {
         // Convert keys to snake_case as recommended by GA4
@@ -38,7 +38,7 @@ const sendGoogleAnalyticsEvent = (
 export const track = (eventName: string, eventData?: AnalyticsEventData) => {
   // Track with Vercel Analytics (existing implementation)
   vercelTrack(eventName, eventData);
-  
+
   // Track with Google Analytics
   sendGoogleAnalyticsEvent(eventName, eventData);
 };
@@ -48,7 +48,10 @@ export const track = (eventName: string, eventData?: AnalyticsEventData) => {
  * @param target - The target element or action being clicked
  * @param additionalData - Any additional event data
  */
-export const trackClick = (target: string, additionalData?: AnalyticsEventData) => {
+export const trackClick = (
+  target: string,
+  additionalData?: AnalyticsEventData
+) => {
   track('click', { target, ...additionalData });
 };
 
