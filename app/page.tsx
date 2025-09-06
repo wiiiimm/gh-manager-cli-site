@@ -138,13 +138,13 @@ export default function HomePage() {
               />
             </div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1 sm:gap-4">
             <a
               href="https://www.npmjs.com/package/gh-manager-cli"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackClick('header-npm-total')}
-              className="hidden sm:block"
+              className="hidden md:block"
             >
               <img
                 src="https://img.shields.io/npm/dt/gh-manager-cli?style=social&logo=npm"
@@ -934,12 +934,19 @@ brew install gh-manager-cli`}
           <section className="py-16 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full border-t border-border bg-gradient-to-b from-background to-muted/30">
             <div className="w-full max-w-4xl mx-auto text-center">
               <div className="mb-8">
-                <Heart className="h-12 w-12 text-yellow-500 dark:text-yellow-400 mx-auto mb-4" />
+                <Heart className="h-12 w-12 text-green-500 dark:text-green-400 mx-auto mb-4" />
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-mono">
-                  Support the Journey
+                  💚 Thank You for Using gh-manager-cli!
                 </h2>
-                <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-                  Hi, I'm William — the person behind <span className="text-primary font-semibold">wiiiimm</span>, my new brand that brings together my worlds as a software engineer, photographer, and multimedia designer.
+                <p className="text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
+                  If this app saved you time, please consider supporting the
+                  development of more open-source projects like this.
+                </p>
+                <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  Hi, I'm William — the person behind{' '}
+                  <span className="text-primary font-semibold">wiiiimm</span>,
+                  my new brand that brings together my worlds as a software
+                  engineer, photographer, and multimedia designer.
                 </p>
               </div>
 
@@ -953,7 +960,10 @@ brew install gh-manager-cli`}
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">
-                      I've been coding since 1998 and working on web projects since 2005 — over two decades of creating, launching, and collaborating. Along the way, I've worked with multiple agencies and helped bring countless projects to life.
+                      I've been coding since 1998 and working on web projects
+                      since 2005 — over two decades of creating, launching, and
+                      collaborating. Along the way, I've worked with multiple
+                      agencies and helped bring countless projects to life.
                     </p>
                   </CardContent>
                 </Card>
@@ -969,44 +979,102 @@ brew install gh-manager-cli`}
                     <ul className="text-muted-foreground text-left space-y-2">
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-1">•</span>
-                        <span>Releasing at least one useful open-source app every month</span>
+                        <span>
+                          Releasing at least one useful open-source app every
+                          month
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-primary mt-1">•</span>
-                        <span>Sharing photography and multimedia design projects that explore visuals, sound, and storytelling</span>
+                        <span>
+                          Sharing photography and multimedia design projects
+                          that explore visuals, sound, and storytelling
+                        </span>
                       </li>
                     </ul>
                   </CardContent>
                 </Card>
               </div>
 
-              <div className="bg-yellow-500/10 dark:bg-yellow-400/10 rounded-lg p-8 max-w-2xl mx-auto mb-8">
-                <Coffee className="h-8 w-8 text-yellow-600 dark:text-yellow-400 mx-auto mb-4" />
+              <div className="bg-gradient-to-br from-yellow-500/10 to-green-500/10 dark:from-yellow-400/10 dark:to-green-400/10 rounded-lg p-8 max-w-2xl mx-auto mb-8">
                 <p className="text-lg mb-6 text-foreground">
-                  Your support isn't just coffee — it's an invitation to join the journey. Together, we can keep experimenting, building, and creating tools, images, and experiences worth sharing.
+                  Your support isn't just coffee — it's an invitation to join
+                  the journey. Together, we can keep experimenting, building,
+                  and creating tools, images, and experiences worth sharing.
                 </p>
-                <p className="text-xl font-semibold mb-6 text-yellow-600 dark:text-yellow-400">
-                  ☕ Thanks for fuelling the adventure!
+
+                <div className="space-y-4 mb-6">
+                  <div className="flex items-center justify-center gap-4 flex-wrap">
+                    <Button
+                      size="lg"
+                      className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6"
+                      asChild
+                    >
+                      <a
+                        href="https://buymeacoffee.com/wiiiimm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() =>
+                          trackClick('sponsor-section-buymeacoffee')
+                        }
+                      >
+                        <Coffee className="h-5 w-5 mr-2" />
+                        Buy Me a Coffee
+                      </a>
+                    </Button>
+
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-primary"
+                      asChild
+                    >
+                      <a
+                        href="https://wiiiimm.codes"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() =>
+                          trackClick('sponsor-section-wiiiimm-codes')
+                        }
+                      >
+                        <Zap className="h-5 w-5 mr-2" />
+                        Visit wiiiimm.codes
+                      </a>
+                    </Button>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <Button
+                      size="lg"
+                      variant="ghost"
+                      className="text-muted-foreground hover:text-primary"
+                      asChild
+                    >
+                      <a
+                        href="https://github.com/wiiiimm/gh-manager-cli"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() =>
+                          trackClick('sponsor-section-github-feedback')
+                        }
+                      >
+                        <Github className="h-5 w-5 mr-2" />
+                        Leave Feedback & Contribute
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+
+                <p className="text-xl font-semibold text-center text-foreground">
+                  Your support and contributions make a difference! 🙏
                 </p>
-                <Button
-                  size="lg"
-                  className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8"
-                  asChild
-                >
-                  <a
-                    href="https://buymeacoffee.com/wiiiimm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackClick('sponsor-section-buymeacoffee')}
-                  >
-                    <Coffee className="h-5 w-5 mr-2" />
-                    Buy Me a Coffee
-                  </a>
-                </Button>
               </div>
 
               <div className="text-sm text-muted-foreground">
-                <p>Every contribution helps maintain and improve gh-manager-cli and future open-source projects.</p>
+                <p>
+                  Every contribution helps maintain and improve gh-manager-cli
+                  and future open-source projects.
+                </p>
               </div>
             </div>
           </section>
