@@ -195,3 +195,34 @@
     transform: scale(0.95);
   }
 }
+
+/* Header button hover styles - keep icons white in dark mode */
+.header-button-white-hover {
+  @apply transition-colors;
+}
+
+.dark .header-button-white-hover:hover {
+  @apply text-white;
+}
+
+.dark .header-button-white-hover:hover svg {
+  @apply text-white;
+}
+
+/* Theme dropdown menu hover styles - white icons on hover in light mode */
+[data-radix-popper-content-wrapper] [role="menuitem"]:hover {
+  @apply bg-primary text-primary-foreground;
+}
+
+[data-radix-popper-content-wrapper] [role="menuitem"]:hover svg {
+  @apply text-primary-foreground;
+}
+
+/* Ensure consistent hover in both light and dark modes */
+.dark [data-radix-popper-content-wrapper] [role="menuitem"]:hover {
+  @apply bg-primary text-primary-foreground;
+}
+
+.dark [data-radix-popper-content-wrapper] [role="menuitem"]:hover svg {
+  @apply text-primary-foreground;
+}
