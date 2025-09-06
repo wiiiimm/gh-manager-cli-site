@@ -123,10 +123,14 @@ export default function HomePage() {
         <div className="w-full sm:mx-auto md:max-w-7xl px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="relative">
-              <LogoMark className="text-primary" width={32} height={32} />
+              <LogoMark
+                className="text-primary hidden sm:block"
+                width={32}
+                height={32}
+              />
             </div>
             <div className="relative">
-              <span className="font-bold text-xl font-mono">
+              <span className="font-bold text-md sm:text-xl font-mono">
                 gh-manager-cli
               </span>
               <span
@@ -186,8 +190,7 @@ export default function HomePage() {
               </a>
             </Button>
             <Button
-              variant="outline"
-              className="h-8 px-3 gap-2 bg-yellow-500/10 hover:bg-yellow-500/20 border-yellow-500/30 text-yellow-600 dark:text-yellow-400"
+              className="h-8 px-3 gap-2 bg-yellow-400 hover:bg-yellow-500 border-yellow-500 text-gray-900 hover:text-gray-900 transition-colors"
               asChild
             >
               <a
@@ -1007,7 +1010,7 @@ brew install gh-manager-cli`}
                   <div className="flex items-center justify-center gap-4 flex-wrap">
                     <Button
                       size="lg"
-                      className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6"
+                      className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 hover:text-gray-900 font-semibold px-6 transition-colors"
                       asChild
                     >
                       <a
@@ -1026,7 +1029,7 @@ brew install gh-manager-cli`}
                     <Button
                       size="lg"
                       variant="outline"
-                      className="border-primary"
+                      className="border-primary hover:text-gray-600 dark:hover:text-gray-400 font-semibold px-6 transition-colors"
                       asChild
                     >
                       <a
@@ -1047,7 +1050,7 @@ brew install gh-manager-cli`}
                     <Button
                       size="lg"
                       variant="ghost"
-                      className="text-muted-foreground hover:text-primary"
+                      className="text-muted-foreground hover:text-primary dark:hover:text-gray-400 font-semibold px-6 transition-colors"
                       asChild
                     >
                       <a
@@ -1252,7 +1255,7 @@ brew install gh-manager-cli`}
                         href="https://buymeacoffee.com/wiiiimm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-yellow-600 dark:text-yellow-400 hover:text-yellow-500 flex items-center gap-1"
+                        className="inline-flex items-center gap-1 px-2 py-1 rounded bg-yellow-400 hover:bg-yellow-500 text-gray-900 hover:text-gray-900 transition-colors text-sm font-medium"
                         onClick={() => trackClick('footer-buymeacoffee-link')}
                       >
                         <Coffee className="h-4 w-4" />
