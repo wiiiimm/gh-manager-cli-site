@@ -1258,7 +1258,7 @@ brew install gh-manager-cli`}
                         href="https://github.com/sponsors/wiiiimm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 px-3 py-1 rounded bg-gradient-to-r from-pink-500 to-purple-600 text-white transition-opacity duration-200 text-sm font-medium shadow-md hover:opacity-80"
+                        className="inline-flex items-center gap-1 px-8 py-1 rounded bg-gradient-to-r from-pink-500 to-purple-600 text-white transition-opacity duration-200 text-sm font-medium shadow-md hover:opacity-80"
                         onClick={() => trackClick('footer-github-sponsors-link')}
                       >
                         <Heart className="h-4 w-4" />
