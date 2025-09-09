@@ -185,7 +185,7 @@ export default function HomePage() {
               </a>
             </Button>
             <Button
-              className="h-8 px-2 sm:px-3 gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white border-0 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="h-8 w-8 md:w-auto md:px-3 p-0 md:gap-2 rounded-full md:rounded-md bg-gradient-to-r from-pink-500 to-purple-600 text-white border-0 transition-opacity duration-200 shadow-md flex items-center justify-center hover:opacity-80"
               asChild
             >
               <a
@@ -193,11 +193,10 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackClick('header-github-sponsors-link')}
+                className="flex items-center gap-2"
               >
-                <div className="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center">
-                  <Heart className="h-3 w-3 fill-white" />
-                </div>
-                <span className="hidden sm:inline">Sponsor</span>
+                <Heart className="h-4 w-4 fill-white animate-pulse" />
+                <span className="hidden md:inline">Sponsor</span>
               </a>
             </Button>
           </div>
@@ -1005,63 +1004,70 @@ brew install gh-manager-cli`}
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center justify-center gap-4 flex-wrap">
-                    <Button
-                      size="lg"
-                      className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-8 py-6 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-                      asChild
+                    <a
+                      href="https://github.com/sponsors/wiiiimm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackClick('sponsor-section-github-sponsors')
+                      }
+                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold shadow-lg rounded-md transition-opacity duration-200 hover:opacity-80"
+                      style={{ 
+                        padding: '16px 32px',
+                        minHeight: '48px',
+                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)',
+                        WebkitTransform: 'translateZ(0)',
+                      }}
                     >
-                      <a
-                        href="https://github.com/sponsors/wiiiimm"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() =>
-                          trackClick('sponsor-section-github-sponsors')
-                        }
-                      >
-                        <Heart className="h-5 w-5 mr-2" />
-                        Sponsor on GitHub
-                      </a>
-                    </Button>
+                      <Heart className="h-5 w-5 flex-shrink-0" />
+                      <span>Sponsor on GitHub</span>
+                    </a>
 
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-primary hover:text-gray-600 dark:hover:text-gray-400 font-semibold px-6 transition-colors"
-                      asChild
+                    <a
+                      href="https://wiiiimm.codes"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackClick('sponsor-section-wiiiimm-codes')
+                      }
+                      className="inline-flex items-center justify-center gap-2 border-2 border-primary text-foreground hover:bg-primary/10 font-semibold rounded-md bg-background transition-colors duration-200"
+                      style={{ 
+                        padding: '16px 32px',
+                        minHeight: '48px',
+                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)',
+                        WebkitTransform: 'translateZ(0)',
+                      }}
                     >
-                      <a
-                        href="https://wiiiimm.codes"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() =>
-                          trackClick('sponsor-section-wiiiimm-codes')
-                        }
-                      >
-                        <Zap className="h-5 w-5 mr-2" />
-                        Visit wiiiimm.codes
-                      </a>
-                    </Button>
+                      <Zap className="h-5 w-5 flex-shrink-0" />
+                      <span>Visit wiiiimm.codes</span>
+                    </a>
                   </div>
 
                   <div className="flex justify-center">
-                    <Button
-                      size="lg"
-                      variant="ghost"
-                      className="text-muted-foreground hover:text-primary dark:hover:text-gray-400 font-semibold px-6 transition-colors"
-                      asChild
+                    <a
+                      href="https://github.com/wiiiimm/gh-manager-cli"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackClick('sponsor-section-github-feedback')
+                      }
+                      className="inline-flex items-center justify-center gap-2 text-muted-foreground hover:text-primary font-semibold rounded-md transition-colors duration-200"
+                      style={{ 
+                        padding: '16px 32px',
+                        minHeight: '48px',
+                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)',
+                        WebkitTransform: 'translateZ(0)',
+                      }}
                     >
-                      <a
-                        href="https://github.com/wiiiimm/gh-manager-cli"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() =>
-                          trackClick('sponsor-section-github-feedback')
-                        }
-                      >
-                        <Github className="h-5 w-5 mr-2" />
-                        Leave Feedback & Contribute
-                      </a>
-                    </Button>
+                      <Github className="h-5 w-5 flex-shrink-0" />
+                      <span>Leave Feedback & Contribute</span>
+                    </a>
                   </div>
                 </div>
 
@@ -1252,7 +1258,7 @@ brew install gh-manager-cli`}
                         href="https://github.com/sponsors/wiiiimm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 px-3 py-1 rounded bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white transition-all duration-200 text-sm font-medium shadow-md hover:shadow-lg"
+                        className="inline-flex items-center gap-1 px-3 py-1 rounded bg-gradient-to-r from-pink-500 to-purple-600 text-white transition-opacity duration-200 text-sm font-medium shadow-md hover:opacity-80"
                         onClick={() => trackClick('footer-github-sponsors-link')}
                       >
                         <Heart className="h-4 w-4" />
