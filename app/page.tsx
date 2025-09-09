@@ -185,17 +185,18 @@ export default function HomePage() {
               </a>
             </Button>
             <Button
-              className="h-8 px-3 gap-2 bg-yellow-400 hover:bg-yellow-500 border-yellow-500 text-gray-900 hover:text-gray-900 transition-colors"
+              className="h-8 w-8 md:w-auto md:px-3 p-0 md:gap-2 rounded-full md:rounded-md bg-gradient-to-r from-pink-500 to-purple-600 text-white border-0 transition-opacity duration-200 shadow-md flex items-center justify-center hover:opacity-80"
               asChild
             >
               <a
-                href="https://buymeacoffee.com/wiiiimm"
+                href="https://github.com/sponsors/wiiiimm"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackClick('header-buymeacoffee-link')}
+                onClick={() => trackClick('header-github-sponsors-link')}
+                className="flex items-center gap-2"
               >
-                <Coffee className="h-4 w-4" />
-                <span className="hidden sm:inline">Sponsor</span>
+                <Heart className="h-4 w-4 fill-white animate-pulse" />
+                <span className="hidden md:inline">Sponsor</span>
               </a>
             </Button>
           </div>
@@ -996,70 +997,77 @@ brew install gh-manager-cli`}
 
               <div className="bg-gradient-to-br from-yellow-500/10 to-green-500/10 dark:from-yellow-400/10 dark:to-green-400/10 rounded-lg p-8 max-w-2xl mx-auto mb-8">
                 <p className="text-lg mb-6 text-foreground">
-                  Your support isn't just coffee — it's an invitation to join
-                  the journey. Together, we can keep experimenting, building,
-                  and creating tools, images, and experiences worth sharing.
+                  Your sponsorship is an invitation to join the journey. 
+                  Together, we can keep experimenting, building, and creating 
+                  tools, images, and experiences worth sharing.
                 </p>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center justify-center gap-4 flex-wrap">
-                    <Button
-                      size="lg"
-                      className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 hover:text-gray-900 font-semibold px-6 transition-colors"
-                      asChild
+                    <a
+                      href="https://github.com/sponsors/wiiiimm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackClick('sponsor-section-github-sponsors')
+                      }
+                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold shadow-lg rounded-md transition-opacity duration-200 hover:opacity-80"
+                      style={{ 
+                        padding: '16px 32px',
+                        minHeight: '48px',
+                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)',
+                        WebkitTransform: 'translateZ(0)',
+                      }}
                     >
-                      <a
-                        href="https://buymeacoffee.com/wiiiimm"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() =>
-                          trackClick('sponsor-section-buymeacoffee')
-                        }
-                      >
-                        <Coffee className="h-5 w-5 mr-2" />
-                        Buy Me a Coffee
-                      </a>
-                    </Button>
+                      <Heart className="h-5 w-5 flex-shrink-0" />
+                      <span>Sponsor on GitHub</span>
+                    </a>
 
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-primary hover:text-gray-600 dark:hover:text-gray-400 font-semibold px-6 transition-colors"
-                      asChild
+                    <a
+                      href="https://wiiiimm.codes"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackClick('sponsor-section-wiiiimm-codes')
+                      }
+                      className="inline-flex items-center justify-center gap-2 border-2 border-primary text-foreground hover:bg-primary/10 font-semibold rounded-md bg-background transition-colors duration-200"
+                      style={{ 
+                        padding: '16px 32px',
+                        minHeight: '48px',
+                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)',
+                        WebkitTransform: 'translateZ(0)',
+                      }}
                     >
-                      <a
-                        href="https://wiiiimm.codes"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() =>
-                          trackClick('sponsor-section-wiiiimm-codes')
-                        }
-                      >
-                        <Zap className="h-5 w-5 mr-2" />
-                        Visit wiiiimm.codes
-                      </a>
-                    </Button>
+                      <Zap className="h-5 w-5 flex-shrink-0" />
+                      <span>Visit wiiiimm.codes</span>
+                    </a>
                   </div>
 
                   <div className="flex justify-center">
-                    <Button
-                      size="lg"
-                      variant="ghost"
-                      className="text-muted-foreground hover:text-primary dark:hover:text-gray-400 font-semibold px-6 transition-colors"
-                      asChild
+                    <a
+                      href="https://github.com/wiiiimm/gh-manager-cli"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackClick('sponsor-section-github-feedback')
+                      }
+                      className="inline-flex items-center justify-center gap-2 text-muted-foreground hover:text-primary font-semibold rounded-md transition-colors duration-200"
+                      style={{ 
+                        padding: '16px 32px',
+                        minHeight: '48px',
+                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)',
+                        WebkitTransform: 'translateZ(0)',
+                      }}
                     >
-                      <a
-                        href="https://github.com/wiiiimm/gh-manager-cli"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() =>
-                          trackClick('sponsor-section-github-feedback')
-                        }
-                      >
-                        <Github className="h-5 w-5 mr-2" />
-                        Leave Feedback & Contribute
-                      </a>
-                    </Button>
+                      <Github className="h-5 w-5 flex-shrink-0" />
+                      <span>Leave Feedback & Contribute</span>
+                    </a>
                   </div>
                 </div>
 
@@ -1247,14 +1255,14 @@ brew install gh-manager-cli`}
                     </li>
                     <li>
                       <a
-                        href="https://buymeacoffee.com/wiiiimm"
+                        href="https://github.com/sponsors/wiiiimm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 px-2 py-1 rounded bg-yellow-400 hover:bg-yellow-500 text-gray-900 hover:text-gray-900 transition-colors text-sm font-medium"
-                        onClick={() => trackClick('footer-buymeacoffee-link')}
+                        className="inline-flex items-center gap-1 px-8 py-1 rounded bg-gradient-to-r from-pink-500 to-purple-600 text-white transition-opacity duration-200 text-sm font-medium shadow-md hover:opacity-80"
+                        onClick={() => trackClick('footer-github-sponsors-link')}
                       >
-                        <Coffee className="h-4 w-4" />
-                        Buy Me a Coffee
+                        <Heart className="h-4 w-4" />
+                        Sponsor
                       </a>
                     </li>
                   </ul>
