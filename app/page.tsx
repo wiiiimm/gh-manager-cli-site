@@ -185,7 +185,7 @@ export default function HomePage() {
               </a>
             </Button>
             <Button
-              className="h-8 px-3 gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white border-0 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="h-8 px-2 sm:px-3 gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white border-0 transition-all duration-200 shadow-md hover:shadow-lg"
               asChild
             >
               <a
@@ -194,7 +194,9 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 onClick={() => trackClick('header-github-sponsors-link')}
               >
-                <Heart className="h-4 w-4" />
+                <div className="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center">
+                  <Heart className="h-3 w-3 fill-white" />
+                </div>
                 <span className="hidden sm:inline">Sponsor</span>
               </a>
             </Button>
