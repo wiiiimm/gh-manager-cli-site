@@ -185,16 +185,16 @@ export default function HomePage() {
               </a>
             </Button>
             <Button
-              className="h-8 px-3 gap-2 bg-yellow-400 hover:bg-yellow-500 border-yellow-500 text-gray-900 hover:text-gray-900 transition-colors"
+              className="h-8 px-3 gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white border-0 transition-all duration-200 shadow-md hover:shadow-lg"
               asChild
             >
               <a
-                href="https://buymeacoffee.com/wiiiimm"
+                href="https://github.com/sponsors/wiiiimm"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackClick('header-buymeacoffee-link')}
+                onClick={() => trackClick('header-github-sponsors-link')}
               >
-                <Coffee className="h-4 w-4" />
+                <Heart className="h-4 w-4" />
                 <span className="hidden sm:inline">Sponsor</span>
               </a>
             </Button>
@@ -996,28 +996,28 @@ brew install gh-manager-cli`}
 
               <div className="bg-gradient-to-br from-yellow-500/10 to-green-500/10 dark:from-yellow-400/10 dark:to-green-400/10 rounded-lg p-8 max-w-2xl mx-auto mb-8">
                 <p className="text-lg mb-6 text-foreground">
-                  Your support isn't just coffee — it's an invitation to join
-                  the journey. Together, we can keep experimenting, building,
-                  and creating tools, images, and experiences worth sharing.
+                  Your sponsorship is an invitation to join the journey. 
+                  Together, we can keep experimenting, building, and creating 
+                  tools, images, and experiences worth sharing.
                 </p>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center justify-center gap-4 flex-wrap">
                     <Button
                       size="lg"
-                      className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 hover:text-gray-900 font-semibold px-6 transition-colors"
+                      className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-8 py-6 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                       asChild
                     >
                       <a
-                        href="https://buymeacoffee.com/wiiiimm"
+                        href="https://github.com/sponsors/wiiiimm"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() =>
-                          trackClick('sponsor-section-buymeacoffee')
+                          trackClick('sponsor-section-github-sponsors')
                         }
                       >
-                        <Coffee className="h-5 w-5 mr-2" />
-                        Buy Me a Coffee
+                        <Heart className="h-5 w-5 mr-2" />
+                        Sponsor on GitHub
                       </a>
                     </Button>
 
@@ -1247,14 +1247,14 @@ brew install gh-manager-cli`}
                     </li>
                     <li>
                       <a
-                        href="https://buymeacoffee.com/wiiiimm"
+                        href="https://github.com/sponsors/wiiiimm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 px-2 py-1 rounded bg-yellow-400 hover:bg-yellow-500 text-gray-900 hover:text-gray-900 transition-colors text-sm font-medium"
-                        onClick={() => trackClick('footer-buymeacoffee-link')}
+                        className="inline-flex items-center gap-1 px-3 py-1 rounded bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white transition-all duration-200 text-sm font-medium shadow-md hover:shadow-lg"
+                        onClick={() => trackClick('footer-github-sponsors-link')}
                       >
-                        <Coffee className="h-4 w-4" />
-                        Buy Me a Coffee
+                        <Heart className="h-4 w-4" />
+                        Sponsor
                       </a>
                     </li>
                   </ul>
