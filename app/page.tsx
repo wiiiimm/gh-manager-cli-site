@@ -28,6 +28,7 @@ import {
   Copy,
   Check,
   Coffee,
+  Star,
   Heart,
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -333,6 +334,19 @@ export default function HomePage() {
 
                 <Card className="border-border bg-card">
                   <CardHeader>
+                    <Star className="h-8 w-8 text-primary mb-2" />
+                    <CardTitle className="font-mono">
+                      Stars Management
+                    </CardTitle>
+                    <CardDescription className="font-mono">
+                      View and manage starred repositories with dedicated stars
+                      mode and quick star/unstar actions
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="border-border bg-card">
+                  <CardHeader>
                     <Eye className="h-8 w-8 text-primary mb-2" />
                     <CardTitle className="font-mono">
                       Visibility Management
@@ -612,6 +626,10 @@ export default function HomePage() {
                       <li className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                         Change visibility settings across multiple repos
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        Manage starred repositories with dedicated mode
                       </li>
                     </ul>
                   </CardContent>
