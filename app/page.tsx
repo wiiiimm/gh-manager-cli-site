@@ -602,7 +602,7 @@ export default function HomePage() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 sm:gap-12 max-w-4xl mx-auto">
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
+                <Card className="border-border bg-card">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 font-mono text-lg">
                       <Archive className="h-6 w-6 text-primary" />
@@ -635,7 +635,7 @@ export default function HomePage() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
+                <Card className="border-border bg-card">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 font-mono text-lg">
                       <Search className="h-6 w-6 text-primary" />
@@ -722,7 +722,7 @@ export default function HomePage() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
+                <Card className="border-border bg-card">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 font-mono">
                       <Terminal className="h-5 w-5 text-primary" />
@@ -744,7 +744,7 @@ export default function HomePage() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
+                <Card className="border-border bg-card">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 font-mono">
                       <Terminal className="h-5 w-5 text-primary" />
@@ -770,7 +770,7 @@ brew install gh-manager-cli`}
                   </CardContent>
                 </Card>
 
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
+                <Card className="border-border bg-card">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 font-mono">
                       <Terminal className="h-5 w-5 text-primary" />
@@ -792,7 +792,7 @@ brew install gh-manager-cli`}
                   </CardContent>
                 </Card>
 
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
+                <Card className="border-border bg-card">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 font-mono">
                       <Terminal className="h-5 w-5 text-primary" />
