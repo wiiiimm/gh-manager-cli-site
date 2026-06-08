@@ -30,6 +30,13 @@ import {
   Coffee,
   Star,
   Heart,
+  CheckSquare,
+  ArrowRightLeft,
+  FilePlus2,
+  Palette,
+  ScanSearch,
+  BarChart3,
+  Keyboard,
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { AnimatedTerminalBackground } from '@/components/animated-terminal-background';
@@ -81,7 +88,7 @@ export default function HomePage() {
     applicationCategory: 'DeveloperApplication',
     operatingSystem: ['Windows', 'macOS', 'Linux'],
     description:
-      "TUI Terminal GitHub Repository Management Tool - Stop clicking through GitHub's slow web UI. Archive, delete, and organize repos with powerful keyboard shortcuts.",
+      "TUI Terminal GitHub Repository Management Tool - Stop clicking through GitHub's slow web UI. Archive, delete, bulk-select, transfer, and organise repos with powerful keyboard shortcuts.",
     url: 'https://gh-manager-cli.dev',
     author: {
       '@type': 'Person',
@@ -93,7 +100,7 @@ export default function HomePage() {
       price: '0',
       priceCurrency: 'USD',
     },
-    softwareVersion: '1.30.0',
+    softwareVersion: '1.40.0',
     keywords:
       'gh-manager-cli, github manager terminal, github manager cli, github terminal management, terminal ui github, tui github manager',
     downloadUrl: 'https://www.npmjs.com/package/gh-manager-cli',
@@ -224,10 +231,10 @@ export default function HomePage() {
                 <span className="text-primary">Repository Management</span>
               </h1>
               <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-12 text-pretty w-full font-mono">
-                GitHub manager terminal interface. Archive, delete, and organize
-                repos with this CLI tool. <br />
-                The TUI GitHub management solution developers love - manage
-                GitHub from terminal.
+                GitHub manager terminal interface. Archive, delete, bulk-select,
+                and transfer repos with this CLI tool. <br />
+                The TUI GitHub management solution developers love — manage
+                GitHub from the terminal.
               </p>
 
               {/* Hero Video Demo */}
@@ -287,8 +294,8 @@ export default function HomePage() {
                       Smart Search & Filter
                     </CardTitle>
                     <CardDescription className="font-mono">
-                      Server-side search through repository names and
-                      descriptions with live pagination
+                      Server-side search plus instant fuzzy search (<kbd className="font-mono">/</kbd>) across
+                      your full cached account — find any repo in milliseconds
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -326,8 +333,9 @@ export default function HomePage() {
                       Repository Actions
                     </CardTitle>
                     <CardDescription className="font-mono">
-                      Rename, archive, delete, change visibility, and sync forks
-                      with confirmation prompts
+                      Rename, archive, delete, change visibility, transfer to
+                      another owner/org, and sync forks — all with confirmation
+                      prompts
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -362,11 +370,11 @@ export default function HomePage() {
                   <CardHeader>
                     <GitBranch className="h-8 w-8 text-primary mb-2" />
                     <CardTitle className="font-mono">
-                      Fork Synchronization
+                      Fork Tracking & Sync
                     </CardTitle>
                     <CardDescription className="font-mono">
-                      Track commits behind upstream and sync forks with
-                      automatic conflict detection
+                      Ahead/behind commit counts, jump to upstream (<kbd className="font-mono">P</kbd>), and
+                      one-key fork sync (<kbd className="font-mono">Ctrl+F</kbd>) with conflict detection
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -443,8 +451,83 @@ export default function HomePage() {
                       Smart Caching & Performance
                     </CardTitle>
                     <CardDescription className="font-mono">
-                      Apollo GraphQL cache with automatic prefetching and
-                      virtualized rendering
+                      Background fetch caches your entire account after the
+                      first page load — enabling instant fuzzy search and bulk
+                      operations across all repos
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm border-primary/30">
+                  <CardHeader>
+                    <CheckSquare className="h-8 w-8 text-primary mb-2" />
+                    <CardTitle className="font-mono">
+                      Bulk Select Mode
+                    </CardTitle>
+                    <CardDescription className="font-mono">
+                      Press <kbd className="font-mono">B</kbd> to enter Bulk Select — multi-pick repos across
+                      pages and searches, then star/unstar, archive, change
+                      visibility, delete, or transfer them all at once. Two-stage
+                      confirmation with a review list and verification code for
+                      destructive actions.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm border-primary/30">
+                  <CardHeader>
+                    <ArrowRightLeft className="h-8 w-8 text-primary mb-2" />
+                    <CardTitle className="font-mono">
+                      Repository Transfer
+                    </CardTitle>
+                    <CardDescription className="font-mono">
+                      Move a repo to another owner or organisation with{' '}
+                      <kbd className="font-mono">Shift+M</kbd>. A destination picker lists your personal
+                      account and all connected orgs, with a manual-entry
+                      fallback. Supports single and bulk transfer, both
+                      verification-code gated.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
+                  <CardHeader>
+                    <FilePlus2 className="h-8 w-8 text-primary mb-2" />
+                    <CardTitle className="font-mono">
+                      Repository Creation
+                    </CardTitle>
+                    <CardDescription className="font-mono">
+                      Create a new repository without leaving the terminal —
+                      press <kbd className="font-mono">Ctrl+N</kbd> to open the creation form with name,
+                      description, visibility, and initialisation options
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
+                  <CardHeader>
+                    <Palette className="h-8 w-8 text-primary mb-2" />
+                    <CardTitle className="font-mono">
+                      Colour Themes
+                    </CardTitle>
+                    <CardDescription className="font-mono">
+                      Cycle through four built-in colour themes with{' '}
+                      <kbd className="font-mono">Shift+T</kbd>: Default, Ocean, Forest, and
+                      Monochrome — your preference is saved between sessions
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
+                  <CardHeader>
+                    <BarChart3 className="h-8 w-8 text-primary mb-2" />
+                    <CardTitle className="font-mono">
+                      Session Usage Summary
+                    </CardTitle>
+                    <CardDescription className="font-mono">
+                      On quit, see a summary of everything you did this session
+                      — repos actioned, time spent, and an estimated time saved
+                      versus doing the same work in the GitHub web UI
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -496,7 +579,7 @@ export default function HomePage() {
                       <li className="flex items-start gap-2">
                         <span className="text-destructive">✕</span>
                         <span className="text-muted-foreground">
-                          No bulk operations for archive/delete
+                          No bulk operations — archive, delete, or transfer one at a time
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
@@ -540,13 +623,13 @@ export default function HomePage() {
                       <li className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                         <span className="text-muted-foreground">
-                          Single keypress for any action
+                          Single keypress for any action — including repo creation and transfer
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                         <span className="text-muted-foreground">
-                          Batch operations on multiple repos
+                          Bulk Select mode — star, archive, delete, or transfer many repos at once
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
@@ -613,23 +696,27 @@ export default function HomePage() {
                     <ul className="space-y-3 text-sm font-mono text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        Archive outdated projects in seconds
+                        <span>
+                          <kbd className="text-primary">B</kbd> — enter Bulk Select mode, pick repos across pages and searches
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        Delete old forks you'll never touch again
+                        Bulk archive, delete, star/unstar, and change visibility in one go
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        Batch rename repositories with consistent naming
+                        <span>
+                          Bulk transfer repos to another owner or organisation (<kbd className="text-primary">Shift+M</kbd>)
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        Change visibility settings across multiple repos
+                        Two-stage confirmation: review list, count prompt, and verification code for destructive actions
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        Manage starred repositories with dedicated mode
+                        Manage starred repositories with dedicated stars mode
                       </li>
                     </ul>
                   </CardContent>
@@ -646,6 +733,12 @@ export default function HomePage() {
                     <ul className="space-y-3 text-sm font-mono text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span>
+                          <kbd className="text-primary">/</kbd> — fuzzy search across your full cached account instantly
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                         Find inactive repos by last commit date
                       </li>
                       <li className="flex items-start gap-2">
@@ -654,11 +747,7 @@ export default function HomePage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        Identify forks that are behind upstream
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        Search across repos and descriptions instantly
+                        Identify forks that are behind upstream with ahead/behind counts
                       </li>
                     </ul>
                   </CardContent>
@@ -702,6 +791,198 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Keyboard Shortcuts Reference */}
+          <section
+            id="keyboard-shortcuts"
+            className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto"
+          >
+            <div className="w-full sm:mx-auto md:max-w-none">
+              <div className="text-center mb-12 sm:mb-16">
+                <Badge
+                  variant="secondary"
+                  className="mb-6 bg-primary/10 text-primary font-mono"
+                >
+                  {'>'} Keyboard Reference
+                </Badge>
+                <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
+                  Everything at Your Fingertips
+                </h2>
+                <p className="text-muted-foreground text-lg font-mono max-w-3xl mx-auto">
+                  Full keyboard control — no mouse required. Every action is one
+                  or two keystrokes away.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {/* Navigation */}
+                <Card className="border-border bg-card">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                      <Keyboard className="h-5 w-5 text-primary" />
+                      Navigation
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm font-mono">
+                      {[
+                        ['↑ / ↓  or  j / k', 'Navigate repos'],
+                        ['Enter', 'Open repo action menu'],
+                        ['Tab', 'Switch context (personal / org)'],
+                        ['q  or  Esc', 'Quit / close modal'],
+                      ].map(([key, desc]) => (
+                        <li key={key} className="flex items-center justify-between gap-2">
+                          <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
+                            {key}
+                          </kbd>
+                          <span className="text-muted-foreground text-right">{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* Search & Display */}
+                <Card className="border-border bg-card">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                      <ScanSearch className="h-5 w-5 text-primary" />
+                      Search & Display
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm font-mono">
+                      {[
+                        ['/', 'Fuzzy search (full account cache)'],
+                        ['Shift+T', 'Cycle colour theme'],
+                        ['1 / 2 / 3', 'Density: compact / cozy / comfy'],
+                        ['Ctrl+R', 'Refresh repo list'],
+                      ].map(([key, desc]) => (
+                        <li key={key} className="flex items-center justify-between gap-2">
+                          <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
+                            {key}
+                          </kbd>
+                          <span className="text-muted-foreground text-right">{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* Quick Actions */}
+                <Card className="border-border bg-card">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                      <Zap className="h-5 w-5 text-primary" />
+                      Quick Actions
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm font-mono">
+                      {[
+                        ['a', 'Archive / unarchive'],
+                        ['d', 'Delete (with confirmation)'],
+                        ['v', 'Change visibility'],
+                        ['s', 'Star / unstar'],
+                        ['r', 'Rename'],
+                        ['Ctrl+N', 'Create new repository'],
+                        ['Shift+M', 'Transfer to another owner/org'],
+                      ].map(([key, desc]) => (
+                        <li key={key} className="flex items-center justify-between gap-2">
+                          <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
+                            {key}
+                          </kbd>
+                          <span className="text-muted-foreground text-right">{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* Bulk Select Mode */}
+                <Card className="border-border bg-card border-primary/30">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                      <CheckSquare className="h-5 w-5 text-primary" />
+                      Bulk Select Mode
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm font-mono">
+                      {[
+                        ['B', 'Toggle Bulk Select mode'],
+                        ['Space', 'Select / deselect repo'],
+                        ['Ctrl+A', 'Select all visible'],
+                        ['a', 'Bulk archive / unarchive'],
+                        ['d', 'Bulk delete'],
+                        ['s', 'Bulk star / unstar'],
+                        ['v', 'Bulk change visibility'],
+                        ['Shift+M', 'Bulk transfer'],
+                        ['Esc', 'Exit Bulk Select mode'],
+                      ].map(([key, desc]) => (
+                        <li key={key} className="flex items-center justify-between gap-2">
+                          <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
+                            {key}
+                          </kbd>
+                          <span className="text-muted-foreground text-right">{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* Fork Actions */}
+                <Card className="border-border bg-card">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                      <GitBranch className="h-5 w-5 text-primary" />
+                      Fork Actions
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm font-mono">
+                      {[
+                        ['P', 'Jump to upstream repo'],
+                        ['Ctrl+F', 'Sync fork with upstream'],
+                      ].map(([key, desc]) => (
+                        <li key={key} className="flex items-center justify-between gap-2">
+                          <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
+                            {key}
+                          </kbd>
+                          <span className="text-muted-foreground text-right">{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* Authentication & Settings */}
+                <Card className="border-border bg-card">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                      <Settings className="h-5 w-5 text-primary" />
+                      Authentication & Settings
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 text-sm font-mono">
+                      {[
+                        ['Ctrl+L', 'Log out / switch account'],
+                        ['?', 'Toggle help overlay'],
+                      ].map(([key, desc]) => (
+                        <li key={key} className="flex items-center justify-between gap-2">
+                          <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
+                            {key}
+                          </kbd>
+                          <span className="text-muted-foreground text-right">{desc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </section>
