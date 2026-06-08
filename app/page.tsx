@@ -1266,32 +1266,6 @@ brew install gh-manager-cli`}
                   </CardContent>
                 </Card>
 
-                <Card className="border-2 border-border/50 bg-card/50 backdrop-blur">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 justify-center">
-                      <Zap className="h-5 w-5 text-primary" />
-                      What's Next with wiiiimm
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="text-muted-foreground text-left space-y-2">
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
-                        <span>
-                          Releasing at least one useful open-source app every
-                          month
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
-                        <span>
-                          Sharing photography and multimedia design projects
-                          that explore visuals, sound, and storytelling
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
               </div>
 
               <div className="bg-gradient-to-br from-yellow-500/10 to-green-500/10 dark:from-yellow-400/10 dark:to-green-400/10 rounded-lg p-8 max-w-2xl mx-auto mb-8">
