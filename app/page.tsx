@@ -1248,8 +1248,8 @@ brew install gh-manager-cli`}
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8 mb-10 max-w-3xl mx-auto">
-                <Card className="border-2 border-border/50 bg-card/50 backdrop-blur">
+              <div className="flex justify-center mb-10">
+                <Card className="border-2 border-border/50 bg-card/50 backdrop-blur w-full max-w-md">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 justify-center">
                       <Terminal className="h-5 w-5 text-primary" />
