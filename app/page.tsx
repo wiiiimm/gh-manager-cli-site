@@ -808,10 +808,10 @@ export default function HomePage() {
                 >
                   {'>'} Keyboard Reference
                 </Badge>
-                <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 font-mono">
                   Everything at Your Fingertips
                 </h2>
-                <p className="text-muted-foreground text-lg font-mono max-w-3xl mx-auto">
+                <p className="text-muted-foreground text-sm sm:text-base md:text-lg font-mono max-w-3xl mx-auto">
                   Full keyboard control — no mouse required. Every action is one
                   or two keystrokes away.
                 </p>
@@ -821,13 +821,13 @@ export default function HomePage() {
                 {/* Navigation */}
                 <Card className="border-border bg-card">
                   <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                    <CardTitle className="flex items-center gap-2 font-mono text-sm sm:text-base">
                       <Keyboard className="h-5 w-5 text-primary" />
                       Navigation
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-sm font-mono">
+                    <ul className="space-y-2 text-xs sm:text-sm font-mono">
                       {[
                         ['↑ / ↓  or  j / k', 'Navigate repos'],
                         ['Enter', 'Open repo action menu'],
@@ -848,13 +848,13 @@ export default function HomePage() {
                 {/* Search & Display */}
                 <Card className="border-border bg-card">
                   <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                    <CardTitle className="flex items-center gap-2 font-mono text-sm sm:text-base">
                       <ScanSearch className="h-5 w-5 text-primary" />
                       Search & Display
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-sm font-mono">
+                    <ul className="space-y-2 text-xs sm:text-sm font-mono">
                       {[
                         ['/', 'Fuzzy search (full account cache)'],
                         ['Shift+T', 'Cycle colour theme'],
@@ -875,13 +875,13 @@ export default function HomePage() {
                 {/* Quick Actions */}
                 <Card className="border-border bg-card">
                   <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                    <CardTitle className="flex items-center gap-2 font-mono text-sm sm:text-base">
                       <Zap className="h-5 w-5 text-primary" />
                       Quick Actions
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-sm font-mono">
+                    <ul className="space-y-2 text-xs sm:text-sm font-mono">
                       {[
                         ['a', 'Archive / unarchive'],
                         ['d', 'Delete (with confirmation)'],
@@ -905,13 +905,13 @@ export default function HomePage() {
                 {/* Bulk Select Mode */}
                 <Card className="border-border bg-card border-primary/30">
                   <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                    <CardTitle className="flex items-center gap-2 font-mono text-sm sm:text-base">
                       <CheckSquare className="h-5 w-5 text-primary" />
                       Bulk Select Mode
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-sm font-mono">
+                    <ul className="space-y-2 text-xs sm:text-sm font-mono">
                       {[
                         ['B', 'Toggle Bulk Select mode'],
                         ['Space', 'Select / deselect repo'],
@@ -937,13 +937,13 @@ export default function HomePage() {
                 {/* Fork Actions */}
                 <Card className="border-border bg-card">
                   <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                    <CardTitle className="flex items-center gap-2 font-mono text-sm sm:text-base">
                       <GitBranch className="h-5 w-5 text-primary" />
                       Fork Actions
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-sm font-mono">
+                    <ul className="space-y-2 text-xs sm:text-sm font-mono">
                       {[
                         ['P', 'Jump to upstream repo'],
                         ['Ctrl+F', 'Sync fork with upstream'],
@@ -962,13 +962,13 @@ export default function HomePage() {
                 {/* Authentication & Settings */}
                 <Card className="border-border bg-card">
                   <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-2 font-mono text-base">
+                    <CardTitle className="flex items-center gap-2 font-mono text-sm sm:text-base">
                       <Settings className="h-5 w-5 text-primary" />
                       Authentication & Settings
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-sm font-mono">
+                    <ul className="space-y-2 text-xs sm:text-sm font-mono">
                       {[
                         ['Ctrl+L', 'Log out / switch account'],
                         ['?', 'Toggle help overlay'],
