@@ -768,10 +768,11 @@ export function HomePage({
                   <CardContent>
                     <ul className="space-y-2 text-xs sm:text-sm font-mono">
                       {[
-                        ['↑ / ↓  or  j / k', 'Navigate repos'],
-                        ['Enter', 'Open repo action menu'],
-                        ['Tab', 'Switch context (personal / org)'],
-                        ['q  or  Esc', 'Quit / close modal'],
+                        ['↑ / ↓', 'Navigate repos'],
+                        ['PgUp / PgDn', 'Jump 10 repos'],
+                        ['Ctrl+G  /  G', 'Top / bottom of list'],
+                        ['Enter  or  O', 'Open in browser (forks: chooser)'],
+                        ['Esc', 'Close modal / clear search'],
                       ].map(([key, desc]) => (
                         <li key={key} className="flex items-center justify-between gap-2">
                           <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
@@ -796,9 +797,12 @@ export function HomePage({
                     <ul className="space-y-2 text-xs sm:text-sm font-mono">
                       {[
                         ['/', 'Fuzzy search (full account cache)'],
+                        ['S  /  D', 'Sort field / direction'],
+                        ['V', 'View filters (visibility · archive · fork)'],
+                        ['T', 'Density: compact / cozy / comfy'],
                         ['Shift+T', 'Cycle colour theme'],
-                        ['1 / 2 / 3', 'Density: compact / cozy / comfy'],
-                        ['Ctrl+R', 'Refresh repo list'],
+                        ['Shift+S', 'Toggle starred repos mode'],
+                        ['R', 'Refresh repo list'],
                       ].map(([key, desc]) => (
                         <li key={key} className="flex items-center justify-between gap-2">
                           <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
@@ -822,13 +826,14 @@ export function HomePage({
                   <CardContent>
                     <ul className="space-y-2 text-xs sm:text-sm font-mono">
                       {[
-                        ['a', 'Archive / unarchive'],
-                        ['d', 'Delete (with confirmation)'],
-                        ['v', 'Change visibility'],
-                        ['s', 'Star / unstar'],
-                        ['r', 'Rename'],
+                        ['Ctrl+A', 'Archive / unarchive'],
+                        ['Del / Backspace', 'Delete (with confirmation)'],
+                        ['Ctrl+V', 'Change visibility'],
+                        ['Ctrl+S', 'Star / unstar'],
+                        ['Ctrl+R', 'Rename'],
                         ['Ctrl+N', 'Create new repository'],
                         ['Shift+M', 'Transfer to another owner/org'],
+                        ['C', 'Copy repo URL (SSH/HTTPS)'],
                       ].map(([key, desc]) => (
                         <li key={key} className="flex items-center justify-between gap-2">
                           <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
@@ -854,11 +859,11 @@ export function HomePage({
                       {[
                         ['B', 'Toggle Bulk Select mode'],
                         ['Space', 'Select / deselect repo'],
-                        ['Ctrl+A', 'Select all visible'],
-                        ['a', 'Bulk archive / unarchive'],
-                        ['d', 'Bulk delete'],
-                        ['s', 'Bulk star / unstar'],
-                        ['v', 'Bulk change visibility'],
+                        ['X', 'Unselect all'],
+                        ['Ctrl+A', 'Bulk archive / unarchive'],
+                        ['Del / Backspace', 'Bulk delete'],
+                        ['Ctrl+S', 'Bulk star / unstar'],
+                        ['Ctrl+V', 'Bulk change visibility'],
                         ['Shift+M', 'Bulk transfer'],
                         ['Esc', 'Exit Bulk Select mode'],
                       ].map(([key, desc]) => (
@@ -878,7 +883,7 @@ export function HomePage({
                   <CardHeader className="pb-3">
                     <CardTitle className="flex items-center gap-2 font-mono text-sm sm:text-base">
                       <GitBranch className="h-5 w-5 text-primary" />
-                      Fork Actions
+                      Forks & Repo Info
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -886,6 +891,9 @@ export function HomePage({
                       {[
                         ['P', 'Jump to upstream repo'],
                         ['Ctrl+F', 'Sync fork with upstream'],
+                        ['I', 'Repository info'],
+                        ['L', 'Open PRs / Issues'],
+                        ['K', 'Inspect cache status'],
                       ].map(([key, desc]) => (
                         <li key={key} className="flex items-center justify-between gap-2">
                           <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
@@ -898,19 +906,20 @@ export function HomePage({
                   </CardContent>
                 </Card>
 
-                {/* Authentication & Settings */}
+                {/* Account & Session */}
                 <Card className="border-border bg-card">
                   <CardHeader className="pb-3">
                     <CardTitle className="flex items-center gap-2 font-mono text-sm sm:text-base">
                       <Settings className="h-5 w-5 text-primary" />
-                      Authentication & Settings
+                      Account & Session
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-xs sm:text-sm font-mono">
                       {[
+                        ['W', 'Switch context (personal / org)'],
                         ['Ctrl+L', 'Log out / switch account'],
-                        ['?', 'Toggle help overlay'],
+                        ['Q', 'Quit (with session summary)'],
                       ].map(([key, desc]) => (
                         <li key={key} className="flex items-center justify-between gap-2">
                           <kbd className="bg-muted px-1.5 py-0.5 rounded text-xs text-primary whitespace-nowrap">
