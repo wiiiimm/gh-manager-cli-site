@@ -36,6 +36,9 @@ import {
   ScanSearch,
   BarChart3,
   Keyboard,
+  Clock,
+  MousePointerClick,
+  Ban,
 } from 'lucide-react';
 import { AnimatedTerminalBackground } from '@/components/animated-terminal-background';
 import { TerminalWindow } from '@/components/ui/terminal-window';
@@ -48,8 +51,191 @@ import Script from 'next/script';
 import Link from 'next/link';
 import { track, trackClick, trackThemeUsage } from '@/lib/analytics';
 import { useTheme } from 'next-themes';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import type { ComponentType } from 'react';
 import type { ChangelogEntry } from '@/lib/changelog';
+
+type FeatureCategory = 'find' | 'manage' | 'bulk' | 'power';
+
+const FEATURE_FILTERS: { id: FeatureCategory | 'all'; label: string }[] = [
+  { id: 'all', label: 'All' },
+  { id: 'find', label: 'Find & Navigate' },
+  { id: 'manage', label: 'Manage Repos' },
+  { id: 'bulk', label: 'Bulk Operations' },
+  { id: 'power', label: 'Power & Polish' },
+];
+
+type Feature = {
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  category: FeatureCategory;
+  highlighted?: boolean;
+  description: React.ReactNode;
+};
+
+const FEATURES: Feature[] = [
+  {
+    icon: Search,
+    title: 'Smart Search & Filter',
+    category: 'find',
+    description: (
+      <>
+        Server-side search plus instant fuzzy search (
+        <kbd className="font-mono">/</kbd>) across your full cached account —
+        find any repo in milliseconds
+      </>
+    ),
+  },
+  {
+    icon: Zap,
+    title: 'Keyboard-First Navigation',
+    category: 'find',
+    description:
+      'Full keyboard control with arrow keys, shortcuts, and modal-based interactions',
+  },
+  {
+    icon: RefreshCw,
+    title: 'Smart Caching & Performance',
+    category: 'find',
+    description:
+      'Background fetch caches your entire account after the first page load — enabling instant fuzzy search and bulk operations across all repos',
+  },
+  {
+    icon: Activity,
+    title: 'Live Repository Metrics',
+    category: 'find',
+    description:
+      'Stars, forks, language stats, size tracking, and last activity timestamps',
+  },
+  {
+    icon: Archive,
+    title: 'Repository Actions',
+    category: 'manage',
+    description:
+      'Rename, archive, delete, change visibility, transfer to another owner/org, and sync forks — all with confirmation prompts',
+  },
+  {
+    icon: FilePlus2,
+    title: 'Repository Creation',
+    category: 'manage',
+    description: (
+      <>
+        Create a new repository without leaving the terminal — press{' '}
+        <kbd className="font-mono">Ctrl+N</kbd> to open the creation form with
+        name, description, visibility, and initialisation options
+      </>
+    ),
+  },
+  {
+    icon: Star,
+    title: 'Stars Management',
+    category: 'manage',
+    description:
+      'View and manage starred repositories with dedicated stars mode and quick star/unstar actions',
+  },
+  {
+    icon: Eye,
+    title: 'Visibility Management',
+    category: 'manage',
+    description:
+      'Filter by visibility and change repository settings including Enterprise support',
+  },
+  {
+    icon: GitBranch,
+    title: 'Fork Tracking & Sync',
+    category: 'manage',
+    description: (
+      <>
+        Ahead/behind commit counts, jump to upstream (
+        <kbd className="font-mono">P</kbd>), and one-key fork sync (
+        <kbd className="font-mono">Ctrl+F</kbd>) with conflict detection
+      </>
+    ),
+  },
+  {
+    icon: CheckSquare,
+    title: 'Bulk Select Mode',
+    category: 'bulk',
+    highlighted: true,
+    description: (
+      <>
+        Press <kbd className="font-mono">B</kbd> to enter Bulk Select —
+        multi-pick repos across pages and searches, then star/unstar, archive,
+        change visibility, delete, or transfer them all at once. Two-stage
+        confirmation with a review list and verification code for destructive
+        actions.
+      </>
+    ),
+  },
+  {
+    icon: ArrowRightLeft,
+    title: 'Repository Transfer',
+    category: 'bulk',
+    highlighted: true,
+    description: (
+      <>
+        Move a repo to another owner or organisation with{' '}
+        <kbd className="font-mono">Shift+M</kbd>. A destination picker lists your
+        personal account and all connected orgs, with a manual-entry fallback.
+        Supports single and bulk transfer, both verification-code gated.
+      </>
+    ),
+  },
+  {
+    icon: Building2,
+    title: 'Enterprise & Org Support',
+    category: 'power',
+    description:
+      'Seamlessly switch between personal and organization contexts with enterprise badges',
+  },
+  {
+    icon: Shield,
+    title: 'Secure Authentication',
+    category: 'power',
+    description:
+      'GitHub OAuth or Personal Access Token with secure local storage',
+  },
+  {
+    icon: Gauge,
+    title: 'Rate Limit Monitoring',
+    category: 'power',
+    description:
+      'Real-time GraphQL & REST API usage with visual warnings and automatic delta tracking',
+  },
+  {
+    icon: Layers,
+    title: 'Display Density Control',
+    category: 'power',
+    description:
+      'Toggle between compact, cozy, and comfy modes for optimal information density',
+  },
+  {
+    icon: Palette,
+    title: 'Colour Themes',
+    category: 'power',
+    description: (
+      <>
+        Cycle through four built-in colour themes with{' '}
+        <kbd className="font-mono">Shift+T</kbd>: Default, Ocean, Forest, and
+        Monochrome — your preference is saved between sessions
+      </>
+    ),
+  },
+  {
+    icon: Settings,
+    title: 'Persistent Preferences',
+    category: 'power',
+    description:
+      'UI settings, sort order, density, and filters saved between sessions',
+  },
+  {
+    icon: BarChart3,
+    title: 'Session Usage Summary',
+    category: 'power',
+    description:
+      'On quit, see a summary of everything you did this session — repos actioned, time spent, and an estimated time saved versus doing the same work in the GitHub web UI',
+  },
+];
 
 function entrySummary(entry: ChangelogEntry): string {
   const item = entry.sections[0]?.items[0];
@@ -78,6 +264,9 @@ export function HomePage({
   recentEntries: ChangelogEntry[];
 }) {
   const { theme, resolvedTheme } = useTheme();
+  const [activeFeature, setActiveFeature] = useState<FeatureCategory | 'all'>(
+    'all'
+  );
 
   // Track theme usage on page load
   useEffect(() => {
@@ -133,11 +322,6 @@ export function HomePage({
     installUrl: 'https://www.npmjs.com/package/gh-manager-cli',
     releaseNotes: 'https://github.com/wiiiimm/gh-manager-cli/releases',
     screenshot: 'https://gh-manager-cli.dev/app-demo-poster.jpg',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      ratingCount: '100',
-    },
   };
 
   return (
@@ -213,267 +397,6 @@ export function HomePage({
             </div>
           </section>
 
-          {/* Features Grid */}
-          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
-            <div className="w-full sm:mx-auto md:max-w-none">
-              <div className="text-center mb-12 sm:mb-16">
-                <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
-                  Powerful Repository Management
-                </h2>
-                <p className="text-muted-foreground text-lg font-mono">
-                  Everything you need to manage GitHub repos efficiently
-                </p>
-              </div>
-
-              <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Search className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Smart Search & Filter
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Server-side search plus instant fuzzy search (<kbd className="font-mono">/</kbd>) across
-                      your full cached account — find any repo in milliseconds
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Zap className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Keyboard-First Navigation
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Full keyboard control with arrow keys, shortcuts, and
-                      modal-based interactions
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Shield className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Secure Authentication
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      GitHub OAuth or Personal Access Token with secure local
-                      storage
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Archive className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Repository Actions
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Rename, archive, delete, change visibility, transfer to
-                      another owner/org, and sync forks — all with confirmation
-                      prompts
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Star className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Stars Management
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      View and manage starred repositories with dedicated stars
-                      mode and quick star/unstar actions
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Eye className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Visibility Management
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Filter by visibility and change repository settings
-                      including Enterprise support
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <GitBranch className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Fork Tracking & Sync
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Ahead/behind commit counts, jump to upstream (<kbd className="font-mono">P</kbd>), and
-                      one-key fork sync (<kbd className="font-mono">Ctrl+F</kbd>) with conflict detection
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Gauge className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Rate Limit Monitoring
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Real-time GraphQL & REST API usage with visual warnings
-                      and automatic delta tracking
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Activity className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Live Repository Metrics
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Stars, forks, language stats, size tracking, and last
-                      activity timestamps
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Building2 className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Enterprise & Org Support
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Seamlessly switch between personal and organization
-                      contexts with enterprise badges
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Settings className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Persistent Preferences
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      UI settings, sort order, density, and filters saved
-                      between sessions
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Layers className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Display Density Control
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Toggle between compact, cozy, and comfy modes for optimal
-                      information density
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <RefreshCw className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Smart Caching & Performance
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Background fetch caches your entire account after the
-                      first page load — enabling instant fuzzy search and bulk
-                      operations across all repos
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm border-primary/30">
-                  <CardHeader>
-                    <CheckSquare className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Bulk Select Mode
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Press <kbd className="font-mono">B</kbd> to enter Bulk Select — multi-pick repos across
-                      pages and searches, then star/unstar, archive, change
-                      visibility, delete, or transfer them all at once. Two-stage
-                      confirmation with a review list and verification code for
-                      destructive actions.
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm border-primary/30">
-                  <CardHeader>
-                    <ArrowRightLeft className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Repository Transfer
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Move a repo to another owner or organisation with{' '}
-                      <kbd className="font-mono">Shift+M</kbd>. A destination picker lists your personal
-                      account and all connected orgs, with a manual-entry
-                      fallback. Supports single and bulk transfer, both
-                      verification-code gated.
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <FilePlus2 className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Repository Creation
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Create a new repository without leaving the terminal —
-                      press <kbd className="font-mono">Ctrl+N</kbd> to open the creation form with name,
-                      description, visibility, and initialisation options
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <Palette className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Colour Themes
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      Cycle through four built-in colour themes with{' '}
-                      <kbd className="font-mono">Shift+T</kbd>: Default, Ocean, Forest, and
-                      Monochrome — your preference is saved between sessions
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-
-                <Card className="border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm">
-                  <CardHeader>
-                    <BarChart3 className="h-8 w-8 text-primary mb-2" />
-                    <CardTitle className="font-mono">
-                      Session Usage Summary
-                    </CardTitle>
-                    <CardDescription className="font-mono">
-                      On quit, see a summary of everything you did this session
-                      — repos actioned, time spent, and an estimated time saved
-                      versus doing the same work in the GitHub web UI
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              </div>
-            </div>
-          </section>
-
           {/* GitHub Web UI Pain Points Section */}
           <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
             <div className="w-full sm:mx-auto md:max-w-none">
@@ -482,123 +405,258 @@ export function HomePage({
                   {'>'} The Problem
                 </Badge>
                 <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
-                  Stop Clicking Through GitHub's Slow Web Interface
+                  GitHub's web UI was never built to manage 200 repositories
                 </h2>
                 <p className="text-muted-foreground text-lg font-mono max-w-3xl mx-auto">
-                  Managing repositories on github.com is painfully slow. Every
-                  action requires multiple clicks, page loads, and digging
-                  through settings menus. With dozens or hundreds of repos, it's
-                  a nightmare.
+                  It's designed for browsing one repo at a time. The moment you
+                  need to clean up, archive, or reorganise an account at scale,
+                  every interaction works against you — paginated lists, settings
+                  buried three levels deep, a full page reload after every
+                  action, and no way to act on more than one repository at once.
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto mb-12">
-                {/* GitHub Web Pain Points */}
-                <Card className="border-destructive/20 bg-destructive/5">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 font-mono text-lg text-destructive">
-                      <Github className="h-5 w-5" />
-                      GitHub.com Problems
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 text-sm font-mono">
-                      <li className="flex items-start gap-2">
-                        <span className="text-destructive">✕</span>
-                        <span className="text-muted-foreground">
-                          20 repos per page, endless "Next" clicking
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-destructive">✕</span>
-                        <span className="text-muted-foreground">
-                          Click repo → Settings → scroll → find action
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-destructive">✕</span>
-                        <span className="text-muted-foreground">
-                          No bulk operations — archive, delete, or transfer one at a time
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-destructive">✕</span>
-                        <span className="text-muted-foreground">
-                          Full page refresh after every action
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-destructive">✕</span>
-                        <span className="text-muted-foreground">
-                          Can't filter by last activity or fork status
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-destructive">✕</span>
-                        <span className="text-muted-foreground">
-                          No keyboard shortcuts for power users
-                        </span>
-                      </li>
-                    </ul>
+              {/* The friction tax — concrete costs of the status quo */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto mb-12 sm:mb-16">
+                <Card className="border-border bg-card/60 hover:border-destructive/40 transition-colors">
+                  <CardContent className="p-6">
+                    <Layers className="h-5 w-5 text-destructive/70 mb-4" />
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-4xl font-bold font-mono text-destructive">
+                        20
+                      </span>
+                      <span className="text-sm font-mono text-muted-foreground">
+                        repos / page
+                      </span>
+                    </div>
+                    <p className="mt-3 text-sm text-muted-foreground font-mono leading-relaxed">
+                      GitHub paginates everything. Own 200 repos? That's ten
+                      pages of "Next" just to see what you have.
+                    </p>
                   </CardContent>
                 </Card>
 
-                {/* gh-manager-cli Solutions */}
-                <Card className="border-primary/20 bg-primary/5">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 font-mono text-lg text-primary">
-                      <Terminal className="h-5 w-5" />
-                      gh-manager-cli Solution
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 text-sm font-mono">
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">
-                          View all repos with smooth infinite scroll
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">
-                          Single keypress for any action — including repo creation and transfer
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">
-                          Bulk Select mode — star, archive, delete, or transfer many repos at once
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">
-                          Instant updates with no page reload
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">
-                          Smart filters by date, size, fork status
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">
-                          Full keyboard control for everything
-                        </span>
-                      </li>
-                    </ul>
+                <Card className="border-border bg-card/60 hover:border-destructive/40 transition-colors">
+                  <CardContent className="p-6">
+                    <MousePointerClick className="h-5 w-5 text-destructive/70 mb-4" />
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-4xl font-bold font-mono text-destructive">
+                        3+
+                      </span>
+                      <span className="text-sm font-mono text-muted-foreground">
+                        clicks / action
+                      </span>
+                    </div>
+                    <p className="mt-3 text-sm text-muted-foreground font-mono leading-relaxed">
+                      Every archive, delete, or visibility change is buried: open
+                      repo → Settings → scroll → confirm.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border bg-card/60 hover:border-destructive/40 transition-colors">
+                  <CardContent className="p-6">
+                    <Ban className="h-5 w-5 text-destructive/70 mb-4" />
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-4xl font-bold font-mono text-destructive">
+                        1
+                      </span>
+                      <span className="text-sm font-mono text-muted-foreground">
+                        repo at a time
+                      </span>
+                    </div>
+                    <p className="mt-3 text-sm text-muted-foreground font-mono leading-relaxed">
+                      No bulk anything. Archiving 30 stale forks means repeating
+                      the exact same ritual 30 times.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border bg-card/60 hover:border-destructive/40 transition-colors">
+                  <CardContent className="p-6">
+                    <Clock className="h-5 w-5 text-destructive/70 mb-4" />
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-4xl font-bold font-mono text-destructive">
+                        ~60
+                      </span>
+                      <span className="text-sm font-mono text-muted-foreground">
+                        min to tidy up
+                      </span>
+                    </div>
+                    <p className="mt-3 text-sm text-muted-foreground font-mono leading-relaxed">
+                      Between page loads and menu-digging, a real account cleanup
+                      quietly eats an afternoon.
+                    </p>
                   </CardContent>
                 </Card>
               </div>
 
-              <div className="text-center">
-                <p className="text-xl font-bold text-primary font-mono">
-                  Result: Clean up 50+ repos in 5 minutes instead of an hour of
-                  clicking
+              {/* The fix — one keyboard-driven view */}
+              <Card className="border-primary/30 bg-primary/5 max-w-5xl mx-auto overflow-hidden">
+                <div className="grid lg:grid-cols-[1.15fr_1fr]">
+                  <CardContent className="p-6 sm:p-10 flex flex-col justify-center">
+                    <Badge
+                      variant="secondary"
+                      className="mb-5 w-fit bg-primary/10 text-primary font-mono"
+                    >
+                      {'>'} The Fix
+                    </Badge>
+                    <h3 className="text-2xl font-bold mb-4 font-mono">
+                      Your whole account, in one keyboard-driven view
+                    </h3>
+                    <p className="text-muted-foreground font-mono leading-relaxed">
+                      <span className="text-foreground">gh-manager-cli</span>{' '}
+                      collapses that entire click-path into a single terminal UI.
+                      Browse every repository with infinite scroll, act on any of
+                      them with a single keypress, and use{' '}
+                      <span className="text-primary">Bulk Select</span> to
+                      archive, delete, transfer, or change visibility across pages
+                      and searches at once — with instant updates and zero page
+                      reloads.
+                    </p>
+
+                    <div className="mt-7 flex flex-wrap gap-x-8 gap-y-4">
+                      <div>
+                        <div className="text-2xl font-bold text-primary font-mono">
+                          ~5 min
+                        </div>
+                        <div className="text-xs text-muted-foreground font-mono">
+                          to clean up the same account
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-primary font-mono">
+                          50+
+                        </div>
+                        <div className="text-xs text-muted-foreground font-mono">
+                          repos managed per session
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-primary font-mono">
+                          0
+                        </div>
+                        <div className="text-xs text-muted-foreground font-mono">
+                          page reloads
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+
+                  <div className="border-t lg:border-t-0 lg:border-l border-primary/20 bg-terminal-bg/60 p-6 sm:p-8 flex items-center">
+                    <TerminalWindow
+                      className="w-full"
+                      title="gh-manager-cli"
+                      copyText="npx gh-manager-cli@latest"
+                      trackingTarget="problem-terminal-copy-button"
+                    >
+                      <div className="font-mono text-sm leading-relaxed text-left space-y-1">
+                        <div className="text-primary font-semibold">
+                          $ npx gh-manager-cli@latest
+                        </div>
+                        <div className="text-muted-foreground">
+                          → 214 repositories loaded
+                        </div>
+                        <div className="h-3" />
+                        <div className="text-muted-foreground">
+                          <span className="text-primary">/</span>&nbsp;&nbsp;&nbsp;fuzzy
+                          search your whole account
+                        </div>
+                        <div className="text-muted-foreground">
+                          <span className="text-primary">B</span>&nbsp;&nbsp;&nbsp;bulk
+                          select across pages
+                        </div>
+                        <div className="text-muted-foreground">
+                          <span className="text-primary">^A</span>&nbsp;&nbsp;archive
+                          &nbsp;·&nbsp; <span className="text-primary">Del</span>{' '}
+                          delete &nbsp;·&nbsp;{' '}
+                          <span className="text-primary">⇧M</span> transfer
+                        </div>
+                        <div className="text-primary">
+                          ✓&nbsp;&nbsp;&nbsp;instant updates, zero reloads
+                        </div>
+                      </div>
+                    </TerminalWindow>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </section>
+
+          {/* Features Grid */}
+          <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
+            <div className="w-full sm:mx-auto md:max-w-none">
+              <div className="text-center mb-10 sm:mb-12">
+                <Badge
+                  variant="secondary"
+                  className="mb-6 bg-primary/10 text-primary font-mono"
+                >
+                  {'>'} Features
+                </Badge>
+                <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
+                  Everything you need to manage GitHub repos
+                </h2>
+                <p className="text-muted-foreground text-lg font-mono max-w-2xl mx-auto">
+                  Eighteen keyboard-driven capabilities, grouped so you can find
+                  the one you need. Filter by what you're trying to do.
                 </p>
+              </div>
+
+              {/* Category filter pills */}
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
+                {FEATURE_FILTERS.map((filter) => {
+                  const isActive = activeFeature === filter.id;
+                  const count =
+                    filter.id === 'all'
+                      ? FEATURES.length
+                      : FEATURES.filter((f) => f.category === filter.id).length;
+                  return (
+                    <button
+                      key={filter.id}
+                      type="button"
+                      onClick={() => {
+                        setActiveFeature(filter.id);
+                        trackClick(`features-filter-${filter.id}`);
+                      }}
+                      aria-pressed={isActive}
+                      className={`font-mono text-sm px-4 py-2 rounded-full border transition-colors ${
+                        isActive
+                          ? 'border-primary bg-primary/10 text-primary'
+                          : 'border-border bg-card/60 text-muted-foreground hover:border-primary/40 hover:text-foreground'
+                      }`}
+                    >
+                      {filter.label}
+                      <span className="ml-1.5 opacity-60">{count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+                {FEATURES.map((feature) => {
+                  const Icon = feature.icon;
+                  const hidden =
+                    activeFeature !== 'all' &&
+                    feature.category !== activeFeature;
+                  return (
+                    <Card
+                      key={feature.title}
+                      className={`border-border bg-card w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] max-w-sm ${
+                        feature.highlighted ? 'border-primary/30' : ''
+                      } ${hidden ? 'hidden' : ''}`}
+                    >
+                      <CardHeader>
+                        <Icon className="h-8 w-8 text-primary mb-2" />
+                        <CardTitle className="font-mono">
+                          {feature.title}
+                        </CardTitle>
+                        <CardDescription className="font-mono">
+                          {feature.description}
+                        </CardDescription>
+                      </CardHeader>
+                    </Card>
+                  );
+                })}
               </div>
             </div>
           </section>
@@ -1215,8 +1273,9 @@ brew install gh-manager-cli`}
                 Start cleaning up your GitHub account now
               </h2>
               <p className="text-muted-foreground text-lg mb-8 sm:mb-12 font-mono">
-                Join thousands of developers who have organized their GitHub
-                profiles with gh-manager-cli
+                Free and open source. No signup, no config — just your terminal
+                and a GitHub token. Run it once and clean up your account in
+                minutes.
               </p>
 
               <TerminalWindow
