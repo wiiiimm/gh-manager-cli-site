@@ -118,17 +118,6 @@ export function SiteFooter() {
                   Troubleshooting
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://github.com/wiiiimm/gh-manager-cli/blob/main/wiki/Roadmap.md"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary"
-                  onClick={() => trackClick('footer-roadmap-link')}
-                >
-                  Roadmap
-                </a>
-              </li>
             </ul>
           </div>
 

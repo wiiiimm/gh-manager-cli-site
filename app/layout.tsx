@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title:
     'gh-manager-cli - TUI Terminal GitHub Repository Management Tool | Clean Up Your GitHub in 5 Minutes',
   description:
-    "Stop clicking through GitHub's slow web UI. Archive old projects, delete forks, and organize your repos with powerful keyboard shortcuts. Clean up 50+ repos in minutes, not hours.",
+    'All of GitHub at your fingertips. A terminal UI (TUI) to browse, search, and bulk-manage your repos — archive, delete, and transfer dozens at once with a few keystrokes. No more click, click, click.',
   generator: 'v0.app',
   keywords: [
     'gh-manager-cli',

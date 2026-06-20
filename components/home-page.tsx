@@ -44,7 +44,7 @@ import { AnimatedTerminalBackground } from '@/components/animated-terminal-backg
 import { TerminalWindow } from '@/components/ui/terminal-window';
 import { CopyButton } from '@/components/ui/copy-button';
 import { CodeBlock } from '@/components/ui/code-block';
-import { HeroVideo } from '@/components/hero-video';
+import { HeroSlider } from '@/components/hero-slider';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import Script from 'next/script';
@@ -347,21 +347,25 @@ export function HomePage({
                 variant="secondary"
                 className="mb-8 bg-muted text-primary font-mono"
               >
-                {'>'} Clean up your GitHub account in 5 minutes
+                {'>'} No more click, click, click — bulk-manage from the
+                terminal
               </Badge>
               <h1 className="text-xl sm:text-3xl md:text-4xl font-bold mb-8 text-balance font-mono">
-                gh-manager-cli: The Terminal GitHub Manager for{' '}
-                <span className="text-primary">Repository Management</span>
+                Your entire GitHub account,{' '}
+                <span className="text-primary">at your fingertips</span>
               </h1>
               <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-12 text-pretty w-full font-mono">
-                GitHub manager terminal interface. Archive, delete, bulk-select,
-                and transfer repos with this CLI tool. <br />
-                The TUI GitHub management solution developers love — manage
-                GitHub from the terminal.
+                Stop clicking through github.com.{' '}
+                <span className="text-foreground">gh-manager-cli</span> is a
+                terminal UI (TUI) that lets you browse, search, and{' '}
+                <span className="text-primary">bulk-manage</span> every
+                repository you own — archive, delete, transfer, and change
+                visibility across dozens of repos with a few keystrokes. <br />
+                Manage GitHub from the terminal, in minutes not hours.
               </p>
 
-              {/* Hero Video Demo */}
-              <HeroVideo className="mb-12 w-full max-w-xl mx-auto" />
+              {/* Hero Product Slider */}
+              <HeroSlider className="mb-12" />
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
                 <Button
@@ -400,12 +404,107 @@ export function HomePage({
           {/* GitHub Web UI Pain Points Section */}
           <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full max-w-6xl mx-auto">
             <div className="w-full sm:mx-auto md:max-w-none">
+              {/* The fix — one keyboard-driven view */}
+              <Card className="border-primary/30 bg-primary/5 max-w-5xl mx-auto overflow-hidden mb-12 sm:mb-16">
+                <div className="grid lg:grid-cols-[1.15fr_1fr]">
+                  <CardContent className="p-6 sm:p-10 flex flex-col justify-center">
+                    <Badge
+                      variant="secondary"
+                      className="mb-5 w-fit bg-primary/10 text-primary font-mono"
+                    >
+                      {'>'} Meet gh-manager-cli
+                    </Badge>
+                    <h3 className="text-2xl font-bold mb-4 font-mono">
+                      Your whole account, in one keyboard-driven view
+                    </h3>
+                    <p className="text-muted-foreground font-mono leading-relaxed">
+                      <span className="text-foreground">gh-manager-cli</span>{' '}
+                      collapses the entire github.com click-path into a single
+                      terminal UI.
+                      Browse every repository with infinite scroll, act on any of
+                      them with a single keypress, and use{' '}
+                      <span className="text-primary">Bulk Select</span> to
+                      archive, delete, transfer, or change visibility across pages
+                      and searches at once — with instant updates and zero page
+                      reloads.
+                    </p>
+
+                    <div className="mt-7 flex flex-wrap gap-x-8 gap-y-4">
+                      <div>
+                        <div className="text-2xl font-bold text-primary font-mono">
+                          ~5 min
+                        </div>
+                        <div className="text-xs text-muted-foreground font-mono">
+                          to clean up the same account
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-primary font-mono">
+                          50+
+                        </div>
+                        <div className="text-xs text-muted-foreground font-mono">
+                          repos managed per session
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-primary font-mono">
+                          0
+                        </div>
+                        <div className="text-xs text-muted-foreground font-mono">
+                          page reloads
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+
+                  <div className="border-t lg:border-t-0 lg:border-l border-primary/20 bg-terminal-bg/60 p-6 sm:p-8 flex items-center">
+                    <TerminalWindow
+                      className="w-full"
+                      title="gh-manager-cli"
+                      copyText="npx gh-manager-cli@latest"
+                      trackingTarget="problem-terminal-copy-button"
+                    >
+                      <div className="font-mono text-sm leading-relaxed text-left space-y-1">
+                        <div className="text-primary font-semibold">
+                          $ npx gh-manager-cli@latest
+                        </div>
+                        <div className="text-muted-foreground">
+                          → 214 repositories loaded
+                        </div>
+                        <div className="h-3" />
+                        <div className="text-muted-foreground">
+                          <span className="text-primary">/</span>&nbsp;&nbsp;&nbsp;fuzzy
+                          search your whole account
+                        </div>
+                        <div className="text-muted-foreground">
+                          <span className="text-primary">B</span>&nbsp;&nbsp;&nbsp;bulk
+                          select across pages
+                        </div>
+                        <div className="text-muted-foreground">
+                          <span className="text-primary">^A</span>&nbsp;&nbsp;archive
+                          &nbsp;·&nbsp; <span className="text-primary">Del</span>{' '}
+                          delete &nbsp;·&nbsp;{' '}
+                          <span className="text-primary">⇧M</span> transfer
+                        </div>
+                        <div className="text-primary">
+                          ✓&nbsp;&nbsp;&nbsp;instant updates, zero reloads
+                        </div>
+                      </div>
+                    </TerminalWindow>
+                  </div>
+                </div>
+              </Card>
+
               <div className="text-center mb-12 sm:mb-16">
-                <Badge variant="destructive" className="mb-6 font-mono">
-                  {'>'} The Problem
+                <Badge
+                  variant="secondary"
+                  className="mb-6 bg-muted text-muted-foreground font-mono"
+                >
+                  {'>'} GitHub was never designed for this
                 </Badge>
                 <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
-                  GitHub's web UI was never built to manage 200 repositories
+                  Bulk-managing repos from a web UI is death by a thousand
+                  clicks
                 </h2>
                 <p className="text-muted-foreground text-lg font-mono max-w-3xl mx-auto">
                   It's designed for browsing one repo at a time. The moment you
@@ -491,95 +590,6 @@ export function HomePage({
                 </Card>
               </div>
 
-              {/* The fix — one keyboard-driven view */}
-              <Card className="border-primary/30 bg-primary/5 max-w-5xl mx-auto overflow-hidden">
-                <div className="grid lg:grid-cols-[1.15fr_1fr]">
-                  <CardContent className="p-6 sm:p-10 flex flex-col justify-center">
-                    <Badge
-                      variant="secondary"
-                      className="mb-5 w-fit bg-primary/10 text-primary font-mono"
-                    >
-                      {'>'} The Fix
-                    </Badge>
-                    <h3 className="text-2xl font-bold mb-4 font-mono">
-                      Your whole account, in one keyboard-driven view
-                    </h3>
-                    <p className="text-muted-foreground font-mono leading-relaxed">
-                      <span className="text-foreground">gh-manager-cli</span>{' '}
-                      collapses that entire click-path into a single terminal UI.
-                      Browse every repository with infinite scroll, act on any of
-                      them with a single keypress, and use{' '}
-                      <span className="text-primary">Bulk Select</span> to
-                      archive, delete, transfer, or change visibility across pages
-                      and searches at once — with instant updates and zero page
-                      reloads.
-                    </p>
-
-                    <div className="mt-7 flex flex-wrap gap-x-8 gap-y-4">
-                      <div>
-                        <div className="text-2xl font-bold text-primary font-mono">
-                          ~5 min
-                        </div>
-                        <div className="text-xs text-muted-foreground font-mono">
-                          to clean up the same account
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-primary font-mono">
-                          50+
-                        </div>
-                        <div className="text-xs text-muted-foreground font-mono">
-                          repos managed per session
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-primary font-mono">
-                          0
-                        </div>
-                        <div className="text-xs text-muted-foreground font-mono">
-                          page reloads
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-
-                  <div className="border-t lg:border-t-0 lg:border-l border-primary/20 bg-terminal-bg/60 p-6 sm:p-8 flex items-center">
-                    <TerminalWindow
-                      className="w-full"
-                      title="gh-manager-cli"
-                      copyText="npx gh-manager-cli@latest"
-                      trackingTarget="problem-terminal-copy-button"
-                    >
-                      <div className="font-mono text-sm leading-relaxed text-left space-y-1">
-                        <div className="text-primary font-semibold">
-                          $ npx gh-manager-cli@latest
-                        </div>
-                        <div className="text-muted-foreground">
-                          → 214 repositories loaded
-                        </div>
-                        <div className="h-3" />
-                        <div className="text-muted-foreground">
-                          <span className="text-primary">/</span>&nbsp;&nbsp;&nbsp;fuzzy
-                          search your whole account
-                        </div>
-                        <div className="text-muted-foreground">
-                          <span className="text-primary">B</span>&nbsp;&nbsp;&nbsp;bulk
-                          select across pages
-                        </div>
-                        <div className="text-muted-foreground">
-                          <span className="text-primary">^A</span>&nbsp;&nbsp;archive
-                          &nbsp;·&nbsp; <span className="text-primary">Del</span>{' '}
-                          delete &nbsp;·&nbsp;{' '}
-                          <span className="text-primary">⇧M</span> transfer
-                        </div>
-                        <div className="text-primary">
-                          ✓&nbsp;&nbsp;&nbsp;instant updates, zero reloads
-                        </div>
-                      </div>
-                    </TerminalWindow>
-                  </div>
-                </div>
-              </Card>
             </div>
           </section>
 
@@ -1269,12 +1279,15 @@ brew install gh-manager-cli`}
             className="py-20 sm:py-24 lg:py-32 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full"
           >
             <div className="w-full sm:mx-auto md:max-w-none text-center">
+              <p className="text-primary font-mono mb-3 sm:mb-4">
+                No more click, click, click.
+              </p>
               <h2 className="text-3xl font-bold mb-4 sm:mb-6 font-mono">
-                Start cleaning up your GitHub account now
+                Start managing your GitHub repos in bulk — from the terminal
               </h2>
               <p className="text-muted-foreground text-lg mb-8 sm:mb-12 font-mono">
                 Free and open source. No signup, no config — just your terminal
-                and a GitHub token. Run it once and clean up your account in
+                and a GitHub token. Run it once and tidy up your whole account in
                 minutes.
               </p>
 
@@ -1324,49 +1337,17 @@ brew install gh-manager-cli`}
 
           {/* Sponsor Section */}
           <section className="py-16 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 w-full border-t border-border bg-gradient-to-b from-background to-muted/30">
-            <div className="w-full max-w-4xl mx-auto text-center">
-              <div className="mb-8">
-                <Heart className="h-12 w-12 text-green-500 dark:text-green-400 mx-auto mb-4" />
+            <div className="w-full max-w-5xl mx-auto text-center">
+              <div className="bg-gradient-to-br from-yellow-500/10 to-green-500/10 dark:from-yellow-400/10 dark:to-green-400/10 rounded-lg p-8 sm:p-10 max-w-4xl mx-auto mb-8">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4 font-mono">
-                  💚 Thank You for Using gh-manager-cli!
+                  Thank you for using gh-manager-cli
                 </h2>
-                <p className="text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
-                  If this app saved you time, please consider supporting the
-                  development of more open-source projects like this.
-                </p>
-                <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-                  Hi, I'm William — the person behind{' '}
-                  <span className="text-primary font-semibold">wiiiimm</span>,
-                  my new brand that brings together my worlds as a software
-                  engineer, photographer, and multimedia designer.
-                </p>
-              </div>
-
-              <div className="flex justify-center mb-10">
-                <Card className="border-2 border-border/50 bg-card/50 backdrop-blur w-full max-w-md">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 justify-center">
-                      <Terminal className="h-5 w-5 text-primary" />
-                      Two Decades of Code
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      I've been coding since 1998 and working on web projects
-                      since 2005 — over two decades of creating, launching, and
-                      collaborating. Along the way, I've worked with multiple
-                      agencies and helped bring countless projects to life.
-                    </p>
-                  </CardContent>
-                </Card>
-
-              </div>
-
-              <div className="bg-gradient-to-br from-yellow-500/10 to-green-500/10 dark:from-yellow-400/10 dark:to-green-400/10 rounded-lg p-8 max-w-2xl mx-auto mb-8">
                 <p className="text-lg mb-6 text-foreground">
-                  Your sponsorship is an invitation to join the journey. 
-                  Together, we can keep experimenting, building, and creating 
-                  tools, images, and experiences worth sharing.
+                  If this app saved you time, please consider supporting the
+                  development of more open-source projects like this. Your
+                  sponsorship is an invitation to join the journey — together, we
+                  can keep experimenting, building, and creating tools, images,
+                  and experiences worth sharing.
                 </p>
 
                 <div className="space-y-4 mb-6">
@@ -1436,17 +1417,15 @@ brew install gh-manager-cli`}
                       <span>Leave Feedback & Contribute</span>
                     </a>
                   </div>
+
+                  <p className="text-sm text-muted-foreground text-center">
+                    Every contribution helps maintain and improve gh-manager-cli
+                    and future open-source projects.
+                  </p>
                 </div>
 
                 <p className="text-xl font-semibold text-center text-foreground">
-                  Your support and contributions make a difference! 🙏
-                </p>
-              </div>
-
-              <div className="text-sm text-muted-foreground">
-                <p>
-                  Every contribution helps maintain and improve gh-manager-cli
-                  and future open-source projects.
+                  Your support and contributions make a real difference.
                 </p>
               </div>
             </div>
