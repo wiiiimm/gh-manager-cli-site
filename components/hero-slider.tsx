@@ -33,11 +33,6 @@ type Slide =
 // you set `src` to a real screenshot path under /public.
 const SLIDES: Slide[] = [
   {
-    id: 'demo',
-    kind: 'video',
-    caption: 'Interactive demo — browse, search, and manage repositories',
-  },
-  {
     id: 'bulk-select',
     kind: 'image',
     label: 'Bulk Select mode',
@@ -65,7 +60,14 @@ const SLIDES: Slide[] = [
     alt: 'gh-manager-cli repository transfer destination picker',
     caption: 'Transfer repositories to another owner or organisation',
   },
+  {
+    id: 'demo',
+    kind: 'video',
+    caption: 'Interactive demo — browse, search, and manage repositories',
+  },
 ];
+
+const VIDEO_INDEX = SLIDES.findIndex((s) => s.kind === 'video');
 
 interface HeroSliderProps {
   className?: string;
@@ -96,7 +98,7 @@ export function HeroSlider({ className = '' }: HeroSliderProps) {
       const next = (index + count) % count;
       setCurrent(next);
       // Pause the demo video when navigating away from it
-      if (next !== 0 && videoRef.current) {
+      if (next !== VIDEO_INDEX && videoRef.current) {
         videoRef.current.pause();
       }
     },
@@ -131,8 +133,8 @@ export function HeroSlider({ className = '' }: HeroSliderProps) {
   };
 
   useEffect(() => {
-    // Reset the video preview when leaving the first slide
-    if (current !== 0) setShowVideo(false);
+    // Reset the video preview when navigating away from the demo slide
+    if (current !== VIDEO_INDEX) setShowVideo(false);
   }, [current]);
 
   const activeCaption = SLIDES[current].caption;
